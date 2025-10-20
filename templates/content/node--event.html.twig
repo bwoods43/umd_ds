@@ -1,0 +1,146 @@
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'clearfix',
+  ]
+%}
+
+<!-- Start Display article for teaser page -->
+{% if view_mode == 'teaser' %} 
+	{# event carousel #}
+  <article{{ attributes.addClass(classes) }}>
+    <div class="event-block">    
+			<div class="person-block-container">
+				<div class="block-container" image="">
+					<div class="person-block-wrapper">
+						<div class="person-image-container">{{ content.field_event_image }}</div>
+						<div class="scaling-font-block-container">
+							<div class="text-lockup-small-container">
+								<h2 class="text-lockup-small-headline"><a href="{{ url }}" rel="bookmark" title="{{ label|render|striptags}}">{{ label }}</a></h2>
+								<div class="event-date-row event-block-details-wrapper">
+									<div class="event-date-row-wrapper">
+										<div class="event-date-row-date">
+											<p>
+												<span class="event-date-row-icon"><svg title="calendar icon" aria-hidden="true" id="icon_calendar" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.48311 0H3.46959V1.66667H10.7534V0H12.7399V1.66667H13.8986V4.33333H0.158783V1.66667H1.48311V0ZM13.8986 5.33333H0.158783V14.1667H13.8986V5.33333Z" fill="#454545"></path></svg></span>
+												<span class="event-date-row-text">{{ content.field_when|smart_date_format('date_only') }}</span>
+											</p>
+										</div>							
+ 										<div class="event-date-row-date"> 								
+ 											<p> 									
+ 												<span class="event-date-row-icon"><svg title="clock icon" aria-hidden="true" id="icon_clock" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_5192_839)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.83804 15.8332C12.8608 15.8332 16.1218 12.5499 16.1218 8.49984C16.1218 4.44975 12.8608 1.1665 8.83804 1.1665C4.81532 1.1665 1.55426 4.44975 1.55426 8.49984C1.55426 12.5499 4.81532 15.8332 8.83804 15.8332ZM12.3062 8.78831L9.29439 8.956L9.51624 4.71753L8.03757 3.2288L7.51459 10.2691L7.47224 10.7914L7.47581 10.7911L7.47554 10.7947L9.20559 10.6525L9.20571 10.6502L13.7848 10.277L12.3062 8.78831Z" fill="#454545"></path></g><defs><clipPath id="clip0_5192_839"><rect width="15.8919" height="16" fill="none" transform="translate(0.89209 0.5)"></rect></clipPath></defs></svg></span>
+												<span class="event-date-row-text">{{ content.field_when|smart_date_format('time_only') }}</span>							
+ 											</p>
+ 										</div>
+										<p class="event-date-row-location">
+											<span class="event-date-row-icon"><svg title="pin icon" aria-hidden="true" id="icon_pin" viewBox="0 0 12 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.7842 0.5C2.86055 0.5 0.481873 2.59352 0.481873 5.16668C0.481873 5.93914 0.701308 6.70504 1.11846 7.38436L5.49424 14.3496C5.55249 14.4425 5.6635 14.5 5.7842 14.5C5.9049 14.5 6.0159 14.4425 6.07416 14.3496L10.4516 7.38207C10.8671 6.70504 11.0865 5.93911 11.0865 5.16665C11.0865 2.59352 8.70784 0.5 5.7842 0.5ZM5.7842 8.16667C4.32237 8.16667 3.29972 6.95325 3.29972 5.66668C3.29972 4.3801 4.32237 3.16669 5.7842 3.16669C7.24602 3.16669 8.26868 4.3801 8.26868 5.66668C8.26868 6.95325 7.24602 8.16667 5.7842 8.16667Z" fill="#454545"></path></svg></span>
+											<span class="event-date-row-text">{{ node.field_event_address.value }}</span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+    </div>   
+  </article>  
+
+{% elseif view_mode == 'teaser_2' %}
+	{# event list #}
+  <div class="event-block-2">   
+ 		<div class="event-list-container">
+ 			<div class="list-container">
+ 				<div class="list-container-wrapper">
+ 					<div class="event-list-date-block">
+ 						<div class="event-sign-wrapper" large="">
+ 							<p>
+ 								<span class="event-sign-date-month">{{ content.field_when|smart_date_format('month_name_abbrev') }}</span>
+ 								<span class="event-sign-date-day">{{ content.field_when|smart_date_format('day') }}</span>
+ 							</p>
+ 						</div>
+ 					</div>
+ 					<div class="image-container">{{ content.field_event_image }}</div>
+ 					<div class="text-lockup-small-container">
+ 						<h2 class="text-lockup-small-headline"><a href="{{ url }}" rel="bookmark" title="{{ label|render|striptags}}">{{ label }}</a></h2>
+ 						<div class="event-date-row event-list-details">
+ 							<div class="event-date-row-wrapper">
+ 								<div class="event-date-row-date">
+ 									<p>
+ 										<span class="event-date-row-icon"><svg title="calendar icon" aria-hidden="true" id="icon_calendar" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.48311 0H3.46959V1.66667H10.7534V0H12.7399V1.66667H13.8986V4.33333H0.158783V1.66667H1.48311V0ZM13.8986 5.33333H0.158783V14.1667H13.8986V5.33333Z" fill="#454545"></path></svg></span>
+ 										<span class="event-date-row-text">{{ content.field_when|smart_date_format('date_only') }}</span>
+ 									</p>
+ 								</div>
+ 								<div class="event-date-row-date"> 								
+ 									<p> 									
+ 										<span class="event-date-row-icon"><svg title="clock icon" aria-hidden="true" id="icon_clock" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_5192_839)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.83804 15.8332C12.8608 15.8332 16.1218 12.5499 16.1218 8.49984C16.1218 4.44975 12.8608 1.1665 8.83804 1.1665C4.81532 1.1665 1.55426 4.44975 1.55426 8.49984C1.55426 12.5499 4.81532 15.8332 8.83804 15.8332ZM12.3062 8.78831L9.29439 8.956L9.51624 4.71753L8.03757 3.2288L7.51459 10.2691L7.47224 10.7914L7.47581 10.7911L7.47554 10.7947L9.20559 10.6525L9.20571 10.6502L13.7848 10.277L12.3062 8.78831Z" fill="#454545"></path></g><defs><clipPath id="clip0_5192_839"><rect width="15.8919" height="16" fill="none" transform="translate(0.89209 0.5)"></rect></clipPath></defs></svg></span>
+										<span class="event-date-row-text">{{ content.field_when|smart_date_format('time_only') }}</span>							
+ 									</p>
+ 								</div>
+ 								<p class="event-date-row-location">
+ 									<span class="event-date-row-icon"><svg title="pin icon" aria-hidden="true" id="icon_pin" viewBox="0 0 12 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.7842 0.5C2.86055 0.5 0.481873 2.59352 0.481873 5.16668C0.481873 5.93914 0.701308 6.70504 1.11846 7.38436L5.49424 14.3496C5.55249 14.4425 5.6635 14.5 5.7842 14.5C5.9049 14.5 6.0159 14.4425 6.07416 14.3496L10.4516 7.38207C10.8671 6.70504 11.0865 5.93911 11.0865 5.16665C11.0865 2.59352 8.70784 0.5 5.7842 0.5ZM5.7842 8.16667C4.32237 8.16667 3.29972 6.95325 3.29972 5.66668C3.29972 4.3801 4.32237 3.16669 5.7842 3.16669C7.24602 3.16669 8.26868 4.3801 8.26868 5.66668C8.26868 6.95325 7.24602 8.16667 5.7842 8.16667Z" fill="#454545"></path></svg></span>
+ 									<span class="event-date-row-text">{{ node.field_event_address.value }}</span>
+ 								</p>
+ 							</div>
+ 						</div>
+ 						{# simple workaround to show only the summary and never a trimmed body #}
+ 						{% if (content.body[0]['#text_summary_trim_length'] is not defined) %}
+ 							<p>{{ content.body[0] }}</p>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% else %}
+	{# event detail #}
+	<article{{ attributes.addClass(classes.addClass('node-detail')) }}>
+  	<div class="event-block-2">
+			<h1>{{ label }}</h1>
+			<div class="pathway-default-container" image-position="right" data-animation="true">
+				<div class="pathway-default-container-wrapper">
+						<div class="pathway-image-container-lock-wrapper">
+							<div class="pathway-image-container" data-image-scaled="true">
+								<div class="pathway-image-container-image">
+									<div class="image-container">{{ content.field_event_image }}</div>
+								</div>
+								<div class="umd-element-event-sign-container pathway-image-container-sign">
+									<p>
+										<span class="umd-sans-min">{{ content.field_when|smart_date_format('month_name') }}</span>
+										<span class="umd-sans-larger">{{ content.field_when|smart_date_format('day') }}</span>
+									</p>
+								</div>
+							</div>
+							<div class="pathway-text-container">
+									<div class="umd-element-event-meta-container pathway-text-event-details">
+										<div class="umd-element-event-meta-wrapper">
+											<div>
+												<p class="umd-element-event-meta-item">
+													<span><svg title="calendar icon" aria-hidden="true" id="icon_calendar" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.48311 0H3.46959V1.66667H10.7534V0H12.7399V1.66667H13.8986V4.33333H0.158783V1.66667H1.48311V0ZM13.8986 5.33333H0.158783V14.1667H13.8986V5.33333Z" fill="#454545"></path></svg></span>
+													<span>{{ content.field_when|smart_date_format('date_only') }}</span>
+												</p>
+												<p class="umd-element-event-meta-item">
+													<span><svg title="clock icon" aria-hidden="true" id="icon_clock" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_5192_839)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.83804 15.8332C12.8608 15.8332 16.1218 12.5499 16.1218 8.49984C16.1218 4.44975 12.8608 1.1665 8.83804 1.1665C4.81532 1.1665 1.55426 4.44975 1.55426 8.49984C1.55426 12.5499 4.81532 15.8332 8.83804 15.8332ZM12.3062 8.78831L9.29439 8.956L9.51624 4.71753L8.03757 3.2288L7.51459 10.2691L7.47224 10.7914L7.47581 10.7911L7.47554 10.7947L9.20559 10.6525L9.20571 10.6502L13.7848 10.277L12.3062 8.78831Z" fill="#454545"></path></g><defs><clipPath id="clip0_5192_839"><rect width="15.8919" height="16" fill="none" transform="translate(0.89209 0.5)"></rect></clipPath></defs></svg></span>
+													<span>{{ content.field_when|smart_date_format('time_only') }}</span>
+												</p>
+											</div>
+											<p class="umd-element-event-meta-item">
+												<span><svg title="pin icon" aria-hidden="true" id="icon_pin" viewBox="0 0 12 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.7842 0.5C2.86055 0.5 0.481873 2.59352 0.481873 5.16668C0.481873 5.93914 0.701308 6.70504 1.11846 7.38436L5.49424 14.3496C5.55249 14.4425 5.6635 14.5 5.7842 14.5C5.9049 14.5 6.0159 14.4425 6.07416 14.3496L10.4516 7.38207C10.8671 6.70504 11.0865 5.93911 11.0865 5.16665C11.0865 2.59352 8.70784 0.5 5.7842 0.5ZM5.7842 8.16667C4.32237 8.16667 3.29972 6.95325 3.29972 5.66668C3.29972 4.3801 4.32237 3.16669 5.7842 3.16669C7.24602 3.16669 8.26868 4.3801 8.26868 5.66668C8.26868 6.95325 7.24602 8.16667 5.7842 8.16667Z" fill="#454545"></path></svg></span>
+												<span>{{ node.field_event_address.value }}</span>
+											</p>
+											<p>&nbsp;</p>
+											<p>{{ node.body.summary }}</p>
+										</div>
+									</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="event-body">{{ content.body }}</div>
+  	</div>
+	</article>
+{% endif %}

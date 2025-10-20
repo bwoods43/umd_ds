@@ -1,0 +1,84 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a view template to display a list of rows.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the container.
+ * - rows: A list of rows for this list.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's contents.
+ * - title: The title of this group of rows. May be empty.
+ * - list: @todo.
+ *   - type: Starting tag will be either a ul or ol.
+ *   - attributes: HTML attributes for the list element.
+ *
+ * @see template_preprocess_views_view_list()
+ *
+ * @ingroup themeable
+ */
+#}
+{# class="add-horizontal-padding-desktop paragraph paragraph--type--paragraphs-layouts paragraph--view-mode--default umd-layout-vertical-interior" #}
+{# set default classes #}
+{%
+  set classes = [
+    'umd-block-standard-container',
+    'umd-grid-gap-layout-container',    
+    'text-container-padding-mobile' ,
+    'add-horizontal-padding-desktop'
+  ]
+%}
+{# set grid count for different view displays #}
+{% set grid_count = 4 %}
+{% if view.current_display == 'block_7' or view.current_display == 'block_8' %}
+	{% set grid_count = 1 %}
+	{%
+  	set classes = [
+    'umd-block-standard-container',
+    'umd-grid-gap-layout-container'    
+  	]
+	%}
+{% endif %}
+{% if view.current_display == 'block_4' %}
+	{% set grid_count = 3 %}
+	{%
+  	set classes = [
+    'umd-block-standard-container',
+    'umd-grid-gap-layout-container'    
+  	]
+	%}
+{% endif %}
+{% if view.current_display == 'block_3'%}
+	{% set grid_count = 1 %}
+	{%
+  	set classes = [
+    	'mini-news-feed'
+  	]
+	%}
+{% endif %}
+<div{{attributes.addClass(classes)}} grid-count="{{ grid_count }}">
+	{% for row in rows %}		
+		<div class="card-block-container">
+			<div class="block-container" image="">
+				<div class="block-container-wrapper">
+					<div class="image-container">
+						{% if row.content['#row']._entity.field_image[0] %}
+							{% set imagePath = file_url(row.content['#row']._entity.field_image[0].entity.uri.value | image_style('16_9_350x200')) %}
+						{% else %}
+							{# placeholder image if one is not available on the node #}							
+							{% set imagePath = file_url('public://default_images/placeholder_team_shell.jpg'| image_style('16_9_350x200'))  %}
+						{% endif %}	
+    				<a href="{{ path('entity.node.canonical', {'node': row.content['#row']._entity.nid[0].value}) }}"><img loading="lazy" src="{{imagePath}}" alt="{{ row.content['#row']._entity.title[0].value }}" {% if link %}onclick="parent.location='{{ path('entity.node.canonical', {'node': row.content['#row']._entity.nid[0].value}) }}'" style="cursor: pointer;"{% endif %} /></a>
+      		</div>
+      		<div class="scaling-font-block-container">
+      			<div class="text-lockup-small-container">
+      				<h2 class="text-lockup-small-headline"><a href="{{ path('entity.node.canonical', {'node': row.content['#row']._entity.nid[0].value}) }}"><span>{{ row.content['#row']._entity.title[0].value }}</span></a></h2>
+      			</div>
+      		</div>
+					<date class="block-text-date-wrapper">{{ row.content['#row']._entity.created[0].value|date('U')|format_date('readable_date') }}</date>
+					<div class="block-text-wrapper"></div>
+    		</div>
+  		</div>
+		</div>
+	{% endfor %}
+</div>

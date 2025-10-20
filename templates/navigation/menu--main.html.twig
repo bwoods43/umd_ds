@@ -1,0 +1,58 @@
+{#
+/**
+ * @file
+ * Theme override to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ */
+#}
+
+  {% macro menu_links(items) %}
+    {% import _self as macros %}
+    {% for item in items %}
+			{% set active = '' %}
+    	{# Check if this item is in the active trail. #}
+    	{% set active = active ~ ((item.active_trail) ? ' is-active-trail' : '') %}
+    	{# top-level nav for only active trail and all subnav inside of it #}
+    	{% set count = item.url|split('/')|length-1 %}
+    	{% if (count > 1) or (active != '') %}
+    		{% if (count == 1) %}
+    			{% set slide_container_class = 'nav-slide-action-container' %}
+    		{% elseif (count == 2) %}
+    			{% set slide_container_class = 'nav-slide-action-container-secondary' %}
+    		{% else %}
+    			{% set slide_container_class = 'nav-slide-action-container-tertiary' %}
+      	{% endif %}   		
+    		<div class="{{ slide_container_class }}" {% if (count == 1) %}style="line-height: 2rem;"{% endif %}>   		
+        	<a href="{{ item.url }}" class="nav-slide-action-link" {% if active %}data-selected{% endif %}><span>{{ item.text}}</span></a>
+        	{% if item.submenu and item.active_trail %}
+          	<div style="margin-left: 2rem; width: 200px; margin-top: 10px;">
+            	{{ macros.menu_links(item.submenu) }}
+          	</div>
+        	{% endif %}
+      	</div>
+      {% endif %}
+    {% endfor %}
+  {% endmacro %}
+
+  {% import _self as macros %}
+
+  {% set items = simplify_menu('main') %}
+
+	<div display-type="interior-nav" class="navigation-slider-container">
+		<div class="nav-slider-first-slide-primary-links-container">
+    	{{ macros.menu_links(items.menu_tree) }}			
+  	</div>
+	</div>

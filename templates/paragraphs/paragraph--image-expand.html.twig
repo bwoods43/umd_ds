@@ -1,0 +1,52 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    'umd-layout-vertical-interior'
+  ]
+%}
+{#
+/**
+ * @file
+ * Theme override to display a Card Paragraph.
+ */
+#}
+<div{{ attributes.addClass(classes) }}>
+	<umd-layout-image-expand>
+    <div slot="content">       
+  		<div class="pl-md" style="max-width: 480px;">
+
+				{% if content.field_image_expand_title|field_value %}  	
+  				<h2 class="umd-sans-largest-uppercase umd-adjacent-line-text text-white mb-md" style="color: white;">{{ content.field_image_expand_title|field_value }}</h2>
+  			{% endif %}
+
+				{% if content.field_image_expand_text|field_value %}  	
+    			<div class="umd-rich-text-dark mb-md">
+						{{ content.field_image_expand_text|field_value }}
+    			</div>
+  			{% endif %}
+
+				{% if content.field_image_expand_link.0 %}
+  				<div slot="actions">
+    				<umd-element-call-to-action type="primary" theme="light">
+      				<a href="{{ content.field_image_expand_link.0['#url'] }}">{{ content.field_image_expand_link.0['#title'] }}</a>
+    				</umd-element-call-to-action>
+					</div>
+  			{% endif %}
+    	</div>
+  	</div>
+
+		{% if content.field_image_expand_image|field_value %}
+			{% set imagePath = content.field_image_expand_image[0]['#media'].field_media_image.entity.uri.value %}
+			{% set link = content.field_image_expand_link.0['#url'] %}				
+    	<img slot="image" srcset="{{ imagePath|image_style('large') }} 600w, {{ imagePath|image_style('wide') }} 800w, {{ imagePath|image_style('double_wide') }} 1200w"
+  sizes="(max-width: 600px) 1000px,
+  			(min-width: 800px) 1200px,
+         1000px"
+  src="{{ imagePath|image_style('wide') }}" alt="{{ content.field_image_expand_image[0]['#media'].field_media_image.alt }}" onclick="parent.location='{{ link }}'" style="cursor: pointer;" />
+		{% endif %}
+  </umd-layout-image-expand>
+  
+</div>

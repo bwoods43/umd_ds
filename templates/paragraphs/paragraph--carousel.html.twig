@@ -1,0 +1,34 @@
+{#
+/**
+ * @file
+ * Theme override to display a UMD Terp Carousel Group Paragraph.
+ */
+#}
+
+{%
+  set classes = [
+    'carousel-bg',
+    paragraph.field_carousel_style.value ? paragraph.field_carousel_style.value|clean_class,
+  ]
+%}
+{% block paragraph %}
+	<div {{attributes.addClass(classes).setAttribute('id','paragraph--'~paragraph.id())}}>
+		{% block content %}
+
+
+<umd-element-carousel-image resize>
+  <div slot="images">
+	{% for item in content.field_carousel_images['#items'] %}	
+		{% if item %}		
+    	<img src="{{ file_url(item['#item'].entity.uri.value | image_style('wide')) }}" alt="{{ item['#item'].alt }}" data-caption="{{ item['#item'].alt }}" /> 
+    {% endif %}
+	{% endfor %}
+  </div>
+</umd-element-carousel-image>
+
+
+		{% endblock %}
+	</div>
+
+
+{% endblock paragraph %}

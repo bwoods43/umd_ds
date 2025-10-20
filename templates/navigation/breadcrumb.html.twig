@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Theme override for a breadcrumb trail.
+ *
+ * Available variables:
+ * - breadcrumb: Breadcrumb trail items.
+ */
+#}
+<div class="breadcrumb-links">
+  <div class="content-inner">
+    {% if breadcrumb %}
+      <nav class="breadcrumb {{ background }}" role="navigation" aria-labelledby="system-breadcrumb">
+        <h2 id="system-breadcrumb" class="visually-hidden">{{ 'Breadcrumb'|t }}</h2>
+				<umd-element-breadcrumb>
+					<div slot="paths">
+        {% set i = 0 %}  
+        {% for item in breadcrumb %}
+          {% set i = i + 1 %}
+            {% if item.url %}
+              <a href="{{ item.url }}">{{ item.text }}</a>
+            {% endif %} 
+        {% endfor %}
+  				</div>
+				</umd-element-breadcrumb>
+      </nav>
+    {% endif %}
+  </div> 
+</div>  

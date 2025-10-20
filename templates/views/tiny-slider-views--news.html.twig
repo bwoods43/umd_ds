@@ -1,0 +1,32 @@
+{% if attributes -%}
+  <div{{ attributes }}>
+{% endif %}
+  {% if title %}
+    <h3>{{ title }}</h3>
+  {% endif %}
+
+  {% for row in rows %}
+    <div{{ row.attributes }}>
+			{% if row.content['#row']._entity.field_image[0] %}
+				<div class="card-block-container">
+					<div class="block-container" aligned="" image="">
+						<div class="block-container-wrapper">
+							<div class="umd-block-image-container">	
+								{% set imagePath = file_url(row.content['#row']._entity.field_image[0].entity.uri.value | image_style('16_9_350x200')) %}
+    						<a href="{{ path('entity.node.canonical', {'node': row.content['#row'].nid}) }}"><img loading="lazy" src="{{imagePath}}" alt="{{ row.content['#row']._entity.title[0].value }}" /></a>
+							</div>
+							<div class="block-text-container">
+								<p class="block-text-headline-wrapper"><a href="{{ path('entity.node.canonical', {'node': row.content['#row'].nid}) }}"><span>{{ row.content['#row']._entity.title[0].value }}</span></a></p>
+								<date class="block-text-date-wrapper">{{ row.content['#row']._entity.created[0].value|date('U')|format_date('readable_date') }}</date>
+								<div class="block-text-wrapper"><hr /></div>
+							</div>
+						</div>
+					</div> 
+				</div> 
+			{% endif %}	
+  	</div>
+  {% endfor %}
+
+{% if attributes -%}
+  </div>
+{% endif %}

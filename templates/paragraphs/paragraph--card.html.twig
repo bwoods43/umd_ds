@@ -1,0 +1,77 @@
+{#
+/**
+ * @file
+ * Theme override to display a Card Paragraph.
+ */
+#}
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    'umd-layout-vertical-interior'
+  ]
+%}
+{# card type is required. options are "Overlay" or "Standard"}
+{# image_size is dependent on type of card #}
+{% if content.field_card_type[0]["#markup"] == "Overlay" %}
+	{% set image_size = "card_regular" %}
+	{% set theme = "dark" %}
+{% else %}
+	{% set image_size = "card_regular" %}
+	{% set theme = "light" %}
+{% endif %}	
+
+{% if content.field_card_link.0 %}
+	{% set link = content.field_card_link.0['#url'] %}				
+{% endif %}	
+
+<div{{ attributes.addClass(classes) }}>
+  <umd-element-card{{ (content.field_card_type[0]["#markup"] == "Overlay") ? '-overlay type=\"image\"' : '' }} {{ (content.field_card_type[0]["#markup"] == "Horizontal") ? '  display=\"list\"' : '' }}>
+
+		{% if content.field_card_image|field_value %}
+			{% set imagePath = file_url(content.field_card_image[0]['#media'].field_media_image.entity.uri.value | image_style(image_size)) %}
+    	<img slot="image" src="{{imagePath}}" alt="{{ content.field_card_image[0]['#media'].field_media_image.alt }}" {% if link %}onclick="parent.location='{{ link }}'" style="cursor: pointer;"{% endif %} />
+		{% endif %}
+
+		{% if content.field_card_type[0]["#markup"] == "Horizontal" %}
+  		<p slot="headline">
+				{% if content.field_card_link.0 %}
+    			<a href="{{ link }}" aria-label="{{ content.field_card_link.0['#title'] }}" {{ (content.field_card_link.0['#url'].external == 'true') ? 'target="_blank"' : '' }}>
+      			{{ content.field_card_title|field_value }}
+    			</a>
+    		{% else %}
+      		{{ content.field_card_title|field_value }}    
+				{% endif %}	    	
+  		</p>
+		{% else %}
+			{% if content.field_card_title|field_value %}
+    		<h2 slot="headline">
+					{% if content.field_card_link.0 %}
+        		<a href="{{ link }}" aria-label="{{ content.field_card_link.0['#title'] }}" {{ (content.field_card_link.0['#url'].external == 'true') ? 'target="_blank"' : '' }}>
+      			{{ content.field_card_title|field_value }}
+    				</a>
+    			{% else %}
+      			{{ content.field_card_title|field_value }}    
+					{% endif %}	     				
+    		</h2>
+			{% endif %}		
+		{% endif %}	    	
+		
+		{% if content.field_card_text|field_value %}
+    	<div slot="text">{{ content.field_card_text|field_value }}</div>
+		{% endif %}
+		
+		{% if content.field_card_type[0]["#markup"] == "Horizontal" %}
+			{% if content.field_card_link.0 %}
+  			<div slot="actions">
+    			<umd-element-call-to-action type="secondary">
+      			<a href="{{ content.field_card_link.0['#url'] }}" aria-label="{{ content.field_card_link.0['#title'] }}" {{ (content.field_card_link.0['#url'].external == 'true') ? 'target="_blank"' : '' }}>{{ content.field_card_link.0['#title'] }}</a>
+    			</umd-element-call-to-action>
+  			</div>		
+			{% endif %}					
+		{% endif %}
+    
+  </umd-element-card{{ (content.field_card_type[0]["#markup"] == "Overlay") ? '-overlay' : '' }}>	
+</div>

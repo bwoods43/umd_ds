@@ -1,0 +1,48 @@
+<?php
+/**
+ * Implements hook_preprocess_HOOK() for HTML document templates.
+ *
+ * Adds body classes if certain regions have content.
+ */
+ 
+use Drupal\Core\Routing\RouteObjectInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Template\Attribute;
+use Drupal\block\Entity\Block;
+use Drupal\Core\Url;
+use Drupal\node\Entity\Node;
+
+/**
+ * Implements template_preprocess_taxonomy_term().
+ *
+ * Finds URL of node with specific primary tag to be displayed with appropriate terms
+ * on the team member pages
+ */
+function umd_ds_preprocess_taxonomy_term(&$variables) {
+	$tid = $variables['term']->id();
+	$variables['main_term_url'] = '';
+	
+	if ($tid) {
+		// Get the node storage handler.
+		$node_storage = \Drupal::entityTypeManager()->getStorage('node');
+		
+		// Look up node by primary tag id
+		$nodes = $node_storage->loadByProperties([
+  'field_primary_tag' => $tid,
+]);
+
+		// this should find only one node
+		if (!empty($nodes)) {
+  		foreach ($nodes as $node) {
+    		// Get the URL of the node to display on the team member page
+    		// Create a Url object for the canonical node path.
+				$url_object = Url::fromRoute('entity.node.canonical', ['node' => $node->id()]);
+
+				// Convert the Url object to a string representing the URL.
+				$variables['main_term_url'] = $url_object->toString();
+  		}
+		} else {
+  		// \Drupal::messenger()->addWarning('No term found.');
+		}
+	}	
+}

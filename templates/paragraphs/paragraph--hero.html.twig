@@ -1,0 +1,64 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    'umd-layout-vertical-interior'
+  ]
+%}
+{#
+/**
+ * @file
+ * Theme override to display a Card Paragraph.
+ */
+#}
+{# set ds tags based on hero type #}
+{% if content.field_hero_type[0]["#markup"] == "Minimal" %}
+	{% set open_tag_add = '-hero type=\"minimal\" data-theme=\"dark\"' %}
+	{% set close_tag_add = '-hero' %}
+	{% set theme = 'dark' %}
+	{% elseif content.field_hero_type[0]["#markup"] == "Split" %}
+		{% set open_tag_add = '-pathway type=\"hero\"' %}
+		{% set close_tag_add = '-pathway' %}
+		{% set theme = 'light' %}
+{% else %}	
+	{% set open_tag_add = '-hero' %}
+	{% set close_tag_add = '-hero' %}
+	{% set theme = 'dark' %}
+{% endif %}
+
+<div{{ attributes.addClass(classes) }}>
+	<umd-element{{ open_tag_add|raw }}>
+
+		{% if content.field_hero_image|field_value %}
+			{% set imagePath = content.field_hero_image[0]['#media'].field_media_image.entity.uri.value %}
+			{% set link = content.field_hero_link.0['#url'] %}				
+    	<img slot="image" srcset="{{ imagePath|image_style('large') }} 600w, {{ imagePath|image_style('wide') }} 800w, {{ imagePath|image_style('double_wide') }} 1200w"
+  sizes="(max-width: 600px) 1000px,
+  			(min-width: 800px) 1200px,
+         1000px"
+  src="{{ imagePath|image_style('wide') }}" alt="{{ content.field_hero_image[0]['#media'].field_media_image.alt }}" onclick="parent.location='{{ link }}'" style="cursor: pointer;" />
+		{% endif %}
+
+		{% if content.field_hero_eyebrow|field_value %}
+  		<p slot="eyebrow">
+    		{{ content.field_hero_eyebrow|field_value }}
+  		</p>
+  	{% endif %}
+		{% if content.field_hero_title|field_value %}  	
+  		<p slot="headline">
+    		{{ content.field_hero_title|field_value }}
+  		</p>
+  	{% endif %}
+
+		{% if content.field_hero_link.0 %}
+  		<div slot="actions">
+    		<umd-element-call-to-action slot="actions" type="secondary" data-theme="{{ theme }}">
+      		<a href="{{ content.field_hero_link.0['#url'] }}">{{ content.field_hero_link.0['#title'] }}</a>
+    		</umd-element-call-to-action>
+			</div>
+  	{% endif %}
+      
+	</umd-element{{ close_tag_add }}>
+</div>

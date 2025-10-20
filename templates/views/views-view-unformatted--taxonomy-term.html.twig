@@ -1,0 +1,74 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="add-horizontal-padding-desktop add-horizontal-padding-mobile">
+	{% if title %}
+  	<h3>{{ title }}</h3>
+	{% else %} 
+  	<h1>Tagged content: {{ view.build_info['substitutions']['{{ arguments.tid }}'] }}</h1> 
+	{% endif %}
+
+	<div class="view-content-wrap umd-grid-gap-three">
+		{% for row in rows %}
+    	{%
+      	set row_classes = [
+        	default_row_class ? 'item',
+       	]
+     	%}
+  	<div{{ row.attributes.addClass(row_classes) }}>  
+ 			<div class="card-block-container">
+				<div class="block-container" image="">
+					<div class="block-container-wrapper">
+						<div class="image-container">
+							{% set placeholderImagePath = file_url('public://default_images/placeholder_team_shell.jpg'| image_style('16_9_350x200')) %}
+      				{% if (row.content['#node'].type.value[0]['target_id'] == 'article') %}
+      					{% if row.content['#node'].field_image[0] %}
+									{% set imagePath = file_url(row.content['#node'].field_image[0].entity.uri.value | image_style('16_9_350x200')) %}
+								{% else %}
+									{% set imagePath = placeholderImagePath %}
+								{% endif %}	
+							{% else %}
+      					{% if row.content['#node'].field_team_image[0] %}				
+									{% set imagePath = file_url(row.content['#node'].field_team_image[0].entity.uri.value | image_style('16_9_350x200')) %}
+								{% else %}
+									{% set imagePath = placeholderImagePath %}
+								{% endif %}									
+							{% endif %}	
+    					<a href="{{ path('entity.node.canonical', {'node': row.content['#node'].nid[0].value}) }}"><img loading="lazy" src="{{imagePath}}" alt="{{ row.content['#node'].title[0].value }}" {% if link %}onclick="parent.location='{{ path('entity.node.canonical', {'node': row.content['#node'].nid[0].value}) }}'" style="cursor: pointer;"{% endif %} /></a>
+      			</div>
+      			<div class="scaling-font-block-container">
+      				<div class="text-lockup-small-container">
+      					<h2 class="text-lockup-small-headline"><a href="{{ path('entity.node.canonical', {'node': row.content['#node'].nid[0].value}) }}"><span>{{ row.content['#node'].title[0].value }}</span></a></h2>
+      				</div>
+      			</div>
+      			{% if (row.content['#node'].type.value[0]['target_id'] == 'article') %}
+							<date class="block-text-date-wrapper">{{ row.content['#node'].created[0].value|date('U')|format_date('readable_date') }}</date>
+							<div class="block-text-wrapper"></div>
+						{% else %}
+					  	<div class="person-contact-container">
+  							{{ row.content['#node'].field_ed_position[0].value }}			
+  						</div>
+						{% endif %}							
+    			</div>
+  			</div>
+			</div>
+  	</div>
+		{% endfor %}
+	</div>
+</div>

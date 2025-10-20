@@ -1,0 +1,183 @@
+  .accordion-declaration {
+    container: umd-element-accordion-item / inline-size;
+  }
+
+  
+  .accordion-headline {
+    font-family: 'Interstate', Helvetica, Arial, Verdana, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.25em
+}
+
+  .accordion-headline {
+    display: flex;
+    border-top: 2px solid transparent;
+    padding: 24px;
+    padding-right: 64px;
+    background-color: #fAfAfA;
+    position: relative;
+    transition: background 0.5s, border 0.5s, color 0.5s, padding 0.5s;
+    width: 100%;
+    text-align: left;
+    color: #000000;
+  }
+
+  .accordion-headline > * {
+    color: #000000;
+  }
+
+  @container umd-element-accordion-item (min-width: 480px) {
+    .accordion-headline {
+      padding: 32px;
+      padding-right: 80px
+    }
+  }
+
+  .accordion-headline:before,
+  .accordion-headline:after {
+    content: '';
+    background-color: #e21833;
+    position: absolute;
+    right: 24px;
+    transition: background 0.5s, height 0.5s, right 0.5s, top 0.5s,
+    transform 0.5s, width 0.5s;
+  }
+
+  .accordion-headline:before {
+    height: 4px;
+    top: calc(50% - 2px);
+    width: 16px;
+  }
+
+  @container umd-element-accordion-item (min-width: 480px) {
+    .accordion-headline:before {
+      width: 20px;
+      right: 32px;
+    }
+  }
+
+  .accordion-headline:after {
+    height: 16px;
+    top: calc(50% - 8px);
+    right: calc(24px + 6px);
+    width: 4px;
+  }
+
+  @container umd-element-accordion-item (min-width: 480px) {
+    .accordion-headline:after {
+      height: 20px;
+      top: calc(50% - 10px);
+      right: calc(32px + 8px);
+    }
+  }
+
+  .accordion-headline[aria-expanded='true'],
+  .accordion-headline:hover,
+  .accordion-headline:focus {
+    background-color: #fAfAfA;
+    border-top: 2px solid #e21833;
+  }
+
+  .accordion-headline[aria-expanded='true'] > *,
+  .accordion-headline:hover > *,
+  .accordion-headline:focus > * {
+    color: #e21833;
+  }
+
+  .accordion-headline[aria-expanded='true']:after {
+    transform: rotate(90deg);
+  }
+
+  
+  .accordion-body-wrapper {
+    font-family: 'Interstate', Helvetica, Arial, Verdana, sans-serif;
+    font-size: 16px;
+    line-height: 1.375em;
+}
+@media (min-width: 650px) {
+    .accordion-body-wrapper {
+        font-size: calc(16px + 0.16vw);
+    }
+}
+@media (min-width: 1024px) {
+    .accordion-body-wrapper {
+        font-size: 18px;
+        line-height: 1.55em;
+    }
+}
+
+  .accordion-body-wrapper {
+    background-color: #fAfAfA;
+    height: 0;
+    overflow: hidden;
+    display: none;
+  }
+
+  .accordion-body {
+    padding: 24px;
+  }
+
+  @container umd-element-accordion-item (min-width: 480px) {
+    .accordion-body {
+      padding: 32px;
+    }
+  }
+
+  .accordion-body > * {
+    margin-top: 16px;
+  }
+
+  .accordion-body > *:first-child {
+    margin-top: 0;
+  }
+
+  @container umd-element-accordion-item (min-width: 480px) {
+    .accordion-body > * {
+      margin-top: 32px;
+    }
+  }
+
+  
+  .accordion-container[theme='dark'] .accordion-headline {
+    background-color: #242424;
+  }
+
+  .accordion-container[theme='dark'] .accordion-headline > * {
+    color: #ffffff
+  }
+
+  .accordion-container[theme='dark'] .accordion-headline:before,
+  .accordion-container[theme='dark'] .accordion-headline:after {
+    background-color: #ffd200;
+  }
+
+  .accordion-container[theme='dark'] .accordion-headline[aria-expanded='true'],
+  .accordion-container[theme='dark'] .accordion-headline:hover,
+  .accordion-container[theme='dark'] .accordion-headline:focus {
+    background-color: #242424;
+    border-top: 2px solid #ffd200;
+  }
+
+  .accordion-container[theme='dark'] .accordion-headline[aria-expanded='true'] > *,
+  .accordion-container[theme='dark'] .accordion-headline:hover > *,
+  .accordion-container[theme='dark'] .accordion-headline:focus > * {
+    color: #ffd200;
+  }
+
+  .accordion-container[theme='dark'] .accordion-body-wrapper {
+    background-color: #242424;
+  }
+
+  .accordion-container[theme='dark'] .accordion-body,
+  .accordion-container[theme='dark'] .accordion-body * {
+    color: #ffffff;
+  }
+  
+/* clicked button transition */
+button.accordion-headline.active:after {
+	height: 0px;
+	top: none;
+	right: none;
+}
+

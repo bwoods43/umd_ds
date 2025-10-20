@@ -1,0 +1,23 @@
+{# logic to rewrite title #}
+
+{% set nid = element['#object'].id() %}
+{% set people_types = drupal_field('field_astronomy_people_types', 'node', nid) %}
+{% set people_type = people_types[0]['#title'] %}
+
+{% set title_converter = items[0].content['#context'].value %}
+
+{% if people_type == 'Graduate Student' %}
+	{% set title_converter = 'Graduate Student' %}
+{% endif %}
+{% if people_type == 'Post-Doctoral Associate' %}
+	{% set title_converter = 'Post-Doctoral Associate' %}
+{% endif %}
+{% if people_type == 'Professor' and title_converter starts with 'Professor' %}
+	{% set title_converter = 'Professor' %}
+{% endif %}
+
+{% if title_converter %}
+	<p class="person-job">
+		{{ title_converter }}
+  </p>
+{% endif %}

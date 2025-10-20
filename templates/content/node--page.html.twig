@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Theme override for Basic Page node.
+ */
+#}
+<div>
+	<div {{attributes}}>
+		<h1>{{ label }}</h1>
+		{{ title_suffix }}
+		<div class="editor-content">
+			{% if content.body|field_value %}
+				{{ content.body|field_value }}
+			{% endif %}		
+		</div>
+		{{ content|without('body') }}		
+	</div>
+</div>
+
+
+

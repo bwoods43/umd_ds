@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ * Theme override to display a UMD Text Paragraph.
+ */
+#}
+{% set classes = [] %}
+{% if content.field_text_container_padding[0]['#markup'] == "Desktop only" %}
+	{%
+	set classes = [
+		'umd-layout-vertical-interior',
+  	'text-container-padding-desktop'
+ 	]
+	%}
+{% elseif content.field_text_container_padding[0]['#markup'] == "Mobile only" %}
+	{%
+	set classes = [
+		'umd-layout-vertical-interior',
+  	'text-container-padding-mobile'
+ 	]
+	%}
+{% elseif content.field_text_container_padding[0]['#markup'] == "Desktop and mobile" %}
+	{%
+	set classes = [
+		'umd-layout-vertical-interior',
+  	'text-container-padding-mobile',
+  	'text-container-padding-desktop'   
+ 	]
+	%}
+{% else %}
+	{%
+	set classes = [
+			'umd-layout-vertical-interior'	
+	]
+	%} 
+{% endif %}
+
+{% block paragraph %}
+	<div{{ attributes.addClass(classes) }}>
+		{% block content %}
+			<div class="editor-content" id="paragraph--{{ paragraph.id() }}">
+				{{ content.field_text_body|field_value }}			
+			</div>
+		{% endblock %}
+	</div>
+{% endblock paragraph %}
+
+

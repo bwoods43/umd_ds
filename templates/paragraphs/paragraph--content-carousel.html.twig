@@ -1,0 +1,49 @@
+{#
+/**
+ * @file
+ * Theme override to display a UMD Terp Carousel Group Paragraph.
+ */
+#}
+{%
+  set classes = [
+    'carousel-bg',
+    paragraph.field_carousel_style.value ? paragraph.field_carousel_style.value|clean_class,
+  ]
+%}
+{% block paragraph %}
+	<div {{attributes.addClass(classes).setAttribute('id','paragraph--'~paragraph.id())}}>
+		{% block content %}
+
+			{% set images = '' %}
+			{% set headlines = '' %}
+			{% set descriptions = '' %}
+
+			{% for item in content.field_slides['#items'] %}	
+				{% if item.entity.field_slide_image %}	
+					{% set image_path = item.entity.field_slide_image|file_uri %}
+					{% set images = images ~ '<img src="' ~ image_path|image_style('wide') ~ '" alt="' ~ item.entity.field_slide_image.entity.field_media_image.alt ~ '" data-reference="slide-' ~ loop.index ~ '" data-caption="' ~ item.entity.field_slide_image.entity.field_media_image.alt ~ '">' %}		
+				{% endif %}
+				{% if item.entity.field_slide_title %}	
+					{% set headlines = headlines ~ '<h2 data-reference="slide-' ~ loop.index ~ '">' ~ item.entity.field_slide_title.value ~ '</h2>' %}
+				{% endif %}		
+				{% if item.entity.field_slide_text %}	
+					{% set descriptions = descriptions ~ '<div data-reference="slide-' ~ loop.index ~ '">' ~ item.entity.field_slide_text.value ~ '</div>' %}
+				{% endif %}						
+			{% endfor %}
+
+			<umd-element-carousel-image resize>
+  			<div slot="images">
+  				{{ images|raw }}
+  			</div>
+  			<div slot="headlines">
+  				{{ headlines|check_markup('full_html') }}
+  			</div>
+				<div slot="texts">
+					{{ descriptions|check_markup('full_html') }}
+				</div>
+			</umd-element-carousel-image>
+
+
+		{% endblock %}
+	</div>
+{% endblock paragraph %}

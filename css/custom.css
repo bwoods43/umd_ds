@@ -1,0 +1,1076 @@
+/* override base theme breadcrumb positioning */
+nav.breadcrumb {
+	display: block !important;
+}
+
+@media (max-width: 1150px) { 
+	nav.breadcrumb {
+		margin: 0 24px;
+	}
+}
+
+.breadcrumb-content-main h2 {
+	display: none;
+}
+
+.breadcrumb-links {
+	margin-left: 24px;
+}
+
+.full-width-container .breadcrumb-links {
+	margin-left: 120px;
+}
+
+@media (max-width: 1150px) { 
+	.full-width-container .breadcrumb-links {
+		margin-left: 24px;
+	}
+}
+
+/* sticky override */
+.sticky-item {
+	z-index: 1000;
+}
+
+/* override design system since list-style is set to none */
+.container ul, .container-full ul, .editor-content ul {
+	list-style: disc;
+	margin: 0 0 24px !important;
+	padding: revert;
+}
+
+.container ol, .container-full ol, .editor-content ol {
+	list-style: decimal;
+	margin: 0 0 24px !important;
+	padding: revert;
+}
+
+.container ul li ul, .container ol li ol, .container-full ul li ul, .container-full ol li ol, .editor-content ul li ul, .editor-content ol li ol {
+	margin: 0 !important;
+}
+
+/* remove list styles for admin tab lists */
+#block-umd-ds-local-tasks ul, #block-umd-ds-local-tasks ol {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+} 
+
+ul.pager__items {
+	padding: 0;
+}
+
+/* youtube embed edits */
+.embed-container {
+	position: relative ;
+	padding-bottom: 56.25%;
+}
+
+.embed-container iframe {
+	position: absolute; 
+	top: 0;
+	left: 0; 
+	width: 100%; 
+	height: 100%; 
+}
+
+h2 {
+	font-size: 2.625rem;
+}
+
+h3 {
+	font-size: 1.75rem;
+} 
+
+/* social icon edits */
+.footer-social ul {
+	padding-bottom: 1rem;
+}
+
+.footer-social ul li {
+	display: inline-block;
+	padding: 0 1rem;
+}
+
+.footer-social ul li a {
+	font-size: 1.5em;
+	border: 0px !important;
+}
+
+.footer-social ul li a:hover {
+	border: 0px !important;
+}
+
+/* override p text in cards */
+.card-block-container .block-text-container div p {
+	font-size: 1em;
+	line-height: 1.5em;
+}
+
+/* additional margin to replace horizontal rule */
+.card-block-container .block-container .block-text-wrapper {
+ margin-top: 16px;
+}
+
+/* views reference title */
+h2.viewsreference--view-title {
+	padding: 0 0 1em;
+	text-align: center;
+}
+
+/* cheeseburger menu overrides */
+ul.cheeseburger-menu__submenu {
+	margin: 0 !important;
+}
+
+ul.cheeseburger-menu__submenu li {
+	margin-bottom: 8px;
+}
+
+#block-umd-ds-cheeseburgermenutrigger {
+	margin: 50px 0 0 40px;
+	float: left;
+}
+
+@media (max-width: 1199px) {
+	#block-umd-ds-cheeseburgermenutrigger {
+		margin-left: 10px;
+	}
+}
+
+.cheeseburger-menu__item-label:hover {
+	color: #e21833;
+	text-decoration: none;
+}
+
+.cheeseburger-menu__item.in-active-trail > a span {
+  background-position: left calc(100% - 0px);
+  background-repeat: no-repeat;
+  background-size: 100% 2.5px;
+  background-image: linear-gradient(#ffd200, #ffd200);
+}
+
+.cheeseburger-menu__item.in-active-trail > a  {
+  border: 0;
+  text-decoration: none;
+}
+
+.block-cheeseburgermenu-container--is-open {
+	z-index: 1000;
+}
+
+/* slideshow controls override */
+#tns1-iw {
+	height: auto !important;
+}
+
+/* include background color for unpublished nodes */
+.node--unpublished .node__content, .node--unpublished .post-content {
+ background-color: #fff4f4 !important;
+}
+
+/* three-col and four-col layouts need horizontal padding (remove for mobile) */
+.layout--fourcol-section, .layout--threecol-section, .layout--twocol-section {
+	padding: 0 24px;
+}
+@media (max-width: 767px) {
+	.layout--fourcol-section, .layout--threecol-section, .layout--twocol-section {
+		padding: 0;
+	}
+}
+/* remove columnar padding as a style option */
+.remove-col-padding .layout--fourcol-section, .remove-col-padding .layout--threecol-section, .remove-col-padding .layout--twocol-section {
+	padding: 0;
+}
+
+/* remove max width for ig feed */
+.instagram-media {
+	max-width: none !important;
+}
+
+/* search from gavias */
+header .area-main-menu .search-region {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  margin-top: -15px;
+  z-index: 9;
+}
+@media (max-width: 991px) {
+  header .area-main-menu .search-region {
+    margin-top: -5px;
+    top: 30px;
+    right: 85px;
+  }
+  header .area-main-menu .search-region .icon {
+    color: #030712 !important;
+  }
+}
+header .area-main-menu .search-region .icon {
+  font-size: 14px;
+  color: #030712;
+}
+header .area-main-menu .search-region .icon:hover {
+  cursor: pointer;
+}
+header .area-main-menu .search-region .search-content {
+  display: none;
+  width: 305px;
+  position: absolute;
+  top: 43px;
+  right: 0;
+  margin-top: -1px;
+  z-index: 99;
+  background: #fff;
+  padding: 20px;
+  -webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+header .area-main-menu .search-region .search-content input#edit-keys {
+  height: 35px;
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: none;
+  width: 168px;
+}
+header .area-main-menu .search-region .search-content #edit-submit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+header .area-main-menu .search-region .search-content #edit-actions {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+header .area-main-menu .search-region.show .search-content {
+  display: block;
+}
+header .block {
+  overflow: visible;
+}
+
+@media (min-width: 767px) {
+	header .area-main-menu .search-region {
+		right: 60px !important;
+		top: 57% !important;
+	}
+}
+
+@media (min-width: 1020px) and (max-width: 1240px) { 
+	header .area-main-menu .search-region {
+		display: none;
+	}
+}
+
+header .area-main-menu .search-region .search-form__submit {
+	width: 100px;
+}
+
+@media (max-width: 767px) {
+	header .area-main-menu .search-region {
+		right: 5px !important;
+	}
+
+	header .area-main-menu .search-region .icon {
+		display: block;
+		margin-top: 25px;
+	}
+}
+
+.search-form .form-search {
+	border: 1px solid black;
+}
+
+.search-form .search-form__submit, .search-form .form-submit {
+	width: 100px;
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 1px;
+  background: #e21833;
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  height: 34px;
+  -webkit-transition: all 0.35s;
+  -o-transition: all 0.35s;
+  transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  -ms-transition: all 0.35s;
+}
+
+.search-form .search-form__submit:hover {
+  background: #030712 !important;
+  color: #FFF;
+}
+
+.search-form .search-help-link {
+	display: none;
+}
+
+#search-block-form {
+  position: relative;
+}
+#search-block-form input.form-submit {
+	width: 100px;
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 1px;
+  background: #e21833;
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  height: 34px;
+  -webkit-transition: all 0.35s;
+  -o-transition: all 0.35s;
+  transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  -ms-transition: all 0.35s;
+}
+#search-block-form input.form-submit:hover {
+  background: #030712 !important;
+}
+
+/* overrides for vertical spacing */
+.umd-layout-vertical-interior {
+	margin-bottom: 32px;
+}
+
+main {
+	padding-bottom: 24px !important;
+	min-height:inherit;
+}
+
+#block-umd-designsystem-contactcallout.block {
+	margin-bottom: 0 !important;
+}
+
+@media (min-width: 992px) {
+	.container {
+  	width: 1150px !important;
+  }
+}
+
+/* umd header should be behind admin toolbar */
+body .umdheader-wrap {
+	z-index: 100 !important;
+}
+
+/* embedded images within the body of a paragraph component */
+.field--name-body figure {
+  border-top: 1px solid #ccc;
+  margin: 10px;
+  padding: 5px;
+  display: table;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+@media (max-width: 767px) {
+  .field--name-body figure {
+    float: none;
+  }
+}
+.field--name-body figcaption {
+  font-size: 12px;
+	line-height: 14px;
+  font-weight: bold;
+  text-align: center;
+  max-width: none;
+  display: table-caption;
+  caption-side: bottom;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+}
+
+.editor-content figure {
+  border-top: 1px solid #ccc;
+  margin: 10px;
+  padding: 5px;
+  display: table;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+/*
+options for editor alignment - attempt to get rid of the extra selectors
+.editor-content figure
+.editor-content img
+.editor-content .media--type-image
+.field--name-field-media-image img
+*/
+.align-center {
+	margin: 10px auto;
+}
+
+.align-left {
+	margin-right: 10px;
+}
+
+.align-right {
+	margin-left: 10px;
+}
+
+@media (max-width: 767px) {
+  .editor-content figure {
+    float: none;
+  }
+  .align-left, .align-right {
+		margin: 10px auto;  
+  }
+}
+
+.editor-content figcaption {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  max-width: none;
+  display: table-caption;
+  caption-side: bottom;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+/* padding needed for full-width mobile only on card components */
+@media (max-width: 767px) {
+	.container-full .paragraph--type--card {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* bottom margin for event slider */
+.events-carousel-slider {
+	margin-bottom: 56px;
+}
+
+/* logo placement override for mobile */
+@media (max-width: 767px) {	
+	.page-node-73 .umd-grid-gap-four {
+		grid-template-columns: repeat(2,1fr);
+	}
+}
+
+/* remove vertical spacing from layouts */
+.no-margin-bottom-layout.paragraph--type--paragraphs-layouts {
+	margin-bottom: 0;
+}
+
+/* override for second column height in three-column layout */
+@media screen and (min-width: 640px) {
+	.layout--threecol-section--33-34-33 > .layout__region--second {
+		flex: 0 1 33%;
+	}
+}
+
+/* padding when necessary for text container paragraphs */
+@media (min-width: 768px) {
+    .text-container-padding-desktop, .add-horizontal-padding-desktop {
+    	display:block;
+ /*     padding-left:48px;
+      padding-right:48px; */
+      padding-left:10%;
+      padding-right:10%;
+      
+    }
+}
+@media (max-width: 767px) {
+	.text-container-padding-mobile, .add-horizontal-padding-mobile {
+    margin-left:auto;
+    margin-right:auto;
+    max-width:1200px;
+    padding-left:24px;
+    padding-right:24px
+  }
+    
+  /* gavis overrides */    
+  .content {
+		padding: 0;
+		margin: 0;
+	}
+	.container {
+		padding: 0px;
+		max-width: 100%;
+	}
+	/*.row {
+		margin: 0px;
+	}*/    
+}
+
+/* style options two large center columns with four-column layout */
+@media (min-width: 1200px) {
+	.four-columns-two-large .umd-grid-gap-four {
+		grid-template-columns: 0.8fr 2fr 2fr 0.8fr;
+	}
+}
+
+/* add padding between content and lefthand sub nav */
+.gva-navigation {
+	padding-right: 30px;
+}
+
+/* links in content */
+.editor-content a, .field--name-field-text-body a, .field--name-body a, .views-field-title p a, .views-field-field-tags a {
+	border-color .25s ease-in-out !important;
+	border-bottom: 1px solid #7f7f7f !important;
+}
+
+.editor-content a:hover, .field--name-field-text-body a:hover, .field--name-body a:hover, .views-field-title p a:hover, .views-field-field-tags a:hover {
+	color: #e21833 !important;
+	border-bottom: 1px solid #e21833 !important;
+}
+
+/* override for the basic link styling within the text editor */
+.editor-content a.call-to-action-primary {
+  color: #FFF !important;
+  border-bottom: 1px solid #e21833 !important;
+}
+  
+.editor-content a.call-to-action-outline {
+  color: #000 !important;
+  border-bottom: 1px solid #000 !important;
+}  
+  
+.editor-content a.call-to-action-outline:hover {
+  color: #FFF !important;
+}
+
+/* fearlessly forward extra styles */
+.statistics-banner{border:solid #000;border:solid #000;border-width:3px 0;margin:24px 0;padding:24px 0}@media (min-width:650px){.statistics-banner{margin:32px 0;padding:32px 0}}@media (min-width:1300px){.statistics-banner{margin:96px 0;padding:60px 0}.statistics-banner .callout-stats{gap:70px}.statistics-banner .callout-stats>*{width:calc(33.333% - 46.66667px)}}
+
+/* form styles */
+.form-email, .form-tel, .form-date, .form-time {
+	appearance: none;
+  background-color: #fff;
+  border: 2px solid #d8d8d8;
+  border-radius: 0;
+  font-size: 1rem;
+  line-height: 1.625;
+  padding: .875rem 1.25rem .8125rem;
+  width: 100%;
+}
+
+.webform-submission-form h2 {
+	color: #000000;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 48px;
+  line-height: 1.04em;
+  font-family: 'Interstate', Helvetica, Arial, Verdana, sans-serif;
+  margin-bottom: 1.5rem;
+}
+
+.webform-submission-form p {
+	margin: 0 0 1.5rem;
+}
+
+ /* override design system since list-style is set to none */
+.webform-submission-form ul {
+	list-style: disc !important;
+	margin: 0 0 24px !important;
+}
+
+.webform-submission-form ol {
+	list-style: decimal;
+	margin: 0 0 24px !important;
+}
+
+.webform-submission-form li {
+	margin-left: 24px;
+}
+
+.webform-submission-form .form-required::after {
+  content: "*";
+  color: var(--gin-color-danger);
+  line-height: 1;
+  margin-right: .15em;
+  margin-left: .15em;
+  vertical-align: text-top;
+  background: none;
+}
+
+.webform-submission-form .webform-button--submit {
+	background-color: #FFFFFF;
+	color: #e21833;
+	padding: 15px 30px !important;
+	width: 50%;
+}
+
+.webform-submission-form .webform-button--submit:hover {
+	color: #FFFFFF;
+	background-color: #e21833;
+}
+
+/* conflicts with new ds styles (tailwindcss v3.4.16) and gavias theme styles */
+html {
+  overflow-x: revert !important;
+}
+
+body {
+  overflow-x: revert !important;
+}
+
+/* style options separator component */
+.paragraph--type--separator hr {
+	height: 3px;
+}
+.separator-component-red hr {
+	color: #e21833;
+	background-color: #e21833;
+}
+.separator-component-black hr {
+	color: #000;
+	background-color: #000;
+}
+.separator-component-gold hr {
+	color: #ffd200;
+	background-color: #ffd200;
+}
+.separator-component-gray hr {
+	color: #7f7f7f;
+	background-color: #7f7f7f;
+}
+.separator-component-white hr {
+	color: #FFF;
+	background-color: #FFF;
+}
+.separator-component-thin hr {
+	height: 1px;
+}
+.separator-component-thick hr {
+	height: 5px;
+}
+
+/* style options component centering */
+.centering {
+	text-align: -webkit-center;
+}
+
+/* embedded videos */
+/*
+.embed-bg figure {
+  border: 0;
+  margin: 0;
+  padding: 0;
+	display: inline;
+}
+*/
+.embed-responsive {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.embed-responsive iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+/* text editor styles */
+/* h2 header with animation */
+@keyframes intro-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h2.headline-with-animation {
+	animation: intro-fade-in 1s forwards;
+	animation-delay: 0.2s;
+  transform: translateY(100px);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 48px;
+  line-height: 1.04em;
+}
+
+@media screen and (max-width: 767px) {
+	h2.headline-with-animation {
+  	font-size: 24px;
+  }
+}
+
+/* do not display value for lightbox options media paragraph component */
+.field--name-field-lightbox-option {
+	display: none;
+}
+
+/* restore most headers from bootstrap (overridden in DS) */
+h1 {
+	font-size: 32px;
+}
+
+h2 {
+	font-size: 28px;
+}
+
+h3 {
+	font-size: 22px;
+}
+
+h4 {
+	font-size: 18px;
+}
+
+h1, h2, h3 {
+	margin: 14px 0;
+}
+
+/* tiny slider overrides*/
+.tns-outer .tns-controls [aria-controls] {
+	background: #e21833;
+	color: #FFF;
+}
+.tns-outer p {
+	text-align: left;
+	padding: 0;
+}
+.tns-outer .tns-controls {
+	margin: 10px 0;
+}
+
+/* articles filter by overrides */
+.block-views-exposed-filter-blocknews-block-2 details > .details-wrapper {
+	padding: 0;
+}
+
+.block-views-exposed-filter-blocknews-block-2.views-exposed-form {
+  display: table;
+  width: 10% !important;
+  float: right !important;
+}
+
+.block-views-exposed-filter-blocknews-block-2.views-exposed-form {	
+	width: 200px !important;
+	border-bottom: 0;
+	margin-right: 50px;
+}
+
+.block-views-exposed-filter-blocknews-block-2.views-exposed-form .form-item {
+	float: none;
+}
+
+.block-views-exposed-filter-blocknews-block-2.views-exposed-form .form-checkboxes label {
+	display: contents;
+}
+
+.block-views-exposed-filter-blocknews-block-2.views-exposed-form .form-checkboxes input {
+	float: left;
+	margin: 5px;
+	cursor: pointer;
+}
+
+.block-views-exposed-filter-blocknews-block-2.views-exposed-form summary[role=button] {
+	margin-bottom: 10px;
+}
+
+.block-views-exposed-filter-blocknews-block-2.views-exposed-form summary {
+	font-size: 18px;
+}
+
+@media (max-width: 750px) {
+	.block-views-exposed-filter-blocknews-block-2.views-exposed-form {
+		width: 100% !important;
+		padding: 0 10% !important;
+		margin-right: 0;
+  	border-bottom: 1px solid #ccc;
+  }
+}
+
+/* team people filter at top of page */
+.block-views-exposed-filter-blockteam-block-2 .form--inline {
+	margin-left: 48px;
+}
+
+.block-views-exposed-filter-blockteam-block-2.views-exposed-form .form-text, .block-views-exposed-filter-blockteam-block-2.views-exposed-form .form-select {
+	border-radius: 0 !important;
+}
+
+.block-views-exposed-filter-blockteam-block-2.views-exposed-form .form-select {
+	cursor: pointer;
+	margin: 0;
+}
+
+.block-views-exposed-filter-blockteam-block-2.views-exposed-form {
+	display:contents;
+}
+
+.block-views-exposed-filter-blockteam-block-2.views-exposed-form .content.block-content {
+	padding: 0 10%;
+}
+
+@media (min-width: 992px) {
+	.block-views-exposed-filter-blockteam-block-2.views-exposed-form .form-item label {
+		margin: 5px 10px;
+	}
+}
+
+.field--name-field-view-reference .team-grid .view-content-wrap, #block-umd-designsystem-views-block-team-block-2 {
+	clear: both;
+}
+
+@media (max-width: 750px) {
+	.block-views-exposed-filter-blockteam-block-2.views-exposed-form .form-item, .block-views-exposed-filter-blocknews-block-2.views-exposed-form .form-item {
+		width: 350px;
+    float: none;
+    margin: 20px 0;   
+  }
+
+	.block-views-exposed-filter-blockteam-block-2.views-exposed-form .form-select {
+		margin-bottom: 16px;
+	}
+}
+
+/* team image adjustments */
+.person-block-container .person-image-container img, .person-block-container .person-image-container svg {
+	width: auto;
+}
+
+/* universal form updates */
+.form-item label {
+	text-transform: none;
+	color: #000
+}
+  
+/* right sidebar related news and tags */
+@media (min-width: 1020px) {
+	.block-views-blocknews-block-7, .block-views-blocknews-block-8, .block-views-blocknews-tags-block-1 {
+		padding-left: 30px;
+	}
+	.tags-list .views-field-name {
+  	margin-bottom: 0.5rem;	
+	}
+	.tags-list .views-field-name a {
+		font-size: 18px;
+		display: inline;
+		line-height: 1rem;
+	}
+}
+
+@media (min-width: 650px) {
+	.block-container[image] .text-lockup-small-container {
+    	padding-top: 0;
+    }    
+}
+
+.block-views-blocknews-block-8 .block-container-wrapper {
+	margin-bottom: 2em;
+}
+
+
+/* global h2 header style to match text component basic h2 style */
+.views-element-container header h2 {
+	margin: 28px 0;
+}
+
+/* team member name audio */
+#playButton:before {
+    content: "\f04b";
+}
+#playButton {
+	color: #e21833;
+}
+#playButton:hover {
+	color: #000;
+}
+
+/* event overrides */
+h2.text-lockup-small-headline {
+	margin: 0;
+	padding-top: 0;
+	text-align: left !important;
+}
+.event-block-2 {
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.event-block-2:before, .event-block-2:after {
+  content: " ";
+  display: table;
+}
+.event-block-2:after {
+  clear: both;
+}
+.event-block-2 {
+	border: 0;
+}
+.event-date-row-date {
+	width: 100%;
+}
+.event-block-2 .pathway-default-container {
+	margin-bottom: 24px;
+}
+@media (max-width: 650px) {
+	.event-block-2 .umd-element-event-sign-container {
+		display: none;
+	}
+	.event-block-2 .pathway-image-container {
+		float: right;
+	}
+	.event-block-2 p {
+		font-size: 16px;
+	}
+}
+
+/* team member name, paper title link overrides */
+a.person-name, h2.text-lockup-small-headline a {
+  display: inline;
+  position: relative;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  transition: background 0.5s;
+  background-size: 0 2px;
+  background-image: linear-gradient(#000000, #000000);
+  color: #000;
+}
+
+a.person-name:hover, h2.text-lockup-small-headline a:hover {
+    background-size: 100% 2px !important;
+}
+
+#playLink:hover span {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+h2.text-lockup-small-headline a {
+	font-size: 18px;
+}
+.person-contact-container {
+    margin-top: 8px;
+}
+
+/* footer text should be white by default */
+.region-footer p, .region-footer a, .region-footer a:hover {
+	color: #FFF;
+}
+
+/* bootstrap overrides */
+/* instead of allowing container type at the page level, the default container is fixed and supplied in the theme settings. If a page does not have a first or second sidebar, the following div will be added to emulate a fluid container */
+.full-width-container {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+}
+
+.full-width-container .region-content {
+	padding: 0;
+}
+
+/* footer restructuring */
+footer .region-footer {
+	display: flex;
+	flex-direction: row;
+}
+
+footer .region-footer .block-block-content  {
+	flex: 1;
+	text-align: -webkit-center;
+}
+
+@media (max-width: 1020px) {
+	footer .region-footer  {
+		display: block;
+	}
+}
+
+/* left subnav overrides */
+.nav-slide-action-container-secondary, .nav-slide-action-container-tertiary {
+	line-height: 18px;
+}
+
+.nav-slide-action-container-tertiary:last-child, .nav-slide-action-container-secondary:last-child {
+	border: 0;
+}
+
+/* hide lefthand subnav on mobile */
+@media (max-width: 1020px) {
+	#block-umd-ds-main-navigation {
+		display: none;
+	}
+}
+
+/* paging overrides */
+.page-link.active, .media-library-view--widget .view-header a.page-link.is-active, .active > .page-link, .media-library-view--widget .view-header a.is-active > .page-link {
+	background-color: #000;
+	border-color: #000;
+}
+
+.page-link {
+	color: #000;
+}
+
+/* footer tag removed and replaced with a footer view class */
+.view-footer {
+	text-align: center;
+	margin-bottom: 24px;
+}
+
+/* created date */
+.post-block .post-meta {
+  font-size: 13px;
+  font-weight: 400;
+  padding: 0;
+}
+
+/* table override */
+.table > :not(caption) > * > * {
+	border: 0;
+	background-color: inherit;
+}
+
+/* change opacity for hr globally */
+hr {
+	opacity: 1;
+}
+
+/* form overrides */
+input[type=email], input[type=tel], input[type=text], textarea {
+	border: 1px solid #e6e6e6;
+}
+
+input[type=date], input[type=datetime-local], input[type=email], input[type=file], input[type=number], input[type=tel], input[type=text], input[type=time], select[multiple], textarea {
+	padding: 8px;
+	background-color: #FFF;
+}
+
+/* global override for margin below p tag */
+p {
+	margin-bottom: 0.8rem;
+}
+
+/*******
+ * astro overrides
+ *******/
+
+/* position research centers and collaborations arrow for hamburger menu */
+.cheeseburger-menu__mainmenu li:nth-child(3) ul.cheeseburger-menu__submenu li:nth-child(2) span .cheeseburger-menu__submenu-trigger-icon {
+	position: absolute;
+	left: 83%;
+}
+
+main {
+	min-height:inherit;
+}
