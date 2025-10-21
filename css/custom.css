@@ -1060,17 +1060,3 @@ input[type=date], input[type=datetime-local], input[type=email], input[type=file
 p {
 	margin-bottom: 0.8rem;
 }
-
-/*******
- * astro overrides
- *******/
-
-/* position research centers and collaborations arrow for hamburger menu */
-.cheeseburger-menu__mainmenu li:nth-child(3) ul.cheeseburger-menu__submenu li:nth-child(2) span .cheeseburger-menu__submenu-trigger-icon {
-	position: absolute;
-	left: 83%;
-}
-
-main {
-	min-height:inherit;
-}
