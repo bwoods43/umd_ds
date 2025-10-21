@@ -1,21 +1,24 @@
+uuid: 9e8a7ebc-c2e7-45d5-905b-a9df5f36e7fe
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
   theme:
     - umd_ds
+_core:
+  default_config_hash: b3pf-mbZs0CR5sVI08dSNMSkEPPdZaFlzC32GDv_4Hk
 id: umd_ds_branding
 theme: umd_ds
 region: nav_branding
-weight: -6
+weight: -7
 provider: null
 plugin: system_branding_block
 settings:
   id: system_branding_block
   label: 'Site branding'
-  provider: system
   label_display: '0'
+  provider: system
   use_site_logo: true
   use_site_name: true
   use_site_slogan: false

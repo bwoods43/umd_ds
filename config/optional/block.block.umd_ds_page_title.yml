@@ -1,17 +1,20 @@
+uuid: adf75edc-e495-4c2f-8cd0-27414551f996
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - umd_ds
+_core:
+  default_config_hash: 05kDXpPHNrGE3E1Gmho2Cx0ehDjBDLLuinrrLJ9lB50
 id: umd_ds_page_title
 theme: umd_ds
 region: content
-weight: -6
+weight: 1
 provider: null
 plugin: page_title_block
 settings:
   id: page_title_block
   label: 'Page title'
-  provider: core
   label_display: '0'
+  provider: core
 visibility: {  }

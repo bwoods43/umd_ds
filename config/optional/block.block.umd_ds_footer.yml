@@ -1,5 +1,6 @@
+uuid: 68cbf9f1-f949-4382-afc4-de634f208c3a
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.footer
@@ -7,6 +8,8 @@ dependencies:
     - system
   theme:
     - umd_ds
+_core:
+  default_config_hash: yCsTixv7oCPvxeQTe3hfsaszY4mkMKN2PJbhjFEggvI
 id: umd_ds_footer
 theme: umd_ds
 region: footer
@@ -16,8 +19,8 @@ plugin: 'system_menu_block:footer'
 settings:
   id: 'system_menu_block:footer'
   label: Footer
-  provider: system
   label_display: '0'
+  provider: system
   level: 1
   depth: 0
   expand_all_items: false

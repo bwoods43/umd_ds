@@ -1,19 +1,22 @@
+uuid: d5423572-af1a-4525-ba6b-1288ad12d2a0
 langcode: en
 status: true
 dependencies:
   theme:
     - umd_ds
+_core:
+  default_config_hash: sZkR7O1MNTFGOmeXKZ6YouasMHcEbZCY1Q3CZsE77VY
 id: umd_ds_local_tasks
 theme: umd_ds
 region: content
-weight: -4
+weight: -14
 provider: null
 plugin: local_tasks_block
 settings:
   id: local_tasks_block
   label: Tabs
-  provider: core
   label_display: '0'
+  provider: core
   primary: true
   secondary: true
 visibility: {  }

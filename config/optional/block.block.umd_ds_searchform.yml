@@ -1,3 +1,4 @@
+uuid: b56320dc-3a81-4434-a0cf-cb399a939089
 langcode: en
 status: true
 dependencies:
@@ -5,16 +6,16 @@ dependencies:
     - search
   theme:
     - umd_ds
-id: umd_ds_search_form
+id: umd_ds_searchform
 theme: umd_ds
-region: nav_additional
-weight: 0
+region: nav_branding
+weight: -8
 provider: null
 plugin: search_form_block
 settings:
   id: search_form_block
   label: 'Search form'
-  provider: search
   label_display: '0'
+  provider: search
   page_id: ''
 visibility: {  }

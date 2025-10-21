@@ -1,3 +1,4 @@
+uuid: 5c41da96-86e8-429a-b7f6-9c52d4f46fe5
 langcode: en
 status: true
 dependencies:
@@ -7,17 +8,19 @@ dependencies:
     - system
   theme:
     - umd_ds
+_core:
+  default_config_hash: oljjfiivH_Fnb5msbFKizF1IRfP0ZIkXcgzw-5q8Xig
 id: umd_ds_account_menu
 theme: umd_ds
 region: nav_additional
-weight: -7
+weight: -9
 provider: null
 plugin: 'system_menu_block:account'
 settings:
   id: 'system_menu_block:account'
   label: 'User account menu'
-  provider: system
   label_display: '0'
+  provider: system
   level: 1
   depth: 0
   expand_all_items: false

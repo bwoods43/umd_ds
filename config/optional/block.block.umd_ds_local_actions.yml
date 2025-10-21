@@ -1,17 +1,20 @@
+uuid: a4519470-dbe1-4eb7-ac37-3ef1c8677606
 langcode: en
 status: true
 dependencies:
   theme:
     - umd_ds
+_core:
+  default_config_hash: oAahzRu-ertEtcMnm5iPQoclUUHutBndBwH9J6rSGHo
 id: umd_ds_local_actions
 theme: umd_ds
 region: content
-weight: -2
+weight: -11
 provider: null
 plugin: local_actions_block
 settings:
   id: local_actions_block
   label: 'Primary admin actions'
-  provider: core
   label_display: '0'
+  provider: core
 visibility: {  }

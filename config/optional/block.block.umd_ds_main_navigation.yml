@@ -1,24 +1,35 @@
+uuid: b66d6660-fc9f-48d5-90b0-f9649a2d3035
 langcode: en
 status: true
 dependencies:
   config:
     - system.menu.main
   module:
+    - gaviasthemer
     - system
   theme:
     - umd_ds
+third_party_settings:
+  gaviasthemer:
+    classes: ''
+_core:
+  default_config_hash: rDpX3cRMq7YCkMnptyKE4rmEEDB9D0_VU7l36OX_1ow
 id: umd_ds_main_navigation
 theme: umd_ds
-region: nav_main
-weight: 0
+region: sidebar_first
+weight: -7
 provider: null
 plugin: 'system_menu_block:main'
 settings:
   id: 'system_menu_block:main'
   label: 'Main navigation'
-  provider: system
   label_display: '0'
+  provider: system
   level: 1
   depth: 0
-  expand_all_items: true
-visibility: {  }
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/about/*\r\n/research/*\r\n/education/graduate/*\r\n/education/undergraduate/*\r\n/news-events/events/*\r\n/search/*"

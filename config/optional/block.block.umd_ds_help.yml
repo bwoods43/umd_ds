@@ -1,3 +1,4 @@
+uuid: 2c5fb3ce-d3ff-44d1-af99-221ba29f4266
 langcode: en
 status: true
 dependencies:
@@ -5,15 +6,17 @@ dependencies:
     - help
   theme:
     - umd_ds
+_core:
+  default_config_hash: pIS1_-Bh_9ERjwiTEHk1bvVQjp_aXGhni8MBBcM04WY
 id: umd_ds_help
 theme: umd_ds
 region: content
-weight: -3
+weight: -12
 provider: null
 plugin: help_block
 settings:
   id: help_block
   label: Help
-  provider: help
   label_display: '0'
+  provider: help
 visibility: {  }

@@ -1,3 +1,4 @@
+uuid: 71c39fac-0a92-4805-81ab-baa1ca377076
 langcode: en
 status: true
 dependencies:
@@ -5,15 +6,17 @@ dependencies:
     - system
   theme:
     - umd_ds
+_core:
+  default_config_hash: WnN3XrlUi0xY7gd3_jz4daSbRhdFKiX3j_KacWwnJyE
 id: umd_ds_content
 theme: umd_ds
 region: content
-weight: -1
+weight: -10
 provider: null
 plugin: system_main_block
 settings:
   id: system_main_block
   label: 'Main page content'
-  provider: system
   label_display: '0'
+  provider: system
 visibility: {  }
