@@ -15,137 +15,97 @@ set classes = [
   {% set photo = file_url(content.field_team_image|field_target_entity.uri.value | image_style('square')) %}
 {% endif %}
 
-<div {{ attributes.addClass(classes) }}>
-	
-<div class="person-bio-container">
-	<div class="person-bio-text">
-		<img slot="image" src="{{ photo }}" alt="Portrait of {{ node.title.value }}">
-		<div class="person-text" has-contact="">
-			<div class="person-text-main-wrapper">
-				<p class="person-name">{{ node.title.value }}</p>
+<div {{ attributes.addClass(classes) }}>	
+	<div class="person-bio-container">
+		<div class="person-bio-text">
+			<img slot="image" src="{{ photo }}" alt="Portrait of {{ node.title.value }}">
+			<div class="person-text" has-contact="">
+				<div class="person-text-main-wrapper">
+					<p class="person-name">{{ node.title.value }}</p>
 
-				{% if content.field_name_pronunciation_audio|field_value %}				
-    			<p class="person-job" id="playLink"><span>Hear my name</span>:&nbsp; 
-    			<button id="playButton" class="fa fa-play"></button>
-					<audio id="myAudio">
-						<source src="{{ file_url(content.field_name_pronunciation_audio|field_target_entity.uri.value) }}" >
+					{% if content.field_name_pronunciation_audio|field_value %}				
+    				<p class="person-job" id="playLink"><span>Hear my name</span>:&nbsp; 
+    					<button id="playButton" class="fa fa-play"></button>
+							<audio id="myAudio">
+								<source src="{{ file_url(content.field_name_pronunciation_audio|field_target_entity.uri.value) }}" >
 Your browser does not support HTML5 Audio
-					</audio>
-					</p>
-				{% endif %}
+							</audio>
+						</p>
+					{% endif %}
 				
-				{{ content.field_ed_position }}
+					{{ content.field_ed_position }}
 
-				{% if content.field_team_additional_titles|field_value %}
-					<p class="person-job"><em>
-  					{% for key, item in content.field_team_additional_titles|field_value %}
-  						{{ item }}<br />
-						{% endfor %}
-			  	</em></p>
-  			{% endif %}
-  		</div>
+					{% if content.field_team_additional_titles|field_value %}
+						<p class="person-job"><em>
+  						{% for key, item in content.field_team_additional_titles|field_value %}
+  							{{ item }}<br />
+							{% endfor %}
+			  		</em></p>
+  				{% endif %}
+  			</div>
 
-  		<div class="person-contact-container">
+  			<div class="person-contact-container">
 
-				{% if content.field_ed_office_phone|field_value %}
-					{# check if first three characters include a plus and one - remove for display purposes #}
-					{% if content.field_ed_office_phone[0]['#context']['value']|slice(0,3) == '+1 ' %}
-						{% set phone_number = content.field_ed_office_phone[0]['#context']['value']|slice(3) %}
-					{% else %}
-						{% set phone_number = content.field_ed_office_phone|field_value %}
-  				{% endif %}				
-  				<a href="tel:{{ content.field_ed_office_phone[0]['#context']['value'] }}" class="person-contact-item">
-  					<span><svg title="phone icon" aria-hidden="true" id="icon_phone" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.3401 14.8334C10.2992 14.8334 9.02222 14.354 7.61534 13.4096C4.77082 11.5008 1.44199 7.58345 1.18399 4.93645C1.10149 4.08987 1.31378 3.40679 1.8151 2.90547L3.55388 1.16669L7.09442 4.70722L6.81131 4.99033C6.3597 5.44202 5.61965 6.18049 5.09055 6.70601C5.57727 7.42079 6.51686 8.47707 7.21012 9.17033C7.86634 9.82597 8.62566 10.4228 9.31 10.8799C9.80298 10.3837 10.4665 9.71811 11.0092 9.17425L11.2928 8.89089L14.8333 12.4322L13.1156 14.1498C12.6585 14.607 12.0552 14.8334 11.3401 14.8334Z" fill="white"></path></svg></span>
-  					<span>
-							<div class="field field--name-field-ed-office-phone field--type-telephone field--label-hidden field__item">{{ phone_number }}</div>
-						</span>
-					</a>
-				{% endif %}
-
-				{% if content.field_team_email|field_value %}
-					<a href="mailto:{{ content.field_team_email|field_value }}" class="person-contact-item">
-						<span><svg title="email icon" aria-hidden="true" id="icon_email" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.2447 0.5H1.97772L7.01238 5.05794L12.2447 0.5ZM13.8581 0.5L7.01238 6.57679L0.166656 0.5V9.39286H14V0.5H13.8581Z" fill="white"></path></svg></span>
-						<span>{{ content.field_team_email|field_value }}</span>
-					</a>
-				{% endif %}
-
-
-				{% if content.field_social_links['#links'][0] %}	
-					<a href="{{ content.field_social_links['#links'][0]['url'] }}" class="person-contact-item">
-						<span>
-							<svg title="linkedin icon" id="icon_linkedin" aria-hidden="true" width="15" height="17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 69 66" style="enable-background:new 0 0 69 66;" xml:space="preserve"><path d="M14.3,7.2c0,4-3.2,7.2-7.1,7.2c-3.9,0-7.1-3.2-7.1-7.2c0-4,3.2-7.2,7.1-7.2C11.1,0,14.3,3.2,14.3,7.2z M14.4,20.1H0V66h14.4V20.1z M37.3,20.1H23V66h14.3V41.9c0-13.4,17.3-14.5,17.3,0V66H69V36.9c0-22.6-25.7-21.8-31.7-10.7V20.1z"></path></svg>
-							</span>
-						<span>LinkedIn</span></a>
-				{% endif %}
-
-
-				{% if content.field_ed_campus_building_roo|field_value %}
-					<span class="person-contact-item">
-						<span><svg title="pin icon" aria-hidden="true" id="icon_pin" viewBox="0 0 12 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.7842 0.5C2.86055 0.5 0.481873 2.59352 0.481873 5.16668C0.481873 5.93914 0.701308 6.70504 1.11846 7.38436L5.49424 14.3496C5.55249 14.4425 5.6635 14.5 5.7842 14.5C5.9049 14.5 6.0159 14.4425 6.07416 14.3496L10.4516 7.38207C10.8671 6.70504 11.0865 5.93911 11.0865 5.16665C11.0865 2.59352 8.70784 0.5 5.7842 0.5ZM5.7842 8.16667C4.32237 8.16667 3.29972 6.95325 3.29972 5.66668C3.29972 4.3801 4.32237 3.16669 5.7842 3.16669C7.24602 3.16669 8.26868 4.3801 8.26868 5.66668C8.26868 6.95325 7.24602 8.16667 5.7842 8.16667Z" fill="#454545"></path></svg></span>
-						<span>{{ content.field_ed_campus_building_roo.0['#context']['value']|title }}</span>
-					</span>
-				{% endif %}
-  
-				{% if content.field_team_website|field_value %}				
-					<div class="umd-call-to-action-container" type="secondary">
-						<a href="{{ content.field_team_website[0]['#url'] }}" target="_blank" class="call-to-action call-to-action-secondary" size="standard">
-							<span class="call-to-action-wrapper">
-								<svg title="fearless icon" aria-hidden="true" id="icon_fearless" width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M52.9255 47.8801L18 13H42.214L77.5269 47.539L77.1858 47.8801L77.5269 48.2212L42.214 82.7602H18L52.9255 47.8801Z"></path></svg>
-								<span class="call-to-action-text-wrapper">
-									<span class="call-to-action-animation-wrapper"><span>Website</span></span>
-								</span>
+					{% if content.field_ed_office_phone|field_value %}
+						{# check if first three characters include a plus and one - remove for display purposes #}
+						{% if content.field_ed_office_phone[0]['#context']['value']|slice(0,3) == '+1 ' %}
+							{% set phone_number = content.field_ed_office_phone[0]['#context']['value']|slice(3) %}
+						{% else %}
+							{% set phone_number = content.field_ed_office_phone|field_value %}
+  					{% endif %}				
+  					<a href="tel:{{ content.field_ed_office_phone[0]['#context']['value'] }}" class="person-contact-item">
+  						<span><svg title="phone icon" aria-hidden="true" id="icon_phone" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.3401 14.8334C10.2992 14.8334 9.02222 14.354 7.61534 13.4096C4.77082 11.5008 1.44199 7.58345 1.18399 4.93645C1.10149 4.08987 1.31378 3.40679 1.8151 2.90547L3.55388 1.16669L7.09442 4.70722L6.81131 4.99033C6.3597 5.44202 5.61965 6.18049 5.09055 6.70601C5.57727 7.42079 6.51686 8.47707 7.21012 9.17033C7.86634 9.82597 8.62566 10.4228 9.31 10.8799C9.80298 10.3837 10.4665 9.71811 11.0092 9.17425L11.2928 8.89089L14.8333 12.4322L13.1156 14.1498C12.6585 14.607 12.0552 14.8334 11.3401 14.8334Z" fill="white"></path></svg></span>
+  						<span>
+								<div class="field field--name-field-ed-office-phone field--type-telephone field--label-hidden field__item">{{ phone_number }}</div>
 							</span>
 						</a>
-					</div>
-				{% endif %}
+					{% endif %}
+
+					{% if content.field_team_email|field_value %}
+						<a href="mailto:{{ content.field_team_email|field_value }}" class="person-contact-item">
+							<span><svg title="email icon" aria-hidden="true" id="icon_email" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.2447 0.5H1.97772L7.01238 5.05794L12.2447 0.5ZM13.8581 0.5L7.01238 6.57679L0.166656 0.5V9.39286H14V0.5H13.8581Z" fill="white"></path></svg></span>
+							<span>{{ content.field_team_email|field_value }}</span>
+						</a>
+					{% endif %}
+
+					{% if content.field_social_links['#links'][0] %}	
+						<a href="{{ content.field_social_links['#links'][0]['url'] }}" class="person-contact-item">
+							<span>
+								<svg title="linkedin icon" id="icon_linkedin" aria-hidden="true" width="15" height="17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 69 66" style="enable-background:new 0 0 69 66;" xml:space="preserve"><path d="M14.3,7.2c0,4-3.2,7.2-7.1,7.2c-3.9,0-7.1-3.2-7.1-7.2c0-4,3.2-7.2,7.1-7.2C11.1,0,14.3,3.2,14.3,7.2z M14.4,20.1H0V66h14.4V20.1z M37.3,20.1H23V66h14.3V41.9c0-13.4,17.3-14.5,17.3,0V66H69V36.9c0-22.6-25.7-21.8-31.7-10.7V20.1z"></path></svg>
+							</span>
+							<span>LinkedIn</span>
+						</a>
+					{% endif %}
+
+					{% if content.field_ed_campus_building_roo|field_value %}
+						<span class="person-contact-item">
+							<span><svg title="pin icon" aria-hidden="true" id="icon_pin" viewBox="0 0 12 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.7842 0.5C2.86055 0.5 0.481873 2.59352 0.481873 5.16668C0.481873 5.93914 0.701308 6.70504 1.11846 7.38436L5.49424 14.3496C5.55249 14.4425 5.6635 14.5 5.7842 14.5C5.9049 14.5 6.0159 14.4425 6.07416 14.3496L10.4516 7.38207C10.8671 6.70504 11.0865 5.93911 11.0865 5.16665C11.0865 2.59352 8.70784 0.5 5.7842 0.5ZM5.7842 8.16667C4.32237 8.16667 3.29972 6.95325 3.29972 5.66668C3.29972 4.3801 4.32237 3.16669 5.7842 3.16669C7.24602 3.16669 8.26868 4.3801 8.26868 5.66668C8.26868 6.95325 7.24602 8.16667 5.7842 8.16667Z" fill="#454545"></path></svg></span>
+							<span>{{ content.field_ed_campus_building_roo.0['#context']['value']|title }}</span>
+						</span>
+					{% endif %}
+  
+					{% if content.field_team_website|field_value %}				
+						<div class="umd-call-to-action-container" type="secondary">
+							<a href="{{ content.field_team_website[0]['#url'] }}" target="_blank" class="call-to-action call-to-action-secondary" size="standard">
+								<span class="call-to-action-wrapper">
+									<svg title="fearless icon" aria-hidden="true" id="icon_fearless" width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M52.9255 47.8801L18 13H42.214L77.5269 47.539L77.1858 47.8801L77.5269 48.2212L42.214 82.7602H18L52.9255 47.8801Z"></path></svg>
+									<span class="call-to-action-text-wrapper">
+										<span class="call-to-action-animation-wrapper"><span>Website</span></span>
+									</span>
+								</span>
+							</a>
+						</div>
+					{% endif %}
 							
+				</div>
 			</div>
 		</div>
-	</div>
 
-	{% if content.body|field_value %}
-		<div class="umd-rich-text person-bio-description">
-  		{{ content.body|field_value }}
-  	</div>
-	{% endif %}
-	
-	{% if content.field_astronomy_research_areas|field_value %}
-		<div class="umd-rich-text person-bio-description">
-			<h2>Research Areas</h2>
-  		{% for key, item in content.field_astronomy_research_areas|field_value %}
-  			{{ item }}
-			{% endfor %}
-  	</div>
-  {% endif %}	
-
-	{% if content.field_astronomy_research_centers|field_value %}
-		<div class="umd-rich-text person-bio-description">
-			<h2>Research Centers & Collaborations</h2>
-  		{% for key, item in content.field_astronomy_research_centers|field_value %}
-  			{{ item }}
-			{% endfor %}
-  	</div>
-  {% endif %}	
-  
-	{% if content.field_astronomy_facilities|field_value %}
-		<div class="umd-rich-text person-bio-description">
-			<h2>Facilities</h2>
-  		{% for key, item in content.field_astronomy_facilities|field_value %}
-  			{{ item }}
-			{% endfor %}
-  	</div>
-  {% endif %}	  
-
-	{% if content.field_ent_research_areas|field_value %}
-		<div class="umd-rich-text person-bio-description">
-			<h2>Research Areas</h2>
-  		{% for key, item in content.field_ent_research_areas|field_value %}
-  			{{ item }}
-			{% endfor %}
-  	</div>
-  {% endif %}	
-</div>	
-	
-	
+		{% if content.body|field_value %}
+			<div class="umd-rich-text person-bio-description">
+  			{{ content.body|field_value }}
+  		</div>
+		{% endif %}
+	</div>	
 </div>
 
