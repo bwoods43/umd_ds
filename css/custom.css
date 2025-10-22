@@ -519,11 +519,6 @@ options for editor alignment - attempt to get rid of the extra selectors
 	}
 }
 
-/* add padding between content and lefthand sub nav */
-.gva-navigation {
-	padding-right: 30px;
-}
-
 /* links in content */
 .editor-content a, .field--name-field-text-body a, .field--name-body a, .views-field-title p a, .views-field-field-tags a {
 	border-color .25s ease-in-out !important;

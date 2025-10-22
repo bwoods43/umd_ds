@@ -9,3 +9,5 @@
 Prerequisites: install [sass](https://sass-lang.com/install).
 
 To compile, run from subtheme directory: `sass scss/style.scss css/style.css && sass scss/ck5style.scss css/ck5style.css`
+
+Note: custom.css and css files in the compiled directory do not have sass counterparts at present time. 

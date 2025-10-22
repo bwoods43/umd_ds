@@ -44,9 +44,7 @@
       </div>
 
     	<div class="post-thumbnail post-{{ post_format }}">
-      	{% if post_format == 'video' or post_format == 'audio' and gva_iframe %}
-        	{{ gva_iframe|raw }}
-      	{% elseif post_format == 'gallery' and content.field_post_gallery %}
+      	{% if post_format == 'gallery' and content.field_post_gallery %}
         	{{ content.field_post_gallery }}
       	{% else %}
         	{{ content.field_image }}
