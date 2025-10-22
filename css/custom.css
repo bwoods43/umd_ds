@@ -545,6 +545,11 @@ options for editor alignment - attempt to get rid of the extra selectors
   color: #FFF !important;
 }
 
+/* override to remove border for font awesome icons */
+.editor-content a em.fa-brands   {
+	border: 5px solid #FFF !important;
+}
+
 /* fearlessly forward extra styles */
 .statistics-banner{border:solid #000;border:solid #000;border-width:3px 0;margin:24px 0;padding:24px 0}@media (min-width:650px){.statistics-banner{margin:32px 0;padding:32px 0}}@media (min-width:1300px){.statistics-banner{margin:96px 0;padding:60px 0}.statistics-banner .callout-stats{gap:70px}.statistics-banner .callout-stats>*{width:calc(33.333% - 46.66667px)}}
 

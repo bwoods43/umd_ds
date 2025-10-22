@@ -46,3 +46,14 @@ function umd_ds_preprocess_taxonomy_term(&$variables) {
 		}
 	}	
 }
+
+/**
+ * Implements hook_preprocess().
+ *
+ * Sets path for umd_ds theme to be used for default images in twig files.
+ * This avoids uuid and config collisions with default images.
+ */
+function umd_ds_preprocess(&$variables, $hook) {
+	$handler = \Drupal::service('theme_handler');
+	$variables['umd_ds_directory'] = $handler->getTheme('umd_ds')->getPath();
+}

@@ -10,7 +10,8 @@ set classes = [
  ]
 %}
 
-{% set photo = '/' ~ base_path ~ directory ~ '/images/placeholder_team.jpg' %}
+{% set photo = '/' ~ base_path ~ umd_ds_directory ~ '/images/placeholder_team.jpg' %}
+
 {% if content.field_team_image|field_value %}
   {% set photo = file_url(content.field_team_image|field_target_entity.uri.value | image_style('square')) %}
 {% endif %}
