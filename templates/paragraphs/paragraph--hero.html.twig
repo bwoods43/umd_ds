@@ -23,7 +23,7 @@
 		{% set close_tag_add = '-pathway' %}
 		{% set theme = 'light' %}
 {% else %}	
-	{% set open_tag_add = '-hero' %}
+	{% set open_tag_add = '-hero type=\"overlay\" data-theme=\"dark\"' %}
 	{% set close_tag_add = '-hero' %}
 	{% set theme = 'dark' %}
 {% endif %}
@@ -49,6 +49,12 @@
 		{% if content.field_hero_title|field_value %}  	
   		<p slot="headline">
     		{{ content.field_hero_title|field_value }}
+  		</p>
+  	{% endif %}
+  		
+		{% if content.field_hero_text|field_value %}  	
+  		<p slot="text">
+    		{{ content.field_hero_text|field_value[0]['#text']|striptags }}
   		</p>
   	{% endif %}
 
