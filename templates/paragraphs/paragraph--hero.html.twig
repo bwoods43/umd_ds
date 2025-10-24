@@ -53,14 +53,14 @@
   	{% endif %}
   		
 		{% if content.field_hero_text|field_value %}  	
-  		<p slot="text">
-    		{{ content.field_hero_text|field_value[0]['#text']|striptags }}
-  		</p>
+  		<div slot="text">
+    		{{ content.field_hero_text|field_value }}
+  		</div>
   	{% endif %}
 
 		{% if content.field_hero_link.0 %}
   		<div slot="actions">
-    		<umd-element-call-to-action slot="actions" type="secondary" data-theme="{{ theme }}">
+    		<umd-element-call-to-action slot="actions" data-display="primary" data-visual-size="" data-theme="{{ theme }}">
       		<a href="{{ content.field_hero_link.0['#url'] }}">{{ content.field_hero_link.0['#title'] }}</a>
     		</umd-element-call-to-action>
 			</div>
