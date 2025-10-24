@@ -127,13 +127,13 @@ ul.cheeseburger-menu__submenu li {
 	margin-bottom: 8px;
 }
 
-#block-umd-ds-cheeseburgermenutrigger {
+.block-cheeseburger-menu-trigger {
 	margin: 50px 0 0 40px;
 	float: left;
 }
 
 @media (max-width: 1199px) {
-	#block-umd-ds-cheeseburgermenutrigger {
+	.block-cheeseburger-menu-trigger {
 		margin-left: 10px;
 	}
 }
