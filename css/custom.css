@@ -825,10 +825,6 @@ h1, h2, h3 {
 	}
 }
 
-.field--name-field-view-reference .team-grid .view-content-wrap, #block-umd-designsystem-views-block-team-block-2 {
-	clear: both;
-}
-
 @media (max-width: 750px) {
 	.block-views-exposed-filter-blockteam-block-2.views-exposed-form .form-item, .block-views-exposed-filter-blocknews-block-2.views-exposed-form .form-item {
 		width: 350px;
