@@ -50,7 +50,7 @@ nav.breadcrumb {
 }
 
 /* remove list styles for admin tab lists */
-#block-umd-ds-local-tasks ul, #block-umd-ds-local-tasks ol {
+.block-local-tasks-block ul, .block-local-tasks-block ol {
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -351,10 +351,6 @@ header .area-main-menu .search-region .search-form__submit {
 main {
 	padding-bottom: 24px !important;
 	min-height:inherit;
-}
-
-#block-umd-designsystem-contactcallout.block {
-	margin-bottom: 0 !important;
 }
 
 @media (min-width: 992px) {
@@ -1003,7 +999,7 @@ footer .region-footer .block-block-content  {
 
 /* hide lefthand subnav on mobile */
 @media (max-width: 1020px) {
-	#block-umd-ds-main-navigation {
+	.block-menu.navigation.menu--main {
 		display: none;
 	}
 }
