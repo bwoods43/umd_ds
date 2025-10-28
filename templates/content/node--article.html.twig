@@ -33,14 +33,16 @@
 
 <article{{ attributes.addClass(classes) }}>
   <div class="post-block">
-
     <div class="post-content">
       {{ title_prefix }}
          <h1{{ title_attributes.addClass('post-title') }}>{{ label }}</h1>
-      {{ title_suffix }}         
+      {{ title_suffix }}  
+      
       <div class="post-meta">
-        <span class="post-categories">{{ content.field_post_category }}</span> /
-        <span class="post-created"> {{ row.content['#row']._entity.created[0].value|date('U')|format_date('readable_date') }} </span> /
+        <span class="post-categories">
+      		{{ content.field_news_type|field_value|safe_join(' | ')}}
+        </span> /
+        <span class="post-created"> {{ node.created[0].value|date('U')|format_date('readable_date') }} </span>
       </div>
 
     	<div class="post-thumbnail post-{{ post_format }}">
@@ -52,7 +54,7 @@
     	</div>
     	
       <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
-        {{ content|without('field_image','field_post_category', 'field_post_format', 'field_post_type', 'field_post_embed', 'field_post_gallery', 'comment', 'links') }}
+       {{ content.body|field_value }}
       </div>
     
     </div>

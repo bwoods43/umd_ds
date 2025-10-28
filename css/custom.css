@@ -516,12 +516,12 @@ options for editor alignment - attempt to get rid of the extra selectors
 }
 
 /* links in content */
-.editor-content a, .field--name-field-text-body a, .field--name-body a, .views-field-title p a, .views-field-field-tags a {
+.editor-content a, .field--name-field-text-body a, .field--name-body a, .views-field-title p a, .views-field-field-tags a, .post-meta a {
 	border-color .25s ease-in-out !important;
 	border-bottom: 1px solid #7f7f7f !important;
 }
 
-.editor-content a:hover, .field--name-field-text-body a:hover, .field--name-body a:hover, .views-field-title p a:hover, .views-field-field-tags a:hover {
+.editor-content a:hover, .field--name-field-text-body a:hover, .field--name-body a:hover, .views-field-title p a:hover, .views-field-field-tags a:hover, .post-meta a:hover {
 	color: #e21833 !important;
 	border-bottom: 1px solid #e21833 !important;
 }
