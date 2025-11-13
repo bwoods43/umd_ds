@@ -159,6 +159,13 @@ ul.cheeseburger-menu__submenu li {
 	z-index: 1000;
 }
 
+/* cheeseburger menu on non-large screens */
+@media (max-width: 1199px) {
+	umd-element-navigation-header {
+		margin-left: 60px;
+	}
+}
+
 /* slideshow controls override */
 #tns1-iw {
 	height: auto !important;
@@ -198,8 +205,8 @@ header .area-main-menu .search-region {
 }
 @media (max-width: 991px) {
   header .area-main-menu .search-region {
-    margin-top: -5px;
-    top: 30px;
+    margin-top: -12px;
+    top: 32px;
     right: 85px;
   }
   header .area-main-menu .search-region .icon {
@@ -269,7 +276,7 @@ header .area-main-menu .search-region .search-form__submit {
 
 @media (max-width: 767px) {
 	header .area-main-menu .search-region {
-		right: 5px !important;
+		right: 12px;
 	}
 
 	header .area-main-menu .search-region .icon {
