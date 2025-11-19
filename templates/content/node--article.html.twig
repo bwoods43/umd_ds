@@ -45,8 +45,8 @@
         <span class="post-created"> {{ node.created[0].value|date('U')|format_date('readable_date') }} </span>
       </div>
 
-    	<div class="post-thumbnail post-{{ post_format }}">
-      	{% if post_format == 'gallery' and content.field_post_gallery %}
+    	<div class="post-thumbnail post-{{ content.field_post_format[0]['#markup'] }}">
+      	{% if content.field_post_format[0]['#markup'] == 'gallery' and content.field_post_gallery %}
         	{{ content.field_post_gallery }}
       	{% else %}
         	{{ content.field_image }}
