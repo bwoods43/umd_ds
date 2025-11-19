@@ -741,8 +741,9 @@ h1, h2, h3 {
 
 /* tiny slider overrides*/
 .tns-outer .tns-controls [aria-controls] {
-	background: #e21833;
+	background: #000;
 	color: #FFF;
+	border-radius: 0;
 }
 .tns-outer p {
 	text-align: left;
