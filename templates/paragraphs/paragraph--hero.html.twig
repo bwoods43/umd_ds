@@ -22,8 +22,9 @@
 		{% set open_tag_add = '-pathway type=\"hero\"' %}
 		{% set close_tag_add = '-pathway' %}
 		{% set theme = 'light' %}
-{% else %}	
-	{% set open_tag_add = '-hero type=\"overlay\" data-theme=\"dark\"' %}
+{% else %}
+	{# background hero #}	
+	{% set open_tag_add = '-hero type=\"default\"' %}
 	{% set close_tag_add = '-hero' %}
 	{% set theme = 'dark' %}
 {% endif %}
