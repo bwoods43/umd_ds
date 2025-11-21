@@ -107,6 +107,16 @@ Your browser does not support HTML5 Audio
   			{{ content.body|field_value }}
   		</div>
 		{% endif %}
+
+		{% if content.field_adviser_s|field_value %}
+			<div class="umd-rich-text person-bio-description">
+				<h2>Advisor(s)</h2>
+  			{% for key, item in content.field_adviser_s|field_value %}
+  				{{ item }}<br />
+				{% endfor %}
+  		</div>
+  	{% endif %}
+
 	</div>	
 </div>
 
