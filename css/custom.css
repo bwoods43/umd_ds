@@ -33,7 +33,7 @@ nav.breadcrumb {
 }
 
 /* override design system since list-style is set to none */
-.container ul:not(.pagination), .container-full ul, .editor-content ul {
+.container ul:not(.pagination):not(.nav-tabs), .container-full ul, .editor-content ul {
 	list-style: disc;
 	margin: 0 0 24px !important;
 	padding: revert;
