@@ -24,8 +24,6 @@
   set classes = [
     'umd-block-standard-container',
     'umd-grid-gap-layout-container',    
-    'text-container-padding-mobile' ,
-    'add-horizontal-padding-desktop'
   ]
 %}
 {# set grid count for different view displays #}
@@ -54,6 +52,16 @@
   	set classes = [
     	'mini-news-feed'
   	]
+	%}
+{% endif %}
+{% if view.current_display == 'block_2'%}
+	{%
+  set classes = [
+    'umd-block-standard-container',
+    'umd-grid-gap-layout-container',    
+    'text-container-padding-mobile' ,
+    'add-horizontal-padding-desktop'
+  ]
 	%}
 {% endif %}
 <div{{attributes.addClass(classes)}} grid-count="{{ grid_count }}">
