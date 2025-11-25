@@ -628,6 +628,11 @@ body {
   overflow-x: revert !important;
 }
 
+/* may need to add other tags due to display:block in ds styles - audio, canvas, embed, iframe, img, object, svg, video */
+iframe {
+	display: inline;
+}
+
 /* style options separator component */
 .paragraph--type--separator hr {
 	height: 3px;
