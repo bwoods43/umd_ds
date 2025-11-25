@@ -740,6 +740,9 @@ h1, h2, h3 {
 }
 
 /* tiny slider overrides*/
+.tns-outer {
+	font-family: inherit;
+}
 .tns-outer .tns-controls [aria-controls] {
 	background: #000;
 	color: #FFF;
