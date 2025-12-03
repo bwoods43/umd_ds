@@ -33,11 +33,7 @@
 
 <article{{ attributes.addClass(classes) }}>
   <div class="post-block">
-    <div class="post-content">
-      {{ title_prefix }}
-         <h1{{ title_attributes.addClass('post-title') }}>{{ label }}</h1>
-      {{ title_suffix }}  
-      
+    <div class="post-content">      
       <div class="post-meta">
         <span class="post-categories">
       		{{ content.field_news_type|field_value|safe_join(' | ')}}
