@@ -439,7 +439,7 @@ options for editor alignment - attempt to get rid of the extra selectors
 }
 
 @media (max-width: 767px) {
-  .editor-content figure {
+  .editor-content figure, .node__content figure {
     float: none;
   }
   .align-left, .align-right {
