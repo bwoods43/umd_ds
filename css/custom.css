@@ -1025,7 +1025,7 @@ footer .region-footer .block-block-content  {
 /* footer tag removed and replaced with a footer view class */
 .view-footer {
 	text-align: center;
-	margin-bottom: 24px;
+	margin: 24px 0;
 }
 
 /* created date */
