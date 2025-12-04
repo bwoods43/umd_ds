@@ -84,6 +84,7 @@ ul.pager__items {
 /* social icon edits */
 .footer-social ul, .connect-icons ul {
 	padding-bottom: 1rem;
+	padding: inherit;
 }
 
 .footer-social ul li, .connect-icons ul li {
@@ -98,6 +99,16 @@ ul.pager__items {
 
 .footer-social ul li a:hover, .connect-icons ul li a:hover {
 	border: 0px !important;
+}
+
+.connect-icons {
+	text-align: center;
+}
+
+@media (max-width: 1023px) {
+	.footer-social {
+		margin-bottom: 24px;
+	}
 }
 
 /* override p text in cards */
