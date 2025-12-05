@@ -731,7 +731,7 @@ h4 {
 }
 h1, h2, h3, h4 {
 	margin-bottom: 0px;
-	line-height: 1.3
+	line-height: 1.3;
 }
 
 .footer-social h3 {
@@ -975,6 +975,13 @@ h2.text-lockup-small-headline a {
 /* footer text should be white by default */
 .region-footer p, .region-footer a, .region-footer a:hover {
 	color: #FFF;
+}
+
+/* region-sidebar-second needs top margin for non-desktop (one column) */
+@media (max-width: 991px) {
+	.region-sidebar-second {
+		margin-top: 24px;
+	}
 }
 
 /* bootstrap overrides */
