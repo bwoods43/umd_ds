@@ -769,6 +769,9 @@ h2.headline-with-animation {
 	h4 {
 		font-size: 1.2rem;
 	}
+	.block-page-title-block h1 {
+		padding: 0 24px;
+	}
 }
 
 /* tiny slider overrides*/
