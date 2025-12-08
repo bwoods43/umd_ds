@@ -169,10 +169,17 @@ ul.cheeseburger-menu__submenu li {
 	z-index: 1000;
 }
 
-/* cheeseburger menu on non-large screens */
+/* header elements on tablet */
 @media (max-width: 1199px) {
 	umd-element-navigation-header {
 		margin-left: 60px;
+	}
+}
+
+/* header elements on mobile */
+@media (max-width: 767px) {
+	umd-element-navigation-header {
+		margin-left: 30px;
 	}
 }
 
