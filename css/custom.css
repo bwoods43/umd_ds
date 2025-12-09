@@ -831,6 +831,12 @@ h2.headline-with-animation {
 	margin-left: 48px;
 }
 
+@media (max-width: 750px) {
+	.block-views-exposed-filter-blockteam-block-2 .form--inline {
+		margin-left: 24px;	
+	}
+}
+
 .block-views-exposed-filter-blockteam-block-2.views-exposed-form .form-text, .block-views-exposed-filter-blockteam-block-2.views-exposed-form .form-select {
 	border-radius: 0 !important;
 }
