@@ -389,7 +389,7 @@ body .umdheader-wrap {
 }
 
 /* embedded images within the body of a paragraph component */
-.field--name-body figure {
+.field--name-body figure, .node__content figure, .editor-content figure {
   border-top: 1px solid #ccc;
   margin: 10px;
   padding: 5px;
@@ -399,11 +399,11 @@ body .umdheader-wrap {
 }
 
 @media (max-width: 767px) {
-  .field--name-body figure {
+  .field--name-body figure, .node__content figure, .editor-content figure {
     float: none;
   }
 }
-.field--name-body figcaption {
+.field--name-body figcaption, .node__content figcaption, .editor-content figcaption {
   font-size: 12px;
 	line-height: 14px;
   font-weight: bold;
@@ -415,15 +415,6 @@ body .umdheader-wrap {
   border-right: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   padding: 5px;
-}
-
-.editor-content figure {
-  border-top: 1px solid #ccc;
-  margin: 10px;
-  padding: 5px;
-  display: table;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
 }
 
 /*
