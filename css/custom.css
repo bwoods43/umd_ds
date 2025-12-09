@@ -85,6 +85,7 @@ ul.pager__items {
 .footer-social ul, .connect-icons ul {
 	padding-bottom: 1rem;
 	padding: inherit;
+	list-style: none;
 }
 
 .footer-social ul li, .connect-icons ul li {
