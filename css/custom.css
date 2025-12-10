@@ -467,13 +467,6 @@ options for editor alignment - attempt to get rid of the extra selectors
 	margin-bottom: 56px;
 }
 
-/* logo placement override for mobile */
-@media (max-width: 767px) {	
-	.page-node-73 .umd-grid-gap-four {
-		grid-template-columns: repeat(2,1fr);
-	}
-}
-
 /* remove vertical spacing from layouts */
 .no-margin-bottom-layout.paragraph--type--paragraphs-layouts {
 	margin-bottom: 0;
