@@ -467,6 +467,13 @@ options for editor alignment - attempt to get rid of the extra selectors
 	margin-bottom: 56px;
 }
 
+/* logo placement override for mobile */
+@media (max-width: 767px) {	
+	.page-node-73 .umd-grid-gap-four {
+		grid-template-columns: repeat(2,1fr);
+	}
+}
+
 /* remove vertical spacing from layouts */
 .no-margin-bottom-layout.paragraph--type--paragraphs-layouts {
 	margin-bottom: 0;
@@ -483,8 +490,6 @@ options for editor alignment - attempt to get rid of the extra selectors
 @media (min-width: 768px) {
     .text-container-padding-desktop, .add-horizontal-padding-desktop {
     	display:block;
- /*     padding-left:48px;
-      padding-right:48px; */
       padding-left:10%;
       padding-right:10%;
       
@@ -765,7 +770,7 @@ h2.headline-with-animation {
   float: right;
 	width: 200px;
 	border-bottom: 0;
-	margin-right: 48px;
+	margin-right: 10%;
 	margin-left: 24px;
 }
 
@@ -803,7 +808,7 @@ h2.headline-with-animation {
 
 /* team people filter at top of page */
 .block-views-exposed-filter-blockteam-block-2 .form--inline {
-	margin-left: 48px;
+	margin: 0 10%;
 }
 
 @media (max-width: 767px) {
