@@ -203,10 +203,6 @@ ul.cheeseburger-menu__submenu li {
 		padding: 0;
 	}
 }
-/* remove columnar padding as a style option */
-.remove-col-padding .layout--fourcol-section, .remove-col-padding .layout--threecol-section, .remove-col-padding .layout--twocol-section {
-	padding: 0;
-}
 
 /* remove max width for ig feed */
 .instagram-media {
@@ -670,20 +666,6 @@ iframe {
 	height: 5px;
 }
 
-/* style options component centering */
-.centering {
-	text-align: -webkit-center;
-}
-
-/* embedded videos */
-/*
-.embed-bg figure {
-  border: 0;
-  margin: 0;
-  padding: 0;
-	display: inline;
-}
-*/
 .embed-responsive {
   width: 100%;
   max-width: 800px;
