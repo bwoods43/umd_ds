@@ -1,0 +1,11 @@
+{# generate html for carousel images #}
+{% set image_text = "" %}
+{% for key, item in items %}
+	{% set image_text = image_text ~ "<img src=\"" ~ file_url(item.content['#item'].entity.uri.value | image_style('wide')) ~ "\" alt=\"" ~ item.content['#item'].alt ~ "\" data-caption=\"" ~ item.content['#item'].title  ~ "\" />" %}
+{% endfor %}
+
+<umd-element-carousel-image resize="" data-theme="">
+	<div slot="images">
+		{{ image_text|raw }}
+  </div>
+</umd-element-carousel-image>
