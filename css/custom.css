@@ -48,12 +48,12 @@ nav.breadcrumb {
 
 .container ol, .container-full ol, .editor-content ol {
 	list-style: decimal;
-	margin: 0 0 24px !important;
+	margin: 0 0 24px;
 	padding: revert;
 }
 
 .container ul li ul, .container ol li ol, .container-full ul li ul, .container-full ol li ol, .editor-content ul li ul, .editor-content ol li ol {
-	margin: 0 !important;
+	margin: 0;
 }
 
 /* remove list styles for admin tab lists */
