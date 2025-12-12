@@ -42,7 +42,7 @@ nav.breadcrumb {
 /* override design system since list-style is set to none */
 .container ul:not(.pagination):not(.nav-tabs), .container-full ul, .editor-content ul {
 	list-style: disc;
-	margin: 0 0 24px !important;
+	margin: 0 0 24px;
 	padding: revert;
 }
 
@@ -53,7 +53,7 @@ nav.breadcrumb {
 }
 
 .container ul li ul, .container ol li ol, .container-full ul li ul, .container-full ol li ol, .editor-content ul li ul, .editor-content ol li ol {
-	margin: 0;
+	margin: 0 !important;
 }
 
 /* remove list styles for admin tab lists */
