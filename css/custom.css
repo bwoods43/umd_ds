@@ -1,8 +1,10 @@
 /* variables */
 :root {
 	/* spacing */
+	--space-xs: 8px;
 	--space-sm: 12px;
 	--space-md: 24px;
+	--space-lg: 32px;
 	/* colors */
 	--color-brand-primary: #e21833;
 }
@@ -12,7 +14,7 @@ nav.breadcrumb {
 	display: block !important;
 }
 
-@media (max-width: 1150px) { 
+@media (max-width: 1199px) { 
 	nav.breadcrumb {
 		margin: 0 var(--space-md);
 	}
@@ -30,7 +32,7 @@ nav.breadcrumb {
 	margin-left: 120px;
 }
 
-@media (max-width: 1200px) { 
+@media (max-width: 1199px) { 
 	.full-width-container .breadcrumb-links {
 		margin-left: var(--space-md);
 	}
@@ -93,7 +95,7 @@ ul.pager__items {
 /* social icon edits */
 .footer-social ul, .connect-icons ul {
 	padding-bottom: 1rem;
-	padding: inherit;
+	padding: inherit !important;
 	list-style: none;
 }
 
@@ -113,12 +115,6 @@ ul.pager__items {
 
 .connect-icons {
 	text-align: center;
-}
-
-@media (max-width: 1023px) {
-	.footer-social {
-		margin-bottom: var(--space-md);
-	}
 }
 
 /* override p text in cards */
@@ -226,7 +222,7 @@ header .area-main-menu .search-region {
   z-index: 9;
   margin-top: -12px;
 }
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
   header .area-main-menu .search-region {
     top: 32px;
     right: 85px;
@@ -282,7 +278,8 @@ header .block {
 	}
 }
 
-@media (min-width: 1020px) and (max-width: 1240px) { 
+/* search icon hidden at smaller desktop widths */
+@media (min-width: 1019px) and (max-width: 1300px) { 
 	header .area-main-menu .search-region {
 		display: none;
 	}
@@ -370,7 +367,7 @@ header .area-main-menu .search-region .search-form__submit {
 
 /* overrides for vertical spacing */
 .umd-layout-vertical-interior {
-	margin-bottom: 32px;
+	margin-bottom: var(--space-lg);
 }
 
 main {
@@ -378,9 +375,9 @@ main {
 	min-height:inherit;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
 	.container {
-  	width: 1150px !important;
+  	width: 1150px;
   }
 }
 
@@ -559,13 +556,13 @@ options for editor alignment - attempt to get rid of the extra selectors
 	padding: var(--space-md) 0;
 }
 
-@media (min-width:650px) {
+@media (min-width:768px) {
 	.statistics-banner {
-		margin: 32px 0;
-		padding: 32px 0;
+		margin: var(--space-lg) 0;
+		padding: var(--space-lg) 0;
 	}
 }
-@media (min-width:1300px){
+@media (min-width:1200px){
 	.statistics-banner {
 		margin: 96px 0;
 		padding: 60px 0;
@@ -682,7 +679,7 @@ h2.headline-with-animation {
   text-transform: uppercase;
 	font-size: 2.5rem; /* equivalent to default h1 */
   line-height: 1.04em;
-	margin-bottom: 14px;
+	margin-bottom: var(--space-sm);
 }
 
 @media (max-width: 767px) {
@@ -810,14 +807,14 @@ h2.headline-with-animation {
 
 /* team container and image adjustments */
 .person-block-container .person-image-container {
-	margin-bottom: 12px;
+	margin-bottom: var(--space-sm);
 }
 .person-block-container .person-image-container img, .person-block-container .person-image-container svg {
 	width: auto;
 }
 .view-id-team .item {
 	border-bottom: 1px solid #EFEFEF;
-	padding-bottom: 24px;
+	padding-bottom: var(--space-md);
 }
 
 /* universal form updates */
@@ -829,10 +826,10 @@ h2.headline-with-animation {
 /* right sidebar related news and tags */
 @media (min-width: 1020px) {
 	.block-views-blocknews-block-7, .block-views-blocknews-block-8, .block-views-blocknews-tags-block-1 {
-		padding-left: 30px;
+		padding-left: var(--space-lg);
 	}
 	.tags-list .views-field-name {
-  	margin-bottom: 0.5rem;	
+  	margin-bottom: var(--space-xs);
 	}
 	.tags-list .views-field-name a {
 		font-size: 18px;
@@ -854,7 +851,7 @@ h2.headline-with-animation {
 
 /* global h2 header style to match text component basic h2 style */
 .views-element-container header h2 {
-	margin: 28px 0;
+	margin: var(--space-md) 0;
 }
 
 /* team member name audio */
@@ -895,7 +892,7 @@ h2.text-lockup-small-headline {
 .event-block-2 .pathway-default-container {
 	margin-bottom: var(--space-md);
 }
-@media (max-width: 650px) {
+@media (max-width: 767px) {
 	.event-block-2 .umd-element-event-sign-container {
 		display: none;
 	}
@@ -941,7 +938,7 @@ h2.text-lockup-small-headline a {
 }
 
 /* region-sidebar-second needs top margin for non-desktop (one column) */
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
 	.region-sidebar-second {
 		margin-top: var(--space-md);
 	}
@@ -971,7 +968,7 @@ footer .region-footer .block-block-content  {
 	text-align: -webkit-center;
 }
 
-@media (max-width: 1020px) {
+@media (max-width: 767px) {
 	footer .region-footer  {
 		display: block;
 	}
@@ -987,7 +984,7 @@ footer .region-footer .block-block-content  {
 }
 
 /* hide lefthand subnav on mobile */
-@media (max-width: 1020px) {
+@media (max-width: 767px) {
 	.block-menu.navigation.menu--main {
 		display: none;
 	}
@@ -1034,11 +1031,11 @@ input[type=email], input[type=tel], input[type=text], textarea {
 }
 
 input[type=date], input[type=datetime-local], input[type=email], input[type=file], input[type=number], input[type=tel], input[type=text], input[type=time], select[multiple], textarea {
-	padding: 8px;
+	padding: var(--space-xs);
 	background-color: #FFF;
 }
 
 /* global override for margin below p tag */
 p {
-	margin-bottom: 0.8rem;
+	margin-bottom: var(--space-sm);
 }
