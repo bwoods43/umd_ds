@@ -61,10 +61,32 @@ set footer_classes = ' ' ~
 	{% set b5_top_container = 'full-width-container' %}
 {% endif %}
 
+{# process menu to ensure link attributes are set before DS conversion #}
+{% set menu_code = '' %}
+{% set items = simplify_menu('main') %}
+{% for menu_item in items.menu_tree %}
+	{% if menu_item.url starts with 'http://' or menu_item.url starts with 'https://' %}
+		{% set menu_code = menu_code ~ '<umd-element-nav-item><a href="' ~ menu_item.url ~ '" slot="primary-link" target="_blank" rel="noopener noreferrer"><span>' ~ menu_item.text  ~ '</span></a>' %}
+	{% else %}
+		{% set menu_code = menu_code ~ '<umd-element-nav-item><a href="' ~ menu_item.url ~ '" slot="primary-link"><span>' ~ menu_item.text  ~ '</span></a>' %}
+	{% endif %}	
+  {% if menu_item.submenu %}
+  	{% set menu_code = menu_code ~  '<div slot="dropdown-links">' %}
+		{% for sub_menu_item in menu_item.submenu %}
+			{% if sub_menu_item.url starts with 'http://' or sub_menu_item.url starts with 'https://' %}
+				{% set menu_code = menu_code ~  '<a href="' ~  sub_menu_item.url ~ '" target="_blank" rel="noopener noreferrer">' ~  sub_menu_item.text ~ '</a>' %}
+			{% else %}
+				{% set menu_code = menu_code ~  '<a href="' ~  sub_menu_item.url ~ '">' ~  sub_menu_item.text ~ '</a>' %}
+			{% endif %}
+		{% endfor %}
+    {% set menu_code = menu_code ~	'</div>' %}
+  {% endif %}     
+	{% set menu_code = menu_code ~ '</umd-element-nav-item>' %}
+{% endfor %}
+
+
 <header role="banner">
-  {{ page.header }}
-
-
+	{{ page.header }}
 	<div class="umd-lock-full area-main-menu">
 		<umd-element-navigation-header role="navigation">
   		<a href="/" slot="logo">
@@ -72,20 +94,8 @@ set footer_classes = ' ' ~
       alt="Home" style="max-width: 450px; min-width: 300px; max-height: none;">
   		</a>
 
-			{% set items = simplify_menu('main') %}
   		<div slot="main-navigation" id="menu-main-navigation">
-				{% for menu_item in items.menu_tree %}   
-    			<umd-element-nav-item>
-      			<a href="{{ menu_item.url }}" slot="primary-link"><span>{{ menu_item.text }}</span></a>
-    				{% if menu_item.submenu %}
-      				<div slot="dropdown-links">
-        				{% for sub_menu_item in menu_item.submenu %}
-            		<a href="{{ sub_menu_item.url }}">{{ sub_menu_item.text }}</a>
-        				{% endfor %}
-      				</div>
-    				{% endif %}     
-    			</umd-element-nav-item>
-				{% endfor %}
+				{{ menu_code|raw}}
   		</div>
 		</umd-element-navigation-header>  
 
@@ -95,11 +105,7 @@ set footer_classes = ' ' ~
           {{ page.nav_branding }}
         </div>
       </div>
-
 	</div>	
-
-
-
 </header>
 
 <main role="main">
