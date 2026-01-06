@@ -172,7 +172,7 @@ ul.cheeseburger-menu__submenu li {
 }
 
 .block-cheeseburgermenu-container--is-open {
-	z-index: 1000;
+	z-index: 99999;
 }
 
 /* header elements on tablet */
