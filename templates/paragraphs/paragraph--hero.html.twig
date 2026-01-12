@@ -15,7 +15,7 @@
 #}
 {# set ds tags based on hero type #}
 {% if content.field_hero_type[0]["#markup"] == "Minimal" %}
-	{% set open_tag_add = '-hero type=\"minimal\" data-theme=\"dark\"' %}
+	{% set open_tag_add = '-hero-minimal data-theme=\"dark\"' %}
 	{% set close_tag_add = '-hero' %}
 	{% set theme = 'dark' %}
 	{% elseif content.field_hero_type[0]["#markup"] == "Split" %}

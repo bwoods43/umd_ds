@@ -12,7 +12,8 @@ global-styling:
       css/compiled/base.css: {}
       css/custom.css: {}
   js:
-    js/index.js: {}
+    js/components-cdn.js: {}
+    js/styles-cdn.js: {}
     js/main.js: {}
   dependencies:
     - core/jquery
