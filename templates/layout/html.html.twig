@@ -48,6 +48,22 @@
         document.documentElement.classList.add('is-ie11');
       }
     </script>
+
+
+    <script>
+      // Styles library pre-render CSS
+      window.addEventListener('DOMContentLoaded', () => {
+        if (window.Styles && window.Styles.preRenderCss) {
+          window.Styles.preRenderCss.then((css) => {
+            const styleSheet = document.createElement('style');
+            const fonts = window.Styles.typography.fontFace.base64fonts;
+            styleSheet.innerHTML = `${fonts} ${css}`;
+            document.head.appendChild(styleSheet);
+          });
+        }
+      });
+    </script>
+
   </head>
   <body{{ attributes.addClass(body_classes) }}>
     {#
@@ -64,13 +80,15 @@
     {{ page_bottom }}
     <js-bottom-placeholder token="{{ placeholder_token }}">
     <script>
-      window.addEventListener('load', () => {
-      const UmdComponents = window.Components;
-
-      for (const key in UmdComponents) {
-        UmdComponents[key].Load();
-      }
-    });
+      window.addEventListener('DOMContentLoaded', () => {
+        if (window.Styles && window.Styles.postRenderCss) {
+          window.Styles.postRenderCss.then((css) => {
+            const styleSheet = document.createElement('style');
+            styleSheet.innerHTML = css;
+            document.body.appendChild(styleSheet);
+          });
+        }
+      });
     </script>
   </body>
 </html>
