@@ -423,15 +423,15 @@ options for editor alignment - attempt to get rid of the extra selectors
 .field--name-field-media-image img
 */
 .align-center {
-	margin: 10px auto;
+	margin: 10px auto !important;
 }
 
 .align-left {
-	margin-right: 10px;
+	margin: 10px 20px 10px 0 !important;
 }
 
 .align-right {
-	margin-left: 10px;
+	margin: 10px 0 10px 20px !important;
 }
 
 @media (max-width: 767px) {
@@ -439,7 +439,7 @@ options for editor alignment - attempt to get rid of the extra selectors
     float: none;
   }
   .align-left, .align-right {
-		margin: 10px auto;  
+		margin: 10px auto !important;  
   }
 }
 
