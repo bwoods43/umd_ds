@@ -1002,7 +1002,7 @@ a.umd-sans-larger > *:not(svg):not(.sr-only) {
   .text-lockup-small-headline {
     font-family: 'Interstate', Helvetica, Arial, Verdana, sans-serif;
     font-size: 18px;
-    line-height: 1.40em;
+    line-height: 1em;
 }
 @media (min-width: 650px) {
     .text-lockup-small-headline {
@@ -1018,8 +1018,8 @@ a.umd-sans-larger > *:not(svg):not(.sr-only) {
 
   .text-lockup-small-headline * {
     font-family: 'Interstate', Helvetica, Arial, Verdana, sans-serif;
-    font-size: 18px;
-    line-height: 1.40em;
+  /*  font-size: 18px; */
+    line-height: 1.0em;
 }
 @media (min-width: 650px) {
     .text-lockup-small-headline * {
@@ -1252,7 +1252,7 @@ a.umd-sans-larger > *:not(svg):not(.sr-only) {
   @container umd-scaling-font-block-container (min-width: 650px) {
     .scaling-font-block-container .text-lockup-small-headline * {
     font-family: 'Interstate', Helvetica, Arial, Verdana, sans-serif;
-    font-size: 18px;
+  /*  font-size: 18px; */
     line-height: 1.25em;
 }
 @media (min-width: 650px) {
@@ -1271,7 +1271,7 @@ a.umd-sans-larger > *:not(svg):not(.sr-only) {
   @container umd-scaling-font-block-container (max-width: 299px) {
     .scaling-font-block-container .text-lockup-small-headline,
     .scaling-font-block-container .text-lockup-small-headline * {
-      font-size: 18px;
+  /*    font-size: 18px; */
     }
   }
 

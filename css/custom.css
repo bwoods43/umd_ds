@@ -274,7 +274,7 @@ header .block {
 @media (min-width: 768px) {
 	header .area-main-menu .search-region {
 		right: 60px !important;
-		top: 57% !important;
+/*		top: 57% !important; */
 	}
 }
 
@@ -654,13 +654,13 @@ iframe {
 
 /* restore most headers from bootstrap (overridden in DS) */
 h1 {
-	font-size: 2.5rem;
+	font-size: 2.5rem !important;
 }
 h2 {
-	font-size: 1.7rem;
+	font-size: 1.7rem !important;
 }
 h3, h4 {
-	font-size: 1.4rem;
+	font-size: 1.4rem !important;
 }
 h1, h2, h3, h4 {
 	margin: var(--space-xs) 0;
@@ -677,7 +677,7 @@ h2.headline-with-animation {
   transform: translateY(100px);
   font-weight: 800;
   text-transform: uppercase;
-	font-size: 2.5rem; /* equivalent to default h1 */
+	font-size: 2.5rem !important; /* equivalent to default h1 */
   line-height: 1.04em;
 	margin-bottom: var(--space-sm);
 }
