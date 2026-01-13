@@ -870,6 +870,7 @@ h2.text-lockup-small-headline {
 	margin: 0;
 	padding-top: 0;
 	text-align: left !important;
+	line-height: 1em !important;
 }
 .event-block-2 {
   padding-bottom: 50px;
@@ -926,7 +927,7 @@ a.person-name:hover, h2.text-lockup-small-headline a:hover {
 }
 
 h2.text-lockup-small-headline a {
-	font-size: 18px;
+	font-size: 18px !important;
 }
 .person-contact-container {
     margin-top: 0px;
