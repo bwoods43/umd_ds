@@ -22,6 +22,10 @@
 		{% set open_tag_add = '-pathway type=\"hero\"' %}
 		{% set close_tag_add = '-pathway' %}
 		{% set theme = 'light' %}
+	{% elseif content.field_hero_type[0]["#markup"] == "Overlay" %}
+		{% set open_tag_add = '-hero type=\"overlay\"' %}
+		{% set close_tag_add = '-hero' %}
+		{% set theme = 'light' %}
 {% else %}
 	{# background hero #}	
 	{% set open_tag_add = '-hero type=\"default\"' %}
