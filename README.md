@@ -6,7 +6,7 @@
 
 ### CSS compilation.
 
-Prerequisites: install [sass](https://sass-lang.com/install).
+Prerequisites (if choosing to compile): install [sass](https://sass-lang.com/install).
 
 To compile, run from subtheme directory: `sass scss/style.scss css/style.css && sass scss/ck5style.scss css/ck5style.css`
 

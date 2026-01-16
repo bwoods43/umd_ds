@@ -21,7 +21,7 @@ regions:
   footer: Footer
 libraries-override:
   bootstrap5/global-styling: false
-version: '1.6'
+version: '2.0'
 dependencies:
   - twig_tweak
   - simplify_menu
