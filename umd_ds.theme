@@ -20,16 +20,26 @@ use Drupal\node\Entity\Node;
  */
 function umd_ds_preprocess_taxonomy_term(&$variables) {
 	$tid = $variables['term']->id();
-	$variables['main_term_url'] = '';
+	$variables['taxonomy_term_url'] = '';
 	
 	if ($tid) {
 		// Get the node storage handler.
-		$node_storage = \Drupal::entityTypeManager()->getStorage('node');
-		
-		// Look up node by primary tag id
-		$nodes = $node_storage->loadByProperties([
-  'field_primary_tag' => $tid,
-]);
+		$node_storage = \Drupal::entityTypeManager()->getStorage('node');		
+		$query = $node_storage->getQuery();
+		$query->accessCheck(TRUE);
+
+		// Add a condition for the node type.
+		//$query->condition('type', 'my_content_type');
+
+		// Create an 'OR' condition group.
+		$or_group = $query->orConditionGroup()
+  		->condition('field_primary_tag', $tid) // used for research areas
+  		->condition('field_user_group', $tid); // used for advisors
+
+		$query->condition($or_group);
+		$nids = $query->execute();
+
+		$nodes = $nids ? $node_storage->loadMultiple($nids) : [];
 
 		// this should find only one node
 		if (!empty($nodes)) {
@@ -39,7 +49,7 @@ function umd_ds_preprocess_taxonomy_term(&$variables) {
 				$url_object = Url::fromRoute('entity.node.canonical', ['node' => $node->id()]);
 
 				// Convert the Url object to a string representing the URL.
-				$variables['main_term_url'] = $url_object->toString();
+				$variables['taxonomy_term_url'] = $url_object->toString();
   		}
 		} else {
   		// \Drupal::messenger()->addWarning('No term found.');
