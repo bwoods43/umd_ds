@@ -929,9 +929,6 @@ a.person-name:hover, h2.text-lockup-small-headline a:hover {
 h2.text-lockup-small-headline a {
 	font-size: 18px !important;
 }
-.person-contact-container {
-    margin-top: 0px;
-}
 
 /* footer text should be white by default */
 .region-footer p, .region-footer a, .region-footer a:hover {
