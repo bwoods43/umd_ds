@@ -31,9 +31,9 @@
 %}
 {% if not page %}
   {% if content.description|render|striptags|raw is not empty %}
-  	<a class="person-contact-item" href="{{ main_term_url }}">{{ content.description|render|striptags|raw }}</a>
+  	<a href="{{ main_term_url }}">{{ content.description|render|striptags|raw }}</a>
   {% else %}  
-  	<a class="person-contact-item" href="{{ main_term_url }}">{{ name }}</a>
+  	<a href="{{ main_term_url }}">{{ name }}</a>
   {% endif %}
 {% else %}
 	<div{{ attributes.setAttribute('id', 'taxonomy-term-' ~ term.id).addClass(classes) }}>
