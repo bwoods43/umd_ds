@@ -67,6 +67,11 @@ nav.breadcrumb {
 	margin: 0 !important;
 }
 
+/* account for lists inside umd-rich-text (like DS bio) */
+.umd-rich-text li {
+	margin-top: 0;
+}
+
 /* remove list styles for admin tab lists */
 .block-local-tasks-block ul, .block-local-tasks-block ol {
 	list-style: none;
