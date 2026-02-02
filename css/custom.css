@@ -474,7 +474,7 @@ options for editor alignment - attempt to get rid of the extra selectors
 }
 
 /* remove vertical spacing from layouts */
-.no-margin-bottom-layout.paragraph--type--paragraphs-layouts {
+.no-margin-bottom-layout.paragraph--type--paragraphs-layouts, .no-margin-bottom-layout.umd-layout-vertical-interior {
 	margin-bottom: 0;
 }
 
