@@ -6,14 +6,12 @@
 #}
 {%
 set classes = [
-	'umd-layout-vertical-landing-child',
 	'add-horizontal-padding-mobile'
  ]
 %}
 
 {% set photo = '/' ~ base_path ~ umd_ds_directory ~ '/images/placeholder_team.jpg' %}
-
-{% if content.field_team_image|field_value %}
+{% if content.field_team_image[0]['#item']._is_default is null %}
   {% set photo = file_url(content.field_team_image|field_target_entity.uri.value | image_style('square')) %}
 {% endif %}
 
@@ -48,6 +46,20 @@ Your browser does not support HTML5 Audio
 
   			<div class="person-contact-container">
 
+					{% if content.field_team_email|field_value %}
+						<a href="mailto:{{ content.field_team_email|field_value }}" class="person-contact-item">
+							<span><svg title="email icon" aria-hidden="true" id="icon_email" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.2447 0.5H1.97772L7.01238 5.05794L12.2447 0.5ZM13.8581 0.5L7.01238 6.57679L0.166656 0.5V9.39286H14V0.5H13.8581Z" fill="white"></path></svg></span>
+							<span>{{ content.field_team_email|field_value }}</span>
+						</a>
+					{% endif %}
+
+					{% if content.field_ed_campus_building_roo|field_value %}
+						<span class="person-contact-item">
+							<span><svg title="pin icon" aria-hidden="true" id="icon_pin" viewBox="0 0 12 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.7842 0.5C2.86055 0.5 0.481873 2.59352 0.481873 5.16668C0.481873 5.93914 0.701308 6.70504 1.11846 7.38436L5.49424 14.3496C5.55249 14.4425 5.6635 14.5 5.7842 14.5C5.9049 14.5 6.0159 14.4425 6.07416 14.3496L10.4516 7.38207C10.8671 6.70504 11.0865 5.93911 11.0865 5.16665C11.0865 2.59352 8.70784 0.5 5.7842 0.5ZM5.7842 8.16667C4.32237 8.16667 3.29972 6.95325 3.29972 5.66668C3.29972 4.3801 4.32237 3.16669 5.7842 3.16669C7.24602 3.16669 8.26868 4.3801 8.26868 5.66668C8.26868 6.95325 7.24602 8.16667 5.7842 8.16667Z" fill="#454545"></path></svg></span>
+							<span>{{ content.field_ed_campus_building_roo.0['#context']['value']|title }}</span>
+						</span>
+					{% endif %}
+
 					{% if content.field_ed_office_phone|field_value %}
 						{# check if first three characters include a plus and one - remove for display purposes #}
 						{% if content.field_ed_office_phone[0]['#context']['value']|slice(0,3) == '+1 ' %}
@@ -63,28 +75,31 @@ Your browser does not support HTML5 Audio
 						</a>
 					{% endif %}
 
-					{% if content.field_team_email|field_value %}
-						<a href="mailto:{{ content.field_team_email|field_value }}" class="person-contact-item">
-							<span><svg title="email icon" aria-hidden="true" id="icon_email" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.2447 0.5H1.97772L7.01238 5.05794L12.2447 0.5ZM13.8581 0.5L7.01238 6.57679L0.166656 0.5V9.39286H14V0.5H13.8581Z" fill="white"></path></svg></span>
-							<span>{{ content.field_team_email|field_value }}</span>
-						</a>
-					{% endif %}
-
 					{% if content.field_social_links['#links'][0] %}	
-						<a href="{{ content.field_social_links['#links'][0]['url'] }}" class="person-contact-item">
-							<span>
-								<svg title="linkedin icon" id="icon_linkedin" aria-hidden="true" width="15" height="17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 69 66" style="enable-background:new 0 0 69 66;" xml:space="preserve"><path d="M14.3,7.2c0,4-3.2,7.2-7.1,7.2c-3.9,0-7.1-3.2-7.1-7.2c0-4,3.2-7.2,7.1-7.2C11.1,0,14.3,3.2,14.3,7.2z M14.4,20.1H0V66h14.4V20.1z M37.3,20.1H23V66h14.3V41.9c0-13.4,17.3-14.5,17.3,0V66H69V36.9c0-22.6-25.7-21.8-31.7-10.7V20.1z"></path></svg>
-							</span>
-							<span>LinkedIn</span>
-						</a>
+  					{% for key, item in content.field_social_links['#links'] %}
+  						{% if 'linkedin' in item['url'] %}
+  							{% set social_html = '
+  								<span>
+										<svg title="linkedin icon" id="icon_linkedin" aria-hidden="true" width="15" height="17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 69 66" style="enable-background:new 0 0 69 66;" xml:space="preserve"><path d="M14.3,7.2c0,4-3.2,7.2-7.1,7.2c-3.9,0-7.1-3.2-7.1-7.2c0-4,3.2-7.2,7.1-7.2C11.1,0,14.3,3.2,14.3,7.2z M14.4,20.1H0V66h14.4V20.1z M37.3,20.1H23V66h14.3V41.9c0-13.4,17.3-14.5,17.3,0V66H69V36.9c0-22.6-25.7-21.8-31.7-10.7V20.1z"></path></svg>
+									</span>
+									<span>LinkedIn</span>		
+  							' %}  	
+  						{% endif %}			
+  						{% if 'bsky.app' in item['url'] %}
+  							{% set social_html = '
+									<span>
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bluesky" viewBox="0 0 16 16">
+  										<path d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948"/>
+										</svg>							
+									</span>
+									<span>Bluesky</span>							
+  							' %}  	
+  						{% endif %}			
+							<a href="{{ content.field_social_links['#links'][key]['url'] }}" class="person-contact-item" target="_blank">{{ social_html|raw }}</a>
+						{% endfor %}
 					{% endif %}
 
-					{% if content.field_ed_campus_building_roo|field_value %}
-						<span class="person-contact-item">
-							<span><svg title="pin icon" aria-hidden="true" id="icon_pin" viewBox="0 0 12 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.7842 0.5C2.86055 0.5 0.481873 2.59352 0.481873 5.16668C0.481873 5.93914 0.701308 6.70504 1.11846 7.38436L5.49424 14.3496C5.55249 14.4425 5.6635 14.5 5.7842 14.5C5.9049 14.5 6.0159 14.4425 6.07416 14.3496L10.4516 7.38207C10.8671 6.70504 11.0865 5.93911 11.0865 5.16665C11.0865 2.59352 8.70784 0.5 5.7842 0.5ZM5.7842 8.16667C4.32237 8.16667 3.29972 6.95325 3.29972 5.66668C3.29972 4.3801 4.32237 3.16669 5.7842 3.16669C7.24602 3.16669 8.26868 4.3801 8.26868 5.66668C8.26868 6.95325 7.24602 8.16667 5.7842 8.16667Z" fill="#454545"></path></svg></span>
-							<span>{{ content.field_ed_campus_building_roo.0['#context']['value']|title }}</span>
-						</span>
-					{% endif %}
+
   
 					{% if content.field_team_website|field_value %}				
 						<div class="umd-call-to-action-container" type="secondary">
@@ -110,10 +125,10 @@ Your browser does not support HTML5 Audio
 		{% endif %}
 
 		{% if content.field_adviser_s|field_value %}
-			<div class="umd-rich-text person-bio-description">
+			<div class="person-bio-description">
 				<h2>Advisor(s)</h2>
   			{% for key, item in content.field_adviser_s|field_value %}
-  				{{ item }}<br />
+  				{{ item }}
 				{% endfor %}
   		</div>
   	{% endif %}

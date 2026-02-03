@@ -24,24 +24,16 @@ nav.breadcrumb {
 	display: none;
 }
 
-.breadcrumb-links {
-	margin-left: var(--space-md);
-}
-
-.full-width-container .breadcrumb-links {
-	margin-left: 120px;
-}
-
-@media (max-width: 1199px) { 
-	.full-width-container .breadcrumb-links {
-		margin-left: var(--space-md);
+@media (min-width: 1200px) { 
+	.breadcrumb-links {
+		margin-left: var(--space-xs);
 	}
 }
 
-@media (max-width: 1199px) { 
-	.breadcrumb-links {
-		margin-bottom: var(--space-sm);
+@media (min-width: 1200px) { 
+	.full-width-container .breadcrumb-links {
 		margin-left: 0;
+		padding-left: 10%;
 	}
 }
 
