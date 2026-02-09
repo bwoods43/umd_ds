@@ -814,11 +814,7 @@ h2.headline-with-animation {
 	padding-bottom: var(--space-md);
 }
 
-/* universal form updates */
-.form-item label {
-	text-transform: none;
-	color: #000
-}
+
   
 /* right sidebar related news and tags */
 @media (min-width: 1020px) {
@@ -1020,7 +1016,12 @@ hr {
 	opacity: 1;
 }
 
-/* form overrides */
+/* universal form updates */
+.form-item label {
+	text-transform: none;
+	color: #000
+}
+
 input[type=email], input[type=tel], input[type=text], textarea {
 	border: 1px solid #e6e6e6;
 }
@@ -1028,6 +1029,27 @@ input[type=email], input[type=tel], input[type=text], textarea {
 input[type=date], input[type=datetime-local], input[type=email], input[type=file], input[type=number], input[type=tel], input[type=text], input[type=time], select[multiple], textarea {
 	padding: var(--space-xs);
 	background-color: #FFF;
+}
+
+input[type=checkbox], select {
+	cursor: pointer;
+}
+
+label:has(+ input[required]):after, label:has(+ textarea[required]):after {
+	content: '' !important;
+}
+
+.webform-button--submit {
+  color: #000;
+  border: 1px solid #000;
+  background-color: #FFF;
+  border-radius: 0;
+  width: auto;
+}  
+  
+.webform-button--submit:hover {
+  color: #FFF;
+  background-color: #000;
 }
 
 /* global override for margin below p tag */
