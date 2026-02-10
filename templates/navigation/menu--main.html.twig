@@ -36,7 +36,7 @@
     			{% set slide_container_class = 'nav-slide-action-container-tertiary' %}
       	{% endif %}   		
     		<div class="{{ slide_container_class }}" {% if (count == 1) %}style="line-height: 2rem;"{% endif %}>   		
-        	<a href="{{ item.url }}" class="nav-slide-action-link" {% if active %}data-selected{% endif %} {% if item.url starts with 'http://' or item.url starts with 'https://' %}target="_blank" rel="noopener noreferrer"{% endif %} ><span>{{ item.text}}</span></a>
+        	<a href="{{ item.url }}" class="nav-slide-action-link" {% if active %}data-selected{% endif %} {% if item.url starts with 'http://' or item.url starts with 'https://' %}target="_blank" rel="noopener noreferrer"{% endif %} ><span>{{ item.text|replace({'&nbsp;': ' '})}}</span></a>
         	{% if item.submenu and item.active_trail %}
           	<div style="margin-left: 2rem; width: 200px; margin-top: 10px;">
             	{{ macros.menu_links(item.submenu) }}
