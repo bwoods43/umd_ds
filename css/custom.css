@@ -151,6 +151,10 @@ ul.cheeseburger-menu__submenu li {
 	}
 }
 
+.cheeseburger-menu__item-label {
+	min-height: auto;
+}
+
 .cheeseburger-menu__item-label:hover {
 	color: var(--color-brand-primary);
 	text-decoration: none;
