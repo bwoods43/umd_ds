@@ -474,6 +474,11 @@ options for editor alignment - attempt to get rid of the extra selectors
 	margin-bottom: 0;
 }
 
+/* enforce regular vertical spacing from layouts */
+.partial-margin-bottom-layout.paragraph--type--paragraphs-layouts, .partial-margin-bottom-layout.umd-layout-vertical-interior {
+	margin-bottom: var(--space-lg);
+}
+
 /* override for second column height in three-column layout */
 @media screen and (min-width: 640px) {
 	.layout--threecol-section--33-34-33 > .layout__region--second {

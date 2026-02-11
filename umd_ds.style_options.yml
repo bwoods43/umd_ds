@@ -24,6 +24,9 @@ options:
       -
         label: Four columns, two larger middle columns
         class: four-columns-two-large                              
+      -
+        label: Partial margin bottom for layout
+        class: partial-margin-bottom-layout
   separator-color:
     plugin: css_class
     label: 'Separator color class'
