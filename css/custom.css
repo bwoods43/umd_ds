@@ -466,12 +466,12 @@ options for editor alignment - attempt to get rid of the extra selectors
 }
 
 /* remove vertical spacing from layouts */
-.no-margin-bottom-layout.paragraph--type--paragraphs-layouts, .no-margin-bottom-layout.umd-layout-vertical-interior {
+.no-margin-bottom-layout.paragraph--type--paragraphs-layouts, .no-margin-bottom-layout.umd-layout-vertical-interior, .no-margin-bottom-layout .field--name-field-view-reference {
 	margin-bottom: 0;
 }
 
 /* enforce regular vertical spacing from layouts */
-.partial-margin-bottom-layout.paragraph--type--paragraphs-layouts, .partial-margin-bottom-layout.umd-layout-vertical-interior {
+.partial-margin-bottom-layout.paragraph--type--paragraphs-layouts, .partial-margin-bottom-layout.umd-layout-vertical-interior, .partial-margin-bottom-layout .field--name-field-view-reference {
 	margin-bottom: var(--space-lg);
 }
 
