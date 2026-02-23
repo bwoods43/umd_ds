@@ -4,7 +4,8 @@
 	--space-xs: 8px;
 	--space-sm: 12px;
 	--space-md: 24px;
-	--space-lg: 32px;
+	--space-lg: 36px;
+	--space-xl: 48px;
 	/* colors */
 	--color-brand-primary: #e21833;
 }
@@ -466,12 +467,12 @@ options for editor alignment - attempt to get rid of the extra selectors
 }
 
 /* remove vertical spacing from layouts */
-.no-margin-bottom-layout.paragraph--type--paragraphs-layouts, .no-margin-bottom-layout.umd-layout-vertical-interior, .no-margin-bottom-layout .field--name-field-view-reference {
+.no-margin-bottom-layout.paragraph--type--paragraphs-layouts, .no-margin-bottom-layout.umd-layout-vertical-interior {
 	margin-bottom: 0;
 }
 
 /* enforce regular vertical spacing from layouts */
-.partial-margin-bottom-layout.paragraph--type--paragraphs-layouts, .partial-margin-bottom-layout.umd-layout-vertical-interior, .partial-margin-bottom-layout .field--name-field-view-reference {
+.partial-margin-bottom-layout.paragraph--type--paragraphs-layouts, .partial-margin-bottom-layout.umd-layout-vertical-interior {
 	margin-bottom: var(--space-lg);
 }
 
@@ -635,6 +636,14 @@ iframe {
   height: auto;
   aspect-ratio: 16 / 9;
 }
+
+/* additional style options for view-display */
+.view-display-regular-top-margin {
+	margin-top: var(--space-xl);
+}
+.view-display-regular-bottom-margin  {
+	margin-bottom: var(--space-xl);
+}    
 
 /* text editor styles */
 /* h2 header with animation */

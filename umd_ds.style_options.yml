@@ -65,7 +65,22 @@ options:
       -
         label: Thick
         class: separator-component-thick
-        
+
+  view-display:
+    plugin: css_class
+    label: 'View display classes'
+    # Defaults to false.
+    multiple: true
+    options:
+      -
+        label: Default
+      -
+        label: Regular top margin
+        class: view-display-regular-top-margin
+      -
+        label: Regular bottom margin
+        class: view-display-regular-bottom-margin                
+                
 # The "contexts" section defines which options should be available for specific contexts,
 # i.e. specific Layout Plugins, Paragraph Types, etc.
 contexts:
@@ -94,9 +109,18 @@ contexts:
         bg_color: false
         separator-color: false
         separator-height: false
+        view-display: false
     separator:
       options:
         example_class: false
         bg_color: false
         separator-color: true
         separator-height: true
+        view-display: false
+    view:
+      options:
+        example_class: true
+        bg_color: false
+        separator-color: false
+        separator-height: false 
+        view-display: true     
