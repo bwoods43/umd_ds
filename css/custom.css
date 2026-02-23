@@ -13,11 +13,12 @@
 /* override base theme breadcrumb positioning */
 nav.breadcrumb {
 	display: block !important;
+	margin: var(--space-xs) auto;
 }
 
 @media (max-width: 1199px) { 
 	nav.breadcrumb {
-		margin: 0 var(--space-md);
+		margin: var(--space-xs) var(--space-md);
 	}
 }
 
