@@ -981,11 +981,12 @@ footer .region-footer .block-block-content  {
 }
 
 /* left subnav overrides */
-.nav-slide-action-container-secondary, .nav-slide-action-container-tertiary {
+.nav-slide-action-container-secondary, .nav-slide-action-container-tertiary, .nav-slide-action-container-quaternary {
 	line-height: 18px;
 }
 
-.nav-slide-action-container-tertiary:last-child, .nav-slide-action-container-secondary:last-child {
+.nav-slide-action-container-secondary:last-child,
+.nav-slide-action-container-tertiary:last-child,  .nav-slide-action-container-quaternary:last-child {
 	border: 0;
 }
 

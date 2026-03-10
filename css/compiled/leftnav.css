@@ -46,13 +46,13 @@ a.nav-slide-action-link:hover, a.nav-slide-action-link:focus {
   background-image: linear-gradient(#ffd200, #ffd200);
 }
 
-.nav-slide-action-container-secondary, .nav-slide-action-container-tertiary {
+.nav-slide-action-container-secondary, .nav-slide-action-container-tertiary, .nav-slide-action-container-quaternary {
 	padding-bottom: 10px;
 	margin-bottom: 10px;
   border-bottom: 1px solid #e6e6e6;
 }
 
-.nav-slide-action-container-secondary .nav-slide-action-link, .nav-slide-action-container-tertiary .nav-slide-action-link {
+.nav-slide-action-container-secondary .nav-slide-action-link, .nav-slide-action-container-tertiary .nav-slide-action-link, .nav-slide-action-container-quaternary .nav-slide-action-link {
 	font-size: 16px;
 	font-weight: normal;
 }
