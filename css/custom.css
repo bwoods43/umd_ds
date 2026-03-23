@@ -865,6 +865,10 @@ h2.headline-with-animation {
 	margin-bottom: 2em;
 }
 
+/* spacing on news views between title and summary */
+.umd-text-rich-simple-scaling {
+	margin-top: var(--space-sm);
+}
 
 /* global h2 header style to match text component basic h2 style */
 .views-element-container header h2 {
