@@ -1,0 +1,50 @@
+{#
+/**
+ * @file
+ * Theme override to display a Card Paragraph.
+ */
+#}
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    'umd-layout-vertical-interior',
+  ]
+%}
+
+{% set data_theme = "" %}
+{% if content.field_stat_theme[0]["#markup"] == "Dark" %}
+	{% set data_theme = "dark" %}
+{% endif %}
+
+{% set data_visual_size = "" %}
+{% if content.field_stat_size[0]["#markup"] == "Large" %}
+	{% set data_visual_size = "large" %}
+{% endif %}
+
+{% set data_display = "" %}
+{% if content.field_stat_display[0]["#markup"] == "Block" %}
+	{% set data_display = "block" %}
+{% endif %}
+
+<div{{ attributes.addClass(classes) }}>
+	{% if content.field_stat_theme[0]["#markup"] == "Dark" %}
+		<div class="container-theme-dark">
+	{% endif %}
+  <umd-element-stat data-theme="{{ data_theme }}" data-visual-size="{{ data_visual_size }}" data-decoration-line="" data-display="{{ data_display }}">
+  	<h2 slot="stat">{{ content.field_stat_title|field_value }}</h2>
+
+		{% if content.field_stat_text|field_value %}
+    	<div slot="text">{{ content.field_stat_text|field_value }}</div>
+		{% endif %}   		
+
+		{% if content.field_stat_subtext|field_value %}
+    	<div slot="sub-text">{{ content.field_stat_subtext|field_value }}</div>
+		{% endif %}   		
+  </umd-element-stat>
+	{% if content.field_stat_theme[0]["#markup"] == "Dark" %}
+		</div>
+	{% endif %}
+</div>

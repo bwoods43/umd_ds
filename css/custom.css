@@ -1081,6 +1081,27 @@ label:has(+ input[required]):after, label:has(+ textarea[required]):after {
   background-color: #000;
 }
 
+/* google scholar image in some team member bios */
+img[alt="Google Scholar logo"], img[alt="Pubmed logo"] {
+  display: inline;
+}
+
+/* bootstrap tabs overrides */
+.bootstrap-tabs {
+	padding: 5px;
+}
+.bootstrap-tabs ul.nav-tabs li {
+	padding-left: 0;
+	margin-left: 0;
+	list-style-type: none;
+}
+.bootstrap-tabs ul.nav-tabs li:before {
+	content: none;
+}
+.bootstrap-tabs .tab-pane-content {
+	padding: 10px;
+}
+
 /* global override for margin below p tag */
 p {
 	margin-bottom: var(--space-sm);

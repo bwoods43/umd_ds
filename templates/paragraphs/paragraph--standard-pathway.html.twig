@@ -1,0 +1,76 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    'umd-layout-vertical-interior'
+  ]
+%}
+{#
+/**
+ * @file
+ * Theme override to display a Card Paragraph.
+ */
+#}
+{# set ds tags based on hero type #}
+{% if content.field_hero_type[0]["#markup"] == "Minimal" %}
+	{% set open_tag_add = '-hero-minimal data-theme=\"dark\"' %}
+	{% set close_tag_add = '-hero' %}
+	{% set theme = 'dark' %}
+	{% elseif content.field_hero_type[0]["#markup"] == "Split" %}
+		{% set open_tag_add = '-pathway type=\"hero\"' %}
+		{% set close_tag_add = '-pathway' %}
+		{% set theme = 'light' %}
+	{% elseif content.field_hero_type[0]["#markup"] == "Overlay" %}
+		{% set open_tag_add = '-hero type=\"overlay\"' %}
+		{% set close_tag_add = '-hero' %}
+		{% set theme = 'light' %}
+{% else %}
+	{# background hero #}	
+	{% set open_tag_add = '-hero type=\"default\"' %}
+	{% set close_tag_add = '-hero' %}
+	{% set theme = 'dark' %}
+{% endif %}
+
+{# set image position #}
+{% if content.field_standard_pathway_image_pos[0]["#markup"] == "Left" %}
+	{% set image_position = "left" %}
+{% else %}
+	{% set image_position = "right" %}
+{% endif %}
+
+<div{{ attributes.addClass(classes) }}>
+	<umd-element-pathway data-theme="white" data-display="" data-layout-image-position="{{ image_position }}" data-layout-image-scaled="true" data-visual-time="true">
+
+		{% if content.field_standard_pathway_image|field_value %}
+			{% set imagePath = content.field_standard_pathway_image[0]['#media'].field_media_image.entity.uri.value %}
+    	<img slot="image" srcset="{{ imagePath|image_style('large') }} 600w, {{ imagePath|image_style('wide') }} 800w, {{ imagePath|image_style('double_wide') }} 1200w"
+  sizes="(max-width: 600px) 1000px,
+  			(min-width: 800px) 1200px,
+         1000px"
+  src="{{ imagePath|image_style('wide') }}" alt="{{ content.field_hero_image[0]['#media'].field_media_image.alt }}" />
+  	{% endif %}
+
+		{% if content.field_standard_pathway_eyebrow|field_value %}
+    	<p slot="eyebrow">{{ content.field_standard_pathway_eyebrow|field_value }}</p>
+  	{% endif %}
+    
+		{% if content.field_standard_pathway_title|field_value %}  	        
+    	<h2 slot="headline">{{ content.field_standard_pathway_title|field_value }}</h2>
+  	{% endif %}
+
+		{% if content.field_standard_pathway_text|field_value %}  	
+    	<div slot="text">{{ content.field_standard_pathway_text|field_value }}</div>
+  	{% endif %}
+
+		{% if content.field_standard_pathway_link.0 %}
+    	<div slot="actions">
+      	<umd-element-call-to-action slot="actions" data-display="secondary" data-visual-size="" data-theme="white">
+    			<a href="{{ content.field_standard_pathway_link.0['#url'] }}" aria-label="Learn more about Lorem ipsum" target="_self">{{ content.field_standard_pathway_link.0['#title'] }}</a>
+    		</umd-element-call-to-action>
+      </div>
+  	{% endif %}
+    
+	</umd-element-pathway>  
+</div>

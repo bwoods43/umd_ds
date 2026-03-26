@@ -1,0 +1,70 @@
+{#
+/**
+ * @file
+ * Theme override to display a Card Paragraph.
+ */
+#}
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    'umd-layout-vertical-interior',
+  ]
+%}
+
+{% set data_theme = "" %}
+{% if content.field_quote_theme[0]["#markup"] == "Dark" %}
+	{% set data_theme = "dark" %}
+{% endif %}
+
+{% set data_visual_size = "" %}
+{% if content.field_quote_size[0]["#markup"] == "Large" %}
+	{% set data_visual_size = "large" %}
+{% endif %}
+
+{% set data_display = "" %}
+{% if content.field_quote_display[0]["#markup"] == "Block" %}
+	{% set data_display = "block" %}
+{% endif %}
+
+<div{{ attributes.addClass(classes) }}>
+	{% if content.field_quote_theme[0]["#markup"] == "Dark" %}
+		<div class="container-theme-dark">
+	{% endif %}
+  <umd-element-quote data-theme="{{ data_theme }}" data-visual-size="{{ data_visual_size }}" data-display="{{ data_display }}">
+		{% if content.field_quote_media|field_value %}
+			{% set imagePath = content.field_quote_media[0]['#media'].field_media_image.entity.uri.value %}
+    	<img slot="image" srcset="{{ imagePath|image_style('large') }} 600w, {{ imagePath|image_style('wide') }} 800w, {{ imagePath|image_style('double_wide') }} 1200w"
+  sizes="(max-width: 600px) 1000px,
+  			(min-width: 800px) 1200px,
+         1000px"
+  src="{{ imagePath|image_style('wide') }}" alt="{{ content.field_hero_image[0]['#media'].field_media_image.alt }}" style="cursor: pointer;" />
+		{% endif %}
+
+		{% if content.field_quote_text|field_value %}
+    	<p slot="quote">{{ content.field_quote_text|field_value }}</p>
+		{% endif %}   		
+
+		{% if content.field_quote_attribution|field_value %}
+    	<p slot="attribution">{{ content.field_quote_attribution|field_value }}</p>
+		{% endif %}  
+		
+		{% if content.field_quote_attribution_subtext|field_value %}
+    	<p slot="attribution-sub-text">{{ content.field_quote_attribution_subtext|field_value }}</p>
+		{% endif %}  
+
+		{% if content.field_quote_link.0 %}
+  		<div slot="actions">
+    		<umd-element-call-to-action slot="actions" data-display="secondary" data-visual-size="" data-theme="{{ data_theme }}">
+      		<a href="{{ content.field_quote_link.0['#url'] }}" target="_blank">{{ content.field_quote_link.0['#title'] }}</a>
+    		</umd-element-call-to-action>
+			</div>
+  	{% endif %}					
+  </umd-element-quote>
+  
+	{% if content.field_quote_theme[0]["#markup"] == "Dark" %}
+		</div>
+	{% endif %}
+</div>
