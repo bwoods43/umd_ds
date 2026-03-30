@@ -627,6 +627,18 @@ iframe {
 	height: 5px;
 }
 
+/* some components need additional class for dark mode */
+.container-theme-dark {
+	background-color: #000;
+	padding: var(--space-lg);		
+}
+
+/* column height evening for dark mode columns */
+.layout__region:has(.container-theme-dark) {
+	background-color: #000;
+}
+
+/* embed adjustments */
 .embed-responsive {
   width: 100%;
   max-width: 800px;
@@ -1043,6 +1055,18 @@ footer .region-footer .block-block-content  {
 /* change opacity for hr globally */
 hr {
 	opacity: 1;
+}
+
+/* inline blockquote styles */
+blockquote {
+  border-left: 1px solid var(--color-brand-primary);;
+  padding-left: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+blockquote p strong {
+  font-size: 22px;
+  line-height: 1.25em;
 }
 
 /* universal form updates */
