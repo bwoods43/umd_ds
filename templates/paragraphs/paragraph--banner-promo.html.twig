@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Theme override to display a Card Paragraph.
+ */
+#}
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    'umd-layout-vertical-interior',
+    content.field_banner_promo_make_sticky[0]["#markup"] == 'On' ? 'sticky-item'
+  ]
+%}
+{% if content.field_banner_promo_theme[0]["#markup"] == "Dark" %}
+	{% set theme = "dark" %}
+{% else %}
+	{% set theme = "light" %}
+{% endif %}	
+
+<div{{ attributes.addClass(classes) }}>
+	<umd-element-banner-promo data-visual-icon-seal="false" data-theme="{{ theme }}">    
+		{% if content.field_banner_promo_title|field_value %}
+   		<p slot="headline">{{ content.field_banner_promo_title|field_value }}</p>
+		{% endif %}   		
+
+		{% if content.field_banner_promo_text|field_value %}
+    	<div slot="text">{{ content.field_banner_promo_text|field_value }}</div>
+		{% endif %}
+
+		{% if content.field_banner_promo_link.0 %}
+    	<div slot="actions">
+    		<umd-element-call-to-action slot="actions" data-display="primary" data-visual-size="" data-theme="dark">
+    			<a href="{{ content.field_banner_promo_link.0['#url'] }}" aria-label="{{ content.field_banner_promo_link.0['#title'] }}" {{ (content.field_banner_promo_link.0['#url'].external == 'true') ? 'target="_blank"' : '' }}>{{ content.field_banner_promo_link.0['#title'] }}</a>
+  			</umd-element-call-to-action>
+    	</div>  
+		{% endif %}
+  </umd-element-banner-promo>
+</div>
