@@ -1,6 +1,6 @@
 # UMD Design System theme
 Theme that integrates the [UMD Design System](https://designsystem.umd.edu/) components and styles with Drupal 11 via the [Bootstrap 5](https://www.drupal.org/project/bootstrap5) subtheme.
-Version: 2.1.x
+Version: 2.2.x
 
 ## CONTENTS OF THIS FILE
 
