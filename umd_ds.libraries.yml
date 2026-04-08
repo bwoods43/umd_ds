@@ -13,7 +13,6 @@ global-styling:
       css/custom.css: {}
   js:
     js/components-cdn.js: {}
-    js/styles-cdn.js: {}
     js/main.js: {}
   dependencies:
     - core/jquery
