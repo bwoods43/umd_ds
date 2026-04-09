@@ -74,17 +74,6 @@
       				<h2 class="text-lockup-small-headline"><a href="{{ path('entity.node.canonical', {'node': row.content['#row']._entity.nid[0].value}) }}"><span>{{ row.content['#row']._entity.title[0].value }}</span></a></h2>
       			</div>
       		</div>
-
-					{# show summary for full view displays #}
-					{% if view.current_display == 'block_2' or view.current_display == 'block_6' or view.current_display == 'block_1' %}
-						<div class="umd-text-rich-simple-scaling">
-							{% if row.content['#row']._entity.body[0].summary %}
-								{{ row.content['#row']._entity.body[0].summary }}
-							{% else %}
-								{{ row.content['#row']._entity.field_summary_for_feed_1[0].value|raw }}					
-							{% endif %}		
-						</div>	
-					{% endif %}	
 														
 					<date class="block-text-date-wrapper">{{ row.content['#row']._entity.created[0].value|date('U')|format_date('readable_date') }}</date>
 					<div class="block-text-wrapper"></div>
