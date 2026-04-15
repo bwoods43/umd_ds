@@ -1092,6 +1092,28 @@ label:has(+ input[required]):after, label:has(+ textarea[required]):after {
 	content: '' !important;
 }
 
+/* webform styles */
+.webform-submission-form {
+	display: block;
+  padding-left: 10%;
+  padding-right: 10%; 
+}
+ 
+.webform-submission-form legend {
+	font-size: var(--space-md);  
+	margin-bottom: var(--space-sm);
+}
+
+.path-webform h1 {
+	font-weight: 800;
+	text-transform: uppercase;
+	font-size: var(--space-xl);
+	line-height: 1.04em;
+	font-family: 'Interstate', Helvetica, Arial, Verdana, sans-serif;
+	margin-bottom: 1.5rem; 
+	text-align: center; 
+}
+
 .webform-button--submit {
   color: #000;
   border: 1px solid #000;
