@@ -28,15 +28,24 @@ function umd_ds_preprocess_taxonomy_term(&$variables) {
 		$query = $node_storage->getQuery();
 		$query->accessCheck(TRUE);
 
-		// Add a condition for the node type.
-		//$query->condition('type', 'my_content_type');
-
+		// include taxonomy references from secondary places if fields exist
+		//TODO - move this or break apart to more appropriate places
+		// used for research areas
+		$table_exists_primary_tag = \Drupal::database()->schema()->tableExists('node__field_primary_tag');
+		// used for advisors
+		$table_exists_user_group = \Drupal::database()->schema()->tableExists('node__field_user_group');
 		// Create an 'OR' condition group.
-		$or_group = $query->orConditionGroup()
-  		->condition('field_primary_tag', $tid) // used for research areas
-  		->condition('field_user_group', $tid); // used for advisors
+		if ($table_exists_primary_tag || $table_exists_user_group) {
+			$or_group = $query->orConditionGroup();		
+			if ($table_exists_primary_tag) {
+  			$or_group->condition('field_primary_tag', $tid);	
+			}
+			if ($table_exists_user_group) {
+  			$or_group->condition('field_user_group', $tid);
+			}
+			$query->condition($or_group);
+		}
 
-		$query->condition($or_group);
 		$nids = $query->execute();
 
 		$nodes = $nids ? $node_storage->loadMultiple($nids) : [];
