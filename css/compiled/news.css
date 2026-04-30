@@ -473,13 +473,14 @@
   .block-text-date-wrapper {
     font-family: 'Interstate', Helvetica, Arial, Verdana, sans-serif;
     font-size: 12px;
-    line-height: 1.16em
+    line-height: 1.16em;
+    padding-top: 12px;
 }
 
   .block-text-date-wrapper * {
     font-family: 'Interstate', Helvetica, Arial, Verdana, sans-serif;
     font-size: 12px;
-    line-height: 1.16em
+    line-height: 1.16em;
 }
 
   
@@ -631,7 +632,7 @@
 }
 @media (max-width: 649px) {
     .block-text-date-wrapper {
-        font-size: 16px;
+        font-size: 12px;
         line-height: 1.375em;
     }
 }
@@ -842,13 +843,13 @@
       order: 3;
     }
   }
-
+/*
   @container umd-list-standard (min-width: 650px) {
     .umd-list-image-container {
       width: 208px;
     }
   }
-
+*/
   
   .umd-list-container[theme="dark"] .umd-list-container-wrapper {
     border-bottom: 1px solid #454545;

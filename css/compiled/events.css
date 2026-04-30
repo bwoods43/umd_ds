@@ -510,20 +510,18 @@ a.umd-sans-larger > *:not(svg):not(.sr-only) {
   
   @media (max-width: 649px) {
     .image-container {
-      width: 120px;
-      float: right;
+      width: 450px;
       margin-bottom: 4px;
-      margin-left: 16px;
     }
   }
 
-  
+/*  
   @media (max-width: 649px) {
     .block-container .scaling-font-block-container {
       display: inline;
     }
   }
-
+*/
   
   @media (max-width: 649px) {
     .block-container[image] {
@@ -1018,9 +1016,11 @@ a.umd-sans-larger > *:not(svg):not(.sr-only) {
 
   .text-lockup-small-headline * {
     font-family: 'Interstate', Helvetica, Arial, Verdana, sans-serif;
-    font-size: 18px;
-    line-height: 1em;
+    font-size: 24px;
+    line-height: 1.25em;
 }
+
+/*
 @media (min-width: 650px) {
     .text-lockup-small-headline * {
         font-size: calc(18px + 0.5vw);
@@ -1032,6 +1032,7 @@ a.umd-sans-larger > *:not(svg):not(.sr-only) {
         line-height: 1.25em;
     }
 }
+*/
 
   .text-lockup-small-headline a {
     position: relative;
