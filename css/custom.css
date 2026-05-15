@@ -1093,7 +1093,7 @@ label:has(+ input[required]):after, label:has(+ textarea[required]):after {
 }
 
 /* webform styles */
-.webform-submission-form {
+.full-width-container .webform-submission-form {
 	display: block;
   padding-left: 10%;
   padding-right: 10%; 
