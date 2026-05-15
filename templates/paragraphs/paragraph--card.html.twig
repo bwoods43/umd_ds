@@ -38,7 +38,7 @@
 		{% if content.field_card_type[0]["#markup"] == "Horizontal" %}
   		<p slot="headline">
 				{% if content.field_card_link.0 %}
-    			<a href="{{ link }}" aria-label="{{ content.field_card_link.0['#title'] }}" {{ (content.field_card_link.0['#url'].external == 'true') ? 'target="_blank"' : '' }}>
+    			<a href="{{ link }}" {{ (content.field_card_link.0['#url'].external == 'true') ? 'target="_blank"' : '' }}>
       			{{ content.field_card_title|field_value }}
     			</a>
     		{% else %}
@@ -49,7 +49,7 @@
 			{% if content.field_card_title|field_value %}
     		<h2 slot="headline">
 					{% if content.field_card_link.0 %}
-        		<a href="{{ link }}" aria-label="{{ content.field_card_title|field_value }}" {{ (content.field_card_link.0['#url'].external == 'true') ? 'target="_blank"' : '' }}>
+        		<a href="{{ link }}" {{ (content.field_card_link.0['#url'].external == 'true') ? 'target="_blank"' : '' }}>
       			{{ content.field_card_title|field_value }}
     				</a>
     			{% else %}
@@ -67,7 +67,7 @@
 			{% if content.field_card_link.0 %}
   			<div slot="actions">
     			<umd-element-call-to-action type="secondary">
-      			<a href="{{ content.field_card_link.0['#url'] }}" aria-label="{{ content.field_card_title|field_value }}" {{ (content.field_card_link.0['#url'].external == 'true') ? 'target="_blank"' : '' }}>{{ content.field_card_link.0['#title'] }}</a>
+      			<a href="{{ content.field_card_link.0['#url'] }}" {{ (content.field_card_link.0['#url'].external == 'true') ? 'target="_blank"' : '' }}>{{ content.field_card_link.0['#title'] }}</a>
     			</umd-element-call-to-action>
   			</div>		
 			{% endif %}					
