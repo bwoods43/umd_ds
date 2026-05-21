@@ -938,6 +938,19 @@ h2.text-lockup-small-headline {
 	}
 }
 
+/* event filter extras */
+.view-event .views-exposed-form.bef-exposed-form {
+	margin-bottom: var(--space-md);
+}
+
+.view-event .views-exposed-form .fieldset-legend {
+	font-weight: normal;
+}
+
+.view-event .views-exposed-form.bef-exposed-form .form-type-radio .form-radio, .view-event .views-exposed-form.bef-exposed-form .form-type-radio .form-check-label {
+	cursor: pointer;
+}
+
 /* team member name, paper title link overrides */
 a.person-name, h2.text-lockup-small-headline a {
   display: inline;
