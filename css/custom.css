@@ -521,6 +521,16 @@ options for editor alignment - attempt to get rid of the extra selectors
 	}
 }
 
+/* style options use less horizontal padding if needed (useful for pages with left nav) */
+@media (min-width: 768px) {
+    .partial-horizontal-padding-desktop {
+    	display: block;
+      padding-left: 5%;
+      padding-right: 5%;
+      
+    }
+}
+
 .editor-content a, .field--name-field-text-body a, .field--name-body a, .views-field-title p a, .views-field-field-tags a, .post-meta a, .node__content a {
 	border-color .25s ease-in-out !important;
 	border-bottom: 1px solid #7f7f7f !important;

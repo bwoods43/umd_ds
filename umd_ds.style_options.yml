@@ -16,10 +16,10 @@ options:
         label: No margin bottom for layout
         class: no-margin-bottom-layout
       -
-        label: Add horizontal padding desktop
+        label: Horizontal padding desktop
         class: add-horizontal-padding-desktop
       -
-        label: Add horizontal Padding Mobile
+        label: Horizontal Padding mobile
         class: add-horizontal-padding-mobile
       -
         label: Four columns, two larger middle columns
@@ -27,6 +27,9 @@ options:
       -
         label: Partial margin bottom for layout
         class: partial-margin-bottom-layout
+      -
+        label: Partial horizontal padding desktop
+        class: partial-horizontal-padding-desktop        
   separator-color:
     plugin: css_class
     label: 'Separator color class'
