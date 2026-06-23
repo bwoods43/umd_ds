@@ -5,10 +5,8 @@ core_version_requirement: '^10.1 || ^11.0'
 'base theme': bootstrap5
 libraries:
   - umd_ds/global-styling
-ckeditor_stylesheets:
-  - css/style.css
 ckeditor5-stylesheets:
-  - css/ck5style.css
+  - css/ckeditor.css
 regions:
   header: Header
   nav_branding: 'Navigation branding region'

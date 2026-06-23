@@ -1,5 +1,15 @@
+/* not full styles here because this styling appears only in the admin style editor dropdown */
 @charset "UTF-8";
-.headline-with-animation {
+.ck-content .headline-with-animation {
+  font-weight: 800;
+  text-transform: uppercase;
+	font-size: 2.5rem !important; /* equivalent to default h1 */
 }
-.call-to-action.call-to-action-outline {
+.ck-content .call-to-action.call-to-action-outline {
+  color: #000 !important;
+  border: 1px solid #000 !important;
+}
+.ck-content .call-to-action.call-to-action-primary {
+  color: #FFF !important;
+  background-color: #e21833 !important;
 }
