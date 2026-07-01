@@ -863,24 +863,19 @@ h2.headline-with-animation {
 
   
 /* right sidebar related news and tags */
+.tags-list .item {
+  margin-bottom: var(--space-xs);
+}
 @media (min-width: 1020px) {
 	.block-views-blocknews-block-7, .block-views-blocknews-block-8, .block-views-blocknews-tags-block-1 {
 		padding-left: var(--space-lg);
-	}
-	.tags-list .views-field-name {
-  	margin-bottom: var(--space-xs);
-	}
-	.tags-list .views-field-name a {
-		font-size: 18px;
-		display: inline;
-		line-height: 1rem;
 	}
 }
 
 @media (min-width: 650px) {
 	.block-container[image] .text-lockup-small-container {
-    	padding-top: 0;
-    }    
+		padding-top: 0;
+  }    
 }
 
 .block-views-blocknews-block-8 .block-container-wrapper {
