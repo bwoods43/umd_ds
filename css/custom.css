@@ -541,18 +541,18 @@ options for editor alignment - attempt to get rid of the extra selectors
 	border-bottom: 1px solid var(--color-brand-primary) !important;
 }
 
-/* override for the basic link styling within the text editor */
-.editor-content a.call-to-action-primary {
+/* override for the basic link styling for call-to-action classes throughout */
+a.call-to-action-primary {
   color: #FFF !important;
   border-bottom: 1px solid var(--color-brand-primary) !important;
 }
   
-.editor-content a.call-to-action-outline {
+a.call-to-action-outline {
   color: #000 !important;
   border-bottom: 1px solid #000 !important;
 }  
   
-.editor-content a.call-to-action-outline:hover {
+a.call-to-action-outline:hover {
   color: #FFF !important;
 }
 
