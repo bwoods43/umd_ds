@@ -76,3 +76,37 @@ function umd_ds_preprocess(&$variables, $hook) {
 	$handler = \Drupal::service('theme_handler');
 	$variables['umd_ds_directory'] = $handler->getTheme('umd_ds')->getPath();
 }
+
+
+/**
+ * Implements hook_preprocess_paragraph__PARAGRAPH_TYPE().
+ * 
+ * Set grid_count value to be used in view display if one is set in the 
+ * paragraph field value. Field needs to exist in View paragraph type.
+ */
+function umd_ds_preprocess_paragraph__view(&$variables) {
+  $paragraph = $variables['paragraph'];   
+
+  // Extract your value from a paragraph field
+  if ($paragraph->hasField('field_grid_count') && !$paragraph->get('field_grid_count')->isEmpty()) {
+    $grid_count = $paragraph->get('field_grid_count')->value;
+ 
+  	$request = \Drupal::request();
+  	// Set a custom attribute on the request
+  	$request->attributes->set('grid_count', $grid_count);
+	}
+}
+
+/**
+ * Implements hook_preprocess_views_view_unformatted.
+ * 
+ * If grid count for the view exists, set as a variable here to be used
+ * in the view display
+ */
+function umd_ds_preprocess_views_view_unformatted(&$variables) {
+  $request = \Drupal::request();
+  // Retrieve it during the view preprocess
+  if ($request->attributes->get('grid_count')) {
+  	$variables['manual_grid_count'] = $request->attributes->get('grid_count');  
+  }
+}
