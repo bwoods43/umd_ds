@@ -546,6 +546,10 @@ a.call-to-action-primary {
   color: #FFF !important;
   border-bottom: 1px solid var(--color-brand-primary) !important;
 }
+
+a.call-to-action-primary:hover {
+  color: #FFF !important;
+}
   
 a.call-to-action-outline {
   color: #000 !important;
@@ -554,6 +558,7 @@ a.call-to-action-outline {
   
 a.call-to-action-outline:hover {
   color: #FFF !important;
+  border-bottom: 1px solid #000 !important;
 }
 
 /* override to remove border for font awesome icons */
