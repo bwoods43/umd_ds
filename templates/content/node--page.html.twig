@@ -6,7 +6,7 @@
 #}
 <div>
 	<div {{attributes}}>
-		<div class="editor-content">
+		<div class="editor-content node-page-body">
 			{% if content.body|field_value %}
 				{{ content.body|field_value }}
 			{% endif %}		
@@ -14,6 +14,3 @@
 		{{ content|without('body') }}		
 	</div>
 </div>
-
-
-

@@ -493,8 +493,9 @@ options for editor alignment - attempt to get rid of the extra selectors
       
     }
 }
+/* basic node body always has mobile padding, components need it added separately */
 @media (max-width: 767px) {
-	.text-container-padding-mobile, .add-horizontal-padding-mobile {
+	.text-container-padding-mobile, .add-horizontal-padding-mobile, .node-page-body {
     margin-left: auto;
     margin-right: auto;
     max-width: 1200px;
