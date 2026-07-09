@@ -88,15 +88,6 @@ function umd_ds_preprocess(&$variables, $hook) {
  */
 function umd_ds_preprocess_paragraph__view(&$variables) {
   $paragraph = $variables['paragraph'];   
-
-  // Extract grid_count value from a paragraph field
-  if ($paragraph->hasField('field_grid_count') && !$paragraph->get('field_grid_count')->isEmpty()) {
-    $grid_count = $paragraph->get('field_grid_count')->value;
- 
-  	$request = \Drupal::request();
-  	// Set a custom attribute on the request
-  	$request->attributes->set('grid_count', $grid_count);
-	}
 	
   // Extract alternate header text value from a paragraph field
   if ($paragraph->hasField('field_alternate_header_text') && !$paragraph->get('field_alternate_header_text')->isEmpty()) {
@@ -106,20 +97,6 @@ function umd_ds_preprocess_paragraph__view(&$variables) {
   	// Set a custom attribute on the request
   	$request->attributes->set('alternate_header_text', $alternate_header_text);
 	}		
-}
-
-/**
- * Implements hook_preprocess_views_view_unformatted.
- * 
- * If grid count for a specific instance in the View paragraph component exists,
- * set as a variable here to be used in the view display template file
- */
-function umd_ds_preprocess_views_view_unformatted(&$variables) {
-  $request = \Drupal::request();
-  // Retrieve it during the view preprocess
-  if ($request->attributes->get('grid_count')) {
-  	$variables['manual_grid_count'] = $request->attributes->get('grid_count');  
-  }
 }
 
 /**
