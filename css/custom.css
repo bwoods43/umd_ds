@@ -438,7 +438,7 @@ options for editor alignment - attempt to get rid of the extra selectors
     float: none;
   }
   .align-left, .align-right {
-		margin: 10px auto !important;  
+		margin: 10px !important;  
   }
 }
 
