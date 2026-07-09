@@ -35,13 +35,15 @@
 <article{{ attributes.addClass(classes) }}>
   <div class="post-block">
     <div class="post-content">      
-      <div class="post-meta">
-        <span class="post-categories">
-      		{{ content.field_news_type|field_value|safe_join(' | ')}}
-        </span> /
-        <span class="post-created"> {{ node.created[0].value|date('U')|format_date('readable_date') }} </span>
-      </div>
-
+      <div class="post-meta">      
+      	{% if content.field_byline|render|trim is not empty %}
+        	<span class="post-byline">By {{ content.field_byline|render|striptags }}</span>
+      	{% endif %}  
+	      <span class="post-created">{{node.created[0].value|date('U')|format_date('readable_date') }}</span>
+      	{% if content.field_news_type|render|trim is not empty %}
+        	<span class="post-categories">{{ content.field_news_type }}</span>
+      	{% endif %}      	      
+      </div>     
     	<div class="post-thumbnail post-{{ content.field_post_format[0]['#markup'] }}">
       	{% if content.field_post_format[0]['#markup'] == 'gallery' and content.field_post_gallery %}
         	{{ content.field_post_gallery }}

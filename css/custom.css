@@ -1069,6 +1069,18 @@ footer .region-footer .block-block-content  {
   padding: 0;
   margin-bottom: var(--space-sm);
 }
+.post-block .post-meta .post-byline {
+	display: block;
+}
+.post-block .post-meta .post-categories .field__item {
+	display: inline;
+}
+.post-block .post-meta .post-categories .field__item::after {
+  content: " |";
+}
+.post-block .post-meta .post-categories .field__item:last-child::after {
+  content: none;
+}
 
 /* table override */
 .table > :not(caption) > * > * {
