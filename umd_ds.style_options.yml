@@ -19,17 +19,17 @@ options:
         label: Horizontal padding desktop
         class: add-horizontal-padding-desktop
       -
-        label: Horizontal Padding mobile
-        class: add-horizontal-padding-mobile
-      -
-        label: Four columns, two larger middle columns
-        class: four-columns-two-large                              
+        label: Horizontal padding mobile
+        class: add-horizontal-padding-mobile                            
       -
         label: Partial margin bottom for layout
         class: partial-margin-bottom-layout
       -
         label: Partial horizontal padding desktop
-        class: partial-horizontal-padding-desktop        
+        class: partial-horizontal-padding-desktop  
+      -
+        label: Four columns, two larger middle columns
+        class: four-columns-two-large              
   separator-color:
     plugin: css_class
     label: 'Separator color class'
