@@ -13,20 +13,20 @@ options:
       -
         label: None
       -
-        label: No margin bottom for layout
-        class: no-margin-bottom-layout
-      -
         label: Horizontal padding desktop
         class: add-horizontal-padding-desktop
       -
         label: Horizontal padding mobile
         class: add-horizontal-padding-mobile                            
       -
+        label: Partial horizontal padding desktop
+        class: partial-horizontal-padding-desktop
+      -
+        label: No margin bottom for layout
+        class: no-margin-bottom-layout        
+      -
         label: Partial margin bottom for layout
         class: partial-margin-bottom-layout
-      -
-        label: Partial horizontal padding desktop
-        class: partial-horizontal-padding-desktop  
       -
         label: Four columns, two larger middle columns
         class: four-columns-two-large              
