@@ -23,10 +23,10 @@
 					{% set image_path = item.entity.field_slide_image|file_uri %}
 					{% set images = images ~ '<img src="' ~ image_path|image_style('wide') ~ '" alt="' ~ item.entity.field_slide_image.entity.field_media_image.alt ~ '" data-reference="slide-' ~ loop.index ~ '" data-caption="' ~ item.entity.field_slide_image.entity.field_media_image.alt ~ '">' %}		
 				{% endif %}
-				{% if item.entity.field_slide_title %}	
+				{% if item.entity.field_slide_title is not empty %}	
 					{% set headlines = headlines ~ '<h2 data-reference="slide-' ~ loop.index ~ '">' ~ item.entity.field_slide_title.value ~ '</h2>' %}
 				{% endif %}		
-				{% if item.entity.field_slide_text %}	
+				{% if item.entity.field_slide_text is not empty %}	
 					{% set descriptions = descriptions ~ '<div data-reference="slide-' ~ loop.index ~ '">' ~ item.entity.field_slide_text.value ~ '</div>' %}
 				{% endif %}						
 			{% endfor %}
