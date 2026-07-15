@@ -1,0 +1,34 @@
+{#
+/**
+ * @file
+ * Theme override to display a Design System Card Carousel component
+ */
+#}
+{% block paragraph %}
+	<umd-element-carousel-cards>
+		{% if content.field_card_carousel_title|field_value %}
+  		<p slot="headline">{{ content.field_card_carousel_title|field_value }}</p>
+  	{% endif %}
+
+		{% if content.field_card_carousel_text|field_value %}    
+    	<div slot="text">
+      	<p>{{ content.field_card_carousel_text|field_value }}</p>
+    	</div>
+  	{% endif %}
+
+    <div slot="actions">
+    	<umd-element-call-to-action slot="actions" data-display="secondary" data-visual-size="" data-theme="dark">
+    		<a href="{{ content.field_card_carousel_link.0['#url'] }}" {{ (content.field_card_carousel_link.0['#url'].external == 'true') ? 'target="_blank"' : '' }}>{{ content.field_card_carousel_link.0['#title'] }}</a>
+			</umd-element-call-to-action>
+    </div>
+  
+    <div slot="cards"> 
+			{# Loop through each individual child paragraph #}
+			{% for key, item in content.field_cards %}
+				{% if key|first != '#' %}
+    			{{ item }}
+  			{% endif %}
+			{% endfor %}
+    </div>
+	</umd-element-carousel-cards>
+{% endblock paragraph %}
