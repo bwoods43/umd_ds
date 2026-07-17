@@ -117,3 +117,12 @@ function umd_ds_views_pre_render(ViewExecutable $view) {
   	}
   }
 }
+
+/**
+ * Implements hook_preprocess_html().
+ * 
+ * Add loading class to body so that it can eventually be loaded by js 
+ */
+function umd_ds_preprocess_html(&$variables) {
+  $variables['attributes']['class'][] = 'js-loading';
+}
