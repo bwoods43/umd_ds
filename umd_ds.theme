@@ -109,6 +109,9 @@ function umd_ds_views_pre_render(ViewExecutable $view) {
   $request = \Drupal::request();
   if ($request->attributes->get('alternate_header_text')) {
   	// check to see if text area header exists
+  	if (isset($view->header['area']->options['content'])) {
+  		$view->header['area']->options['content'] = ['value' => $request->attributes->get('alternate_header_text'), 'format' => 'full_html'];  
+  	}
   	if (isset($view->header['area_1']->options['content'])) {
   		$view->header['area_1']->options['content'] = ['value' => $request->attributes->get('alternate_header_text'), 'format' => 'full_html'];  
   	}
