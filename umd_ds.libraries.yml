@@ -12,6 +12,7 @@ global-styling:
       css/compiled/base.css: {}
       css/custom.css: {}
   js:
+    js/page-loader.js: {}
     js/main.js: {}
   dependencies:
     - core/jquery

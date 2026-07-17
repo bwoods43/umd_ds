@@ -1188,3 +1188,9 @@ img[alt="Google Scholar logo"], img[alt="Pubmed logo"] {
 p {
 	margin-bottom: var(--space-sm);
 }
+
+/* use js to load entire page to remove blinking effect */
+body.js-loading {
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
