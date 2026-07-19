@@ -2678,10 +2678,3 @@ a.person-name > *:not(svg):not(.sr-only) {
   .umd-call-to-action-container {
   	margin-top: 1em;
   }
-
-/* decrease width for mobile view */  
-@media (max-width: 649px) {
-	.image-container > a img {
-  	width: 75%;
-  }
-}
