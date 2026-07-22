@@ -8,19 +8,19 @@
 {% if content.field_team_image[0]['#item']._is_default is null %}
   {% set photo = file_url(content.field_team_image|field_target_entity.uri.value | image_style('square')) %}
 {% endif %}
-
-<div class="person-block-container">
-	<div class="person-block-wrapper">
-		<div class="person-image-container"><a href="{{ url }}" class="person-name"><img src="{{ photo }}" alt="Portrait of {{ node.title.value }}"></a></div>
-		<div class="person-text" has-contact="">
-			<div class="person-text-main-wrapper">
-				<p class="person-name">
-					<a href="{{ url }}" class="person-name">{{ node.title.value }}</a>
-  			</p>
-  		</div>
-  		<div>
-  			{{ content.field_ed_position }}		
-  		</div>
-		</div>
-	</div>
-</div>
+<umd-element-person display="block">
+	<img slot="image" src="{{ photo }}" alt="Portrait of {{ node.title.value }}" onclick="window.location.href='{{ url }}';" style="cursor:pointer;">
+	<a href="{{ url }}" slot="name">{{ node.title.value }}</a>
+	<p slot="job-title">
+  	{% if content.field_ed_position|field_value is not empty %}
+      {% set positions = content.field_ed_position|field_value %}
+    {% else %} 
+      {% set positions = content.field_team_position|field_value %}
+		{% endif %}
+		{% if positions is not empty %}
+    	{% for item in positions %}
+      	{{ item }}<br />
+    	{% endfor %}
+		{% endif %}
+	</p>
+</umd-element-person>
