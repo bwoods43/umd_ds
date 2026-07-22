@@ -24,3 +24,6 @@ dependencies:
   - twig_tweak
   - simplify_menu
   - twig_field_value
+  - colorbox
+  - colorbox_inline
+  - sticky
