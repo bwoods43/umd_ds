@@ -45,13 +45,6 @@
     		myAudio.play();
 			}); 				
 		}
-		
-		/* remove extra sticky divs if used for promo */		
-		const elements = document.querySelectorAll('.banner-promo-declaration');
-		//Check if a second element actually exists to prevent errors
-		if (elements.length > 1) {
-    	elements[1].remove(); // Index 1 is the second element
-		}
 
   });
 })(jQuery);

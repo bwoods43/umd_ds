@@ -754,7 +754,7 @@ h2.headline-with-animation {
 	padding: 0;
 }
 
-.block-views-exposed-filter-blocknews-block-2.views-exposed-form {	
+.block-views-exposed-filter-blocknews-block-2 {	
   float: right;
 	width: 200px;
 	border-bottom: 0;
@@ -762,39 +762,43 @@ h2.headline-with-animation {
 	margin-left: var(--space-md);
 }
 
-.block-views-exposed-filter-blocknews-block-2.views-exposed-form .form-item {
+.block-views-exposed-filter-blocknews-block-2 .form-item {
 	float: none;
 }
 
-.block-views-exposed-filter-blocknews-block-2.views-exposed-form .form-checkboxes label {
+.block-views-exposed-filter-blocknews-block-2 .form-checkboxes label {
 	display: contents;
 }
 
-.block-views-exposed-filter-blocknews-block-2.views-exposed-form .form-checkboxes input {
+.block-views-exposed-filter-blocknews-block-2 .form-checkboxes input {
 	float: left;
 	margin: 5px;
 	cursor: pointer;
 }
 
-.block-views-exposed-filter-blocknews-block-2.views-exposed-form .form-checkboxes .form-check {
+.block-views-exposed-filter-blocknews-block-2 .form-checkboxes .form-check {
 	padding-left: 0.5em;
 }
 
-.block-views-exposed-filter-blocknews-block-2.views-exposed-form summary[role=button] {
+.block-views-exposed-filter-blocknews-block-2 summary[role=button] {
 	margin-bottom: 10px;
 }
 
-.block-views-exposed-filter-blocknews-block-2.views-exposed-form summary {
+.block-views-exposed-filter-blocknews-block-2 summary {
 	font-size: 18px;
 }
 
-.block-views-exposed-filter-blocknews-block-2.views-exposed-form .accordion-button:not(.collapsed) {
-	color: #000;
-	background-color: #EEE;
+.block-views-exposed-filter-blocknews-block-2 .accordion-button:not(.collapsed) {
+	color: #FFF;
+	background-color: #000;
+}
+
+.block-views-exposed-filter-blocknews-block-2 .accordion-item {
+	border-radius: 0;
 }
 
 @media (max-width: 767px) {
-	.block-views-exposed-filter-blocknews-block-2.views-exposed-form {
+	.block-views-exposed-filter-blocknews-block-2 {
 		float: none;
 		width: 100% !important;
 		margin-right: 0;
@@ -838,7 +842,7 @@ h2.headline-with-animation {
 }
 
 @media (max-width: 767px) {
-	.block-views-exposed-filter-blockteam-block-2.views-exposed-form .form-item, .block-views-exposed-filter-blocknews-block-2.views-exposed-form .form-item {
+	.block-views-exposed-filter-blockteam-block-2.views-exposed-form .form-item, .block-views-exposed-filter-blocknews-block-2 .form-item {
 		width: 350px;
     float: none;
     margin: 20px 0;   
