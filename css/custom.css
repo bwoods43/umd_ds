@@ -39,11 +39,6 @@ nav.breadcrumb {
 	}
 }
 
-/* sticky override */
-.sticky-item {
-	z-index: 1000;
-}
-
 /* override design system since list-style is set to none */
 .container ul:not(.pagination):not(.nav-tabs):not(.contextual-links), .container-full ul, .editor-content ul {
 	list-style: disc;
