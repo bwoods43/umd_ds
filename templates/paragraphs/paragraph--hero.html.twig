@@ -59,7 +59,7 @@
   sizes="(max-width: 600px) 1000px,
   			(min-width: 800px) 1200px,
          1000px"
-  src="{{ imagePath|image_style('wide') }}" alt="{{ content.field_hero_image[cur_media]['#media'].field_media_image.alt }}" onclick="parent.location='{{ link }}'" style="cursor: pointer;" />
+  src="{{ imagePath|image_style('wide') }}" alt="{{ content.field_hero_image[cur_media]['#media'].field_media_image.alt }}" {% if link %}onclick="parent.location='{{ link }}'" style="cursor: pointer;"{% endif %} />
 		{% endif %}
 
 		{% if content.field_hero_eyebrow|field_value %}
