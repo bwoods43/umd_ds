@@ -762,30 +762,32 @@ h2.headline-with-animation {
 	margin-left: var(--space-md);
 }
 
-.block-views-exposed-filter-blocknews-block-2 .form-item {
+#views-exposed-form-news-block-2.bef-exposed-form .form--inline > .form-item {
 	float: none;
 }
 
 .block-views-exposed-filter-blocknews-block-2 .form-checkboxes label {
 	display: contents;
+	font-size: 1rem;
 }
 
 .block-views-exposed-filter-blocknews-block-2 .form-checkboxes input {
 	float: left;
-	margin: 5px;
+	margin: 5px 5px 5px -1.5em;
 	cursor: pointer;
 }
 
 .block-views-exposed-filter-blocknews-block-2 .form-checkboxes .form-check {
-	padding-left: 0.5em;
+	margin: var(--space-sm) 0 var(--space-sm) var(--space-lg);
+	padding: 0 0 0 0.2em;
 }
 
 .block-views-exposed-filter-blocknews-block-2 summary[role=button] {
-	margin-bottom: 10px;
+	margin-bottom: var(--space-sm);
 }
 
 .block-views-exposed-filter-blocknews-block-2 summary {
-	font-size: 18px;
+	font-size: 1.1rem;
 }
 
 .block-views-exposed-filter-blocknews-block-2 .accordion-button:not(.collapsed) {
@@ -804,6 +806,12 @@ h2.headline-with-animation {
 		margin-right: 0;
 		margin-bottom: var(--space-md);
   	border-bottom: 1px solid #ccc;
+  }
+
+	.block-views-exposed-filter-blocknews-block-2 .form-item {
+		width: 90%;
+    float: none;
+    margin: 20px 0; 
   }
 }
 
@@ -842,10 +850,10 @@ h2.headline-with-animation {
 }
 
 @media (max-width: 767px) {
-	.block-views-exposed-filter-blockteam-block-2.views-exposed-form .form-item, .block-views-exposed-filter-blocknews-block-2 .form-item {
-		width: 350px;
+	.block-views-exposed-filter-blockteam-block-2.views-exposed-form .form-item {
+		width: 90%;
     float: none;
-    margin: 20px 0;   
+    margin: 20px 0; 
   }
 
 	.block-views-exposed-filter-blockteam-block-2.views-exposed-form .form-select {
