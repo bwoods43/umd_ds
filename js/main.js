@@ -45,8 +45,20 @@
     		myAudio.play();
 			}); 				
 		}
-
   });
+
+	/* remove duplicate sticky item */    
+  Drupal.behaviors.myIdLoadedBehavior = {
+    attach: function (context, settings) {
+      once('my-class-once', '.sticky-item', context).forEach(function (element) {
+    		const shadowElement = element.querySelector("umd-element-banner-promo").shadowRoot;    
+				const elements = shadowElement.querySelectorAll('.banner-promo-declaration');
+				if (elements.length > 1) {
+  				elements[0].remove();
+				}
+      });
+    }
+  };  
 })(jQuery);
 
 

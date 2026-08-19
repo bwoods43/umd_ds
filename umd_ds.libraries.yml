@@ -1,6 +1,7 @@
 global-styling:
   css:
     theme:
+      css/styles.min.css: {}
       css/style.css: {}
       css/compiled/accordion.css: {}
       css/compiled/calltoaction.css: {}
@@ -12,6 +13,7 @@ global-styling:
       css/compiled/base.css: {}
       css/custom.css: {}
   js:
+    js/cdn.js: {}
     js/page-loader.js: {}
     js/main.js: {}
   dependencies:
