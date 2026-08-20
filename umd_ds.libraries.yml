@@ -15,6 +15,7 @@ global-styling:
   js:
     js/cdn.js: {}
     js/page-loader.js: {}
+    js/ds-overrides.js: {}
     js/main.js: {}
   dependencies:
     - core/jquery
