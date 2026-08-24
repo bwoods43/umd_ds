@@ -15,7 +15,7 @@
   				// make style edits
 					//targetElement.style.color = 'blue';  
 					// confirm that targetElement is being populated
-  				console.log('target element', targetElement);
+  				//console.log('target element', targetElement);
   			});
   		}
 
