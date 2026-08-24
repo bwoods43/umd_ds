@@ -10,26 +10,27 @@ options:
     # Defaults to false.
     multiple: true
     options:
-      -
+      none:
         label: None
-      -
+      horizontal_padding_desktop:
         label: Horizontal padding desktop
         class: add-horizontal-padding-desktop
-      -
+      horizontal_padding_mobile:
         label: Horizontal padding mobile
         class: add-horizontal-padding-mobile                            
-      -
+      partial_horizontal_padding_desktop:
         label: Partial horizontal padding desktop
         class: partial-horizontal-padding-desktop
-      -
+      no_margin_bottom_layout:
         label: No margin bottom for layout
         class: no-margin-bottom-layout        
-      -
+      partial_margin_bottom_layout:
         label: Partial margin bottom for layout
         class: partial-margin-bottom-layout
-      -
+      four_columns_two_large:
         label: Four columns, two larger middle columns
-        class: four-columns-two-large              
+        class: four-columns-two-large 
+    default: [horizontal_padding_mobile]
   separator-color:
     plugin: css_class
     label: 'Separator color class'
