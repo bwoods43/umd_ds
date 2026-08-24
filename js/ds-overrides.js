@@ -1,9 +1,11 @@
 (function ($) {
    "use strict"; 
   Drupal.behaviors.myDSLoadedBehavior = { 
-    attach: function (context, settings) { 
-    	// unique name for once-called function, then include parent div class of DS tag    
-      once('my-class-once', '.paragraph--type--hero', context).forEach(function (element) {
+    attach: function (context, settings) {      
+
+			/* hero component - currently does no processing */
+      const element_hero = document.querySelector('umd-element-hero');
+      if (element_hero) {
      		// named tag, but ensure it's rendered to do processing
      		customElements.whenDefined('umd-element-hero').then(() => {
      			// named DS tag
@@ -13,9 +15,24 @@
   				// make style edits
 					//targetElement.style.color = 'blue';  
 					// confirm that targetElement is being populated
-  				//console.log('target element', targetElement);
+  				console.log('target element', targetElement);
   			});
-     	} 
-    )}
+  		}
+
+			/* accordion component - sets headline to black, which removes the red hover state */
+      const element_accordion = document.querySelectorAll('umd-element-accordion');
+      if (element_accordion) {
+     		// named tag, but ensure it's rendered to do processing
+     		customElements.whenDefined('umd-element-accordion-item').then(() => {
+     			// named DS tag
+  				const hostElements = document.querySelectorAll('umd-element-accordion-item');
+  				// target class within the DS tag
+  				hostElements.forEach((hostElement) => {
+  					const targetElement = hostElement.shadowRoot.querySelector('.accordion-headline p');
+						targetElement.style.color = 'black';  
+					}); 				
+  			});
+  		}
+    }
   };  
 })(jQuery);

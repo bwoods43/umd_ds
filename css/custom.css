@@ -527,20 +527,27 @@ options for editor alignment - attempt to get rid of the extra selectors
     }
 }
 
+a {
+	background-image: none !important;
+}
+
 .editor-content a, .field--name-field-text-body a, .field--name-body a, .views-field-title p a, .views-field-field-tags a, .post-meta a, .node__content a {
 	border-color .25s ease-in-out !important;
-	border-bottom: 1px solid #7f7f7f !important;
+	/* border-bottom: 1px solid #7f7f7f !important; */
+	text-decoration: underline solid #000 1px;
+	text-underline-position: under;
 }
 
 .editor-content a:hover, .field--name-field-text-body a:hover, .field--name-body a:hover, .views-field-title p a:hover, .views-field-field-tags a:hover, .post-meta a:hover, .node__content a:hover {
 	color: var(--color-brand-primary) !important;
-	border-bottom: 1px solid var(--color-brand-primary) !important;
+	text-decoration: underline solid var(--color-brand-primary) 1px !important;
 }
 
 /* override for the basic link styling for call-to-action classes throughout */
 a.call-to-action-primary {
   color: #FFF !important;
-  border-bottom: 1px solid var(--color-brand-primary) !important;
+	text-decoration: underline solid var(--color-brand-primary) 1px !important;
+	text-underline-position: under;
 }
 
 a.call-to-action-primary:hover {
@@ -549,12 +556,13 @@ a.call-to-action-primary:hover {
   
 a.call-to-action-outline {
   color: #000 !important;
-  border-bottom: 1px solid #000 !important;
+	text-decoration: underline solid #000 1px !important;
+	text-underline-position: under;
 }  
   
 a.call-to-action-outline:hover {
   color: #FFF !important;
-  border-bottom: 1px solid #000 !important;
+	text-decoration: underline solid var(--color-brand-primary) 1px !important;
 }
 
 /* override to remove border for font awesome icons */
