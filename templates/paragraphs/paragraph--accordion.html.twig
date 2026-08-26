@@ -55,24 +55,28 @@
     		{% if key|first != '#' %}
       		{% set paragraph_id = content.field_accordion_text_paragraphs[key]['#paragraph'].id.value %}
       		{% set field_text_title = drupal_field('field_text_title', 'paragraph', paragraph_id) %}
+      		{% set field_text_title = content.field_accordion_text_paragraphs[key]['#paragraph'].field_text_title.value %}
       		{% set field_text_body = drupal_field('field_text_body', 'paragraph', paragraph_id) %}
 
-					<div class="umd-element-accordion-item">
-						<div class="accordion-declaration">
-							<div class="accordion-container">
-								<button class="accordion-headline" aria-expanded="false">
-									<div>
-            				<div slot="headline">{{ field_text_title }}</div>
-      						</div>
-      					</button>
-      					<div class="accordion-body-wrapper" aria-hidden="true">
-      						<div class="accordion-body">
-      							<div slot="body">{{ field_text_body|render }}</div>
-            			</div>
-            		</div>
-            	</div>
-            </div>
-          </div>  					
+<umd-element-accordion>
+    <umd-element-accordion-item data-visual-open="false" resize="" data-theme="light">
+      
+    <p slot="headline">{{ field_text_title }}</p>
+
+    <div slot="text" class="umd-rich-text">
+      <p>{{ field_text_body|render }}</p>
+      <umd-element-call-to-action slot="actions" data-display="secondary" data-visual-size="" data-theme="light">
+    <a href="/" aria-label="Learn more about Lorem ipsum dolor sit amet" target="_self">
+      Learn more 
+    </a>
+    
+  </umd-element-call-to-action>
+    </div>
+  
+    </umd-element-accordion-item>
+  </umd-element-accordion>
+
+					
   					
 				{% endif %}
 			{% endfor %}                

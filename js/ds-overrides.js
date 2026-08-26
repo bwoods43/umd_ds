@@ -19,7 +19,7 @@
   			});
   		}
 
-			/* accordion component - sets headline to black, which removes the red hover state */
+			/* accordion component - currently does no processing */
       const element_accordion = document.querySelectorAll('umd-element-accordion');
       if (element_accordion) {
      		// named tag, but ensure it's rendered to do processing
@@ -29,7 +29,7 @@
   				// target class within the DS tag
   				hostElements.forEach((hostElement) => {
   					const targetElement = hostElement.shadowRoot.querySelector('.accordion-headline p');
-						targetElement.style.color = 'black';  
+						//targetElement.style.color = 'black';  
 					}); 				
   			});
   		}
