@@ -556,13 +556,10 @@ a.call-to-action-primary:hover {
   
 a.call-to-action-outline {
   color: #000 !important;
-	text-decoration: underline solid #000 1px !important;
-	text-underline-position: under;
 }  
   
 a.call-to-action-outline:hover {
   color: #FFF !important;
-	text-decoration: underline solid var(--color-brand-primary) 1px !important;
 }
 
 /* override to remove border for font awesome icons */
