@@ -546,20 +546,22 @@ a {
 /* override for the basic link styling for call-to-action classes throughout */
 a.call-to-action-primary {
   color: #FFF !important;
-	text-decoration: underline solid var(--color-brand-primary) 1px !important;
-	text-underline-position: under;
+  text-decoration: none !important;
 }
 
 a.call-to-action-primary:hover {
   color: #FFF !important;
+  text-decoration: none !important;
 }
   
 a.call-to-action-outline {
   color: #000 !important;
+  text-decoration: none !important;
 }  
   
 a.call-to-action-outline:hover {
   color: #FFF !important;
+  text-decoration: none !important;
 }
 
 /* override to remove border for font awesome icons */
