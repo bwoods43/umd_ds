@@ -13,3 +13,14 @@
   color: #FFF !important;
   background-color: #e21833 !important;
 }
+.ck-content .call-to-action.call-to-action-secondary {
+  color: #000 !important;
+}
+.ck-content .call-to-action.call-to-action-secondary.call-to-action-secondary::before {
+  content: "> ";
+	color: #e21833 !important;
+	display: inline-block;
+	padding-right: 8px;
+	font-size: 18px;
+	text-decoration: none !important;
+}

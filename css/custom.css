@@ -564,6 +564,19 @@ a.call-to-action-outline:hover {
   text-decoration: none !important;
 }
 
+a.call-to-action-secondary {
+  text-decoration: none !important;
+}
+
+a.call-to-action-secondary::before {
+  content: "> ";
+	color: var(--color-brand-primary) !important;
+	display: inline-block;
+	padding-right: var(--space-sm);
+	font-size: 22px;
+	vertical-align: middle;
+}
+
 /* override to remove border for font awesome icons */
 .editor-content a em.fa-brands   {
 	border: 5px solid #FFF !important;
