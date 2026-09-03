@@ -568,7 +568,8 @@ a.call-to-action-secondary {
   text-decoration: none !important;
 }
 
-a.call-to-action-secondary::before {
+/* use for all instances except when in the container, like on a team member page */
+:not(.umd-call-to-action-container) > a.call-to-action-secondary::before {
   content: "> ";
 	color: var(--color-brand-primary) !important;
 	display: inline-block;
