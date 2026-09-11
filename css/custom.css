@@ -753,23 +753,6 @@ h2.headline-with-animation {
 	}
 }
 
-/* tiny slider overrides*/
-.tns-outer {
-	font-family: inherit;
-}
-.tns-outer .tns-controls [aria-controls] {
-	background: #000;
-	color: #FFF;
-	border-radius: 0;
-}
-.tns-outer p {
-	text-align: left;
-	padding: 0;
-}
-.tns-outer .tns-controls {
-	margin: 10px 0;
-}
-
 /* articles filter by overrides */
 .block-views-exposed-filter-blocknews-block-2 details > .details-wrapper, .block-views-exposed-filter-blocknews-block-2 details.accordion-item .accordion-body {
 	padding: 0;
@@ -919,6 +902,11 @@ h2.headline-with-animation {
 /* spacing on news views between title and summary */
 .umd-text-rich-simple-scaling {
 	margin-top: var(--space-sm);
+}
+
+/* additional margin for mini news feed */
+.mini-news-feed umd-element-article {
+	margin-top: var(--space-md);
 }
 
 /* global h2 header style to match text component basic h2 style */
@@ -1212,6 +1200,11 @@ img[alt="Google Scholar logo"], img[alt="Pubmed logo"] {
 	padding: 10px;
 }
 
+/* bootstrap tabs override for team description margin adjustment */
+.umd-rich-text.person-bio-description .bootstrap-tabs ul li {
+	margin-top: 0px;
+}
+
 /* global override for margin below p tag */
 p {
 	margin-bottom: var(--space-sm);
@@ -1228,4 +1221,9 @@ body.js-loading {
 	.image-container {
 		width: 100%;
 	}
+}
+
+/* research papers block additional margin */
+.block-views-blockpapers-block-2 {
+	margin-top: var(--space-md);
 }
