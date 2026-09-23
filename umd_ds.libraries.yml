@@ -3,14 +3,12 @@ global-styling:
     theme:
       css/styles.min.css: {}
       css/style.css: {}
-      css/compiled/accordion.css: {}
       css/compiled/calltoaction.css: {}
       css/compiled/events.css: {}
       css/compiled/leftnav.css: {}
       css/compiled/news.css: {}
       css/compiled/pathways.css: {}
       css/compiled/people.css: {}
-      css/compiled/base.css: {}
       css/custom.css: {}
   js:
     js/cdn.js: {}

@@ -10,6 +10,20 @@
 	--color-brand-primary: #e21833;
 }
 
+/* styles included in the former base.css that is no longer needed */
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+audio,canvas,embed,iframe,img,object,svg,video {
+	display:block;
+	vertical-align:middle
+}
+img,video {
+	height:auto;
+	max-width:100%
+}
+
 /* override base theme breadcrumb positioning */
 nav.breadcrumb {
 	display: block !important;
@@ -129,23 +143,50 @@ h2.viewsreference--view-title {
 }
 
 /* cheeseburger menu overrides */
+.area-main-menu {
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.block-cheeseburger-menu-trigger {
+	float: left;
+	margin: 50px 36px 0 40px;
+
+}
+
+.block-cheeseburgermenu__trigger-element span {
+	width: 20px;
+	background-color: #000000;
+  transition: background-color 0.3s ease-in-out;
+  transform: none;
+}
+
+.block-cheeseburgermenu__trigger-element span:last-child, .block-cheeseburgermenu__trigger-element:hover span:last-child {
+	width: 17px;
+}
+
+.block-cheeseburgermenu__trigger-element:hover span {
+	width: 20px;
+	background-color: var(--color-brand-primary);
+}
+
+.block-cheeseburgermenu__trigger-element::after {
+  content: "";
+  position: absolute;
+  top: -10%;
+  right: 0;
+  height: 130%;
+  width: 1px;
+  background-color: #E6e6e6;
+  margin-right: -15px;
+}
+
 ul.cheeseburger-menu__submenu {
 	margin: 0 !important;
 }
 
 ul.cheeseburger-menu__submenu li {
 	margin-bottom: 8px;
-}
-
-.block-cheeseburger-menu-trigger {
-	margin: 50px 0 0 40px;
-	float: left;
-}
-
-@media (max-width: 1199px) {
-	.block-cheeseburger-menu-trigger {
-		margin-left: 10px;
-	}
 }
 
 .cheeseburger-menu__item-label:hover {
@@ -212,9 +253,8 @@ ul.cheeseburger-menu__submenu li {
 header .area-main-menu .search-region {
   position: absolute;
   right: 5px;
-  top: 50%;
   z-index: 9;
-  margin-top: -12px;
+  margin-top: -80px;
 }
 @media (max-width: 1199px) {
   header .area-main-menu .search-region {
@@ -267,8 +307,7 @@ header .block {
 
 @media (min-width: 768px) {
 	header .area-main-menu .search-region {
-		right: 60px !important;
-/*		top: 57% !important; */
+		right: 30px !important;
 	}
 }
 
