@@ -256,16 +256,6 @@ header .area-main-menu .search-region {
   z-index: 9;
   margin-top: -80px;
 }
-@media (max-width: 1199px) {
-  header .area-main-menu .search-region {
-    top: 32px;
-    right: 85px;
-    margin-top: 0;
-  }
-}
-header .area-main-menu .search-region .icon {
-  color: #000;
-}
 header .area-main-menu .search-region .icon:hover {
   cursor: pointer;
 }
@@ -312,11 +302,13 @@ header .block {
 }
 
 /* search icon hidden at smaller desktop widths */
+/*
 @media (min-width: 1019px) and (max-width: 1300px) { 
 	header .area-main-menu .search-region {
 		display: none;
 	}
 }
+*/
 
 header .area-main-menu .search-region .search-form__submit {
 	width: 100px;
@@ -324,12 +316,9 @@ header .area-main-menu .search-region .search-form__submit {
 
 @media (max-width: 767px) {
 	header .area-main-menu .search-region {
-		right: var(--space-sm);
+		right: var(--space-md);
+		padding-top: 10px;
 	}
-	header .area-main-menu .search-region .icon {
-		display: block;
-		margin-top: 25px;
-	}	
 	header .area-main-menu .search-region .search-content {
   	margin-top: var(--space-md);
 	}
