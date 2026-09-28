@@ -29,21 +29,9 @@
 {% set grid_count = 4 %}
 {% if view.current_display == 'block_7' or view.current_display == 'block_8' %}
 	{% set grid_count = 1 %}
-	{%
-  	set classes = [
-    'umd-block-standard-container',
-    'umd-grid-gap-layout-container'    
-  	]
-	%}
 {% endif %}
-{% if view.current_display == 'block_4' %}
+{% if view.current_display == 'block_4' or view.current_display == 'block_11' %}
 	{% set grid_count = 3 %}
-	{%
-  	set classes = [
-    'umd-block-standard-container',
-    'umd-grid-gap-layout-container'    
-  	]
-	%}
 {% endif %}
 {% if view.current_display == 'block_3'%}
 	{% set grid_count = 1 %}
