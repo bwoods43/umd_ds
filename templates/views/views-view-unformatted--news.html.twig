@@ -31,9 +31,16 @@
 	{% set grid_count = 1 %}
 {% endif %}
 {% if view.current_display == 'block_4' or view.current_display == 'block_11' %}
-	{% set grid_count = 3 %}
+		{% set grid_count = 3 %}
 {% endif %}
-{% if view.current_display == 'block_3'%}
+{% if grid_count > 1 %}
+	{%
+  	set classes = [
+    	'umd-block-standard-container',
+    	'umd-grid-gap-layout-container'    
+  	]
+	%}
+{% else %}
 	{% set grid_count = 1 %}
 	{%
   	set classes = [
