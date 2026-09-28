@@ -981,6 +981,9 @@ h2.text-lockup-small-headline {
 .event-block-2 .pathway-default-container {
 	margin-bottom: var(--space-md);
 }
+.event-block-2 .pathway-text-container {
+	width: 100%;
+}
 @media (max-width: 767px) {
 	.event-block-2 .umd-element-event-sign-container {
 		display: none;
@@ -1084,8 +1087,8 @@ footer .region-footer .block-block-content  {
 }
 
 /* hide lefthand subnav on mobile */
-@media (max-width: 767px) {
-	.block-menu.navigation.menu--main {
+@media (max-width: 1019px) {
+	#block-umd-ds-sub-main-navigation {
 		display: none;
 	}
 }
