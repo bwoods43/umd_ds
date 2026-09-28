@@ -5,7 +5,7 @@
  */
 #} 
 {% set photo = '/' ~ base_path ~ umd_ds_directory ~ '/images/placeholder_team.jpg' %}
-{% if content.field_team_image[0]['#item']._is_default is null %}
+{% if content.field_team_image[0]['#item'] is not null %}
   {% set photo = file_url(content.field_team_image|field_target_entity.uri.value | image_style('square')) %}
 {% endif %}
 <umd-element-person display="block">
