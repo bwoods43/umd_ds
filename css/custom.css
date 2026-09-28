@@ -144,14 +144,19 @@ h2.viewsreference--view-title {
 
 /* cheeseburger menu overrides */
 .area-main-menu {
-	margin-left: 50px;
+	margin-left: 40px;
 	margin-right: 50px;
 }
 
 .block-cheeseburger-menu-trigger {
 	float: left;
 	margin: 50px 36px 0 40px;
+}
 
+@media (max-width: 767px) {
+	.block-cheeseburger-menu-trigger {
+		margin: 40px 0;
+	}
 }
 
 .block-cheeseburgermenu__trigger-element span {
@@ -213,14 +218,14 @@ ul.cheeseburger-menu__submenu li {
 /* header elements on tablet */
 @media (max-width: 1199px) {
 	umd-element-navigation-header {
-		margin-left: 60px;
+	/*	margin-left: 60px; */
 	}
 }
 
 /* header elements on mobile */
 @media (max-width: 767px) {
 	umd-element-navigation-header {
-		margin-left: 30px;
+/*		margin-left: 30px; */
 	}
 }
 
@@ -301,22 +306,13 @@ header .block {
 	}
 }
 
-/* search icon hidden at smaller desktop widths */
-/*
-@media (min-width: 1019px) and (max-width: 1300px) { 
-	header .area-main-menu .search-region {
-		display: none;
-	}
-}
-*/
-
 header .area-main-menu .search-region .search-form__submit {
 	width: 100px;
 }
 
 @media (max-width: 767px) {
 	header .area-main-menu .search-region {
-		right: var(--space-md);
+/*		right: var(--space-md); */
 		padding-top: 10px;
 	}
 	header .area-main-menu .search-region .search-content {
