@@ -481,9 +481,17 @@ options for editor alignment - attempt to get rid of the extra selectors
   }
 }
 
-/* bottom margin for event slider */
+/* events carousel overrides */
 .events-carousel-slider {
 	margin-bottom: 56px;
+}
+
+@media screen and (max-width: 475px) {
+	.events-carousel-slider umd-element-carousel-thumbnail {
+		margin-left: -40px;
+		margin-right: -40px;
+		max-height: fit-content;
+	}
 }
 
 /* remove vertical spacing from layouts */
@@ -900,8 +908,6 @@ h2.headline-with-animation {
 	border-bottom: 1px solid #EFEFEF;
 	padding-bottom: var(--space-md);
 }
-
-
   
 /* right sidebar related news and tags */
 .tags-list .item {
