@@ -59,14 +59,9 @@
       		{% set field_text_body = drupal_field('field_text_body', 'paragraph', paragraph_id) %}
 
 <umd-element-accordion>
-    <umd-element-accordion-item data-visual-open="false" resize="" data-theme="light">
-      
-    <p slot="headline">{{ field_text_title }}</p>
-
-    <div slot="text" class="umd-rich-text">
-      <p>{{ field_text_body|render }}</p>
-    </div>
-  
+    <umd-element-accordion-item data-visual-open="false" resize="" data-theme="light">     
+    	<p slot="headline">{{ field_text_title }}</p>
+    	<div slot="text" class="umd-rich-text">{{ field_text_body|render }}</div>  
     </umd-element-accordion-item>
   </umd-element-accordion>
 
