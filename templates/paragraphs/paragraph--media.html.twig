@@ -51,12 +51,11 @@
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
 		{% block content %}
-
 			{% if content.field_media_item[0]['#media'].field_media_oembed_video %}
 				{% set media_url = content.field_media_item[0]['#media'].field_media_oembed_video.value|replace({"/watch?v=": "/embed/"}) %}
 				<figure>
 					<div class="embed-responsive embed-responsive-2by1">
-						<iframe class="embed-responsive-item" src="{{ media_url }}" allowfullscreen></iframe>
+						<iframe title="{{ content.field_media_item[0]['#media'].name.value }}" class="embed-responsive-item" src="{{ media_url }}" allowfullscreen></iframe>
 					</div>
 				</figure>
 			{% else %}
@@ -66,7 +65,7 @@
 					<a href="#" data-colorbox-inline=".lightbox-{{ content.field_media_item[0]['#media'].uuid.value }}">{{ content }}</a>	
 					<div style="display:none">
 						<div class="lightbox-{{ content.field_media_item[0]['#media'].uuid.value }}">
-    					<img src="{{ content.field_media_item[0]['#media'].field_media_image.entity.uri.value | image_style('wide') }}" /></a>
+    					<img alt="{{ content.field_media_item[0]['#media'].name.value }}" src="{{ content.field_media_item[0]['#media'].field_media_image.entity.uri.value | image_style('wide') }}" /></a>
 						</div>	
 					</div>
 				{% endif %}			
