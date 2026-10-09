@@ -50,7 +50,9 @@
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-    	<h2>{{ content.field_accordion_title|field_value }}</h2>
+			{% if content.field_accordion_title|field_value %}  	
+    		<h2>{{ content.field_accordion_title|field_value }}</h2>
+			{% endif %}    		
   		{% for key, field_text_body in content.field_accordion_text_paragraphs %}
     		{% if key|first != '#' %}
       		{% set paragraph_id = content.field_accordion_text_paragraphs[key]['#paragraph'].id.value %}
