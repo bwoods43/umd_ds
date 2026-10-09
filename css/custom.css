@@ -117,6 +117,12 @@ ul.pager__items {
 	border: 0px !important;
 }
 
+/* footer umd links should have underlines and be slightly smaller than regular text  */
+.footer-umd-links a {
+	font-size: 0.8em;
+	text-decoration: underline !important;
+}
+
 .connect-icons {
 	text-align: center;
 }
