@@ -57,13 +57,15 @@
     	<div slot="text">{{ content.field_card_text|field_value }}</div>
 		{% endif %}
 		
-		{% if content.field_card_link.0 %}
-  		<div slot="actions">
-    		<umd-element-call-to-action slot="actions" data-display="secondary" data-visual-size="" {% if content.field_card_type[0]["#markup"] == "Overlay" %}data-theme="dark"{% endif %}>
-      		<a href="{{ content.field_card_link.0['#url'] }}" {{ (content.field_card_link.0['#url'].external == 'true') ? 'target="_blank"' : '' }}>{{ content.field_card_link.0['#title'] }}</a>
-    		</umd-element-call-to-action>
-  		</div>		
-		{% endif %}					
+		{% if content.field_card_type[0]["#markup"] == "Horizontal" %}
+			{% if content.field_card_link.0 %}
+  			<div slot="actions">
+    			<umd-element-call-to-action type="secondary">
+      			<a href="{{ content.field_card_link.0['#url'] }}" {{ (content.field_card_link.0['#url'].external == 'true') ? 'target="_blank"' : '' }}>{{ content.field_card_link.0['#title'] }}</a>
+    			</umd-element-call-to-action>
+  			</div>		
+			{% endif %}					
+		{% endif %}
     
   </umd-element-card{{ (content.field_card_type[0]["#markup"] == "Overlay") ? '-overlay' : '' }}>	  
 </div>
