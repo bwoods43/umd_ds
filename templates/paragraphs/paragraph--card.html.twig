@@ -24,7 +24,13 @@
 {% endif %}	
 
 {% if content.field_card_link.0 %}
-	{% set link = content.field_card_link.0['#url'] %}				
+	{% set link = content.field_card_link.0['#url'] %}
+	{% if content.field_card_link.0['#url'].external == 'true' %}
+{% set js_link = 'This is my text ' ~ existing_variable %}
+		{% set js_link = 'window.open(\'' ~ link.toString() ~ '\', \'_blank\')' %}
+	{% else %}
+		{% set js_link = 'parent.location=\'' ~ link.toString() ~ '\'' %}
+	{% endif %}			
 {% endif %}	
 
 <div{{ attributes.addClass(classes) }}>
@@ -32,46 +38,32 @@
 
 		{% if content.field_card_image|field_value %}
 			{% set imagePath = file_url(content.field_card_image[0]['#media'].field_media_image.entity.uri.value | image_style(image_size)) %}
-    	<img slot="image" src="{{imagePath}}" alt="{{ content.field_card_image[0]['#media'].field_media_image.alt }}" {% if link %}onclick="parent.location='{{ link }}'" style="cursor: pointer;"{% endif %} />
+    	<img slot="image" src="{{imagePath}}" alt="{{ content.field_card_image[0]['#media'].field_media_image.alt }}" {% if link %}onclick="{{ js_link }}" style="cursor: pointer;"{% endif %} />
 		{% endif %}
 
-		{% if content.field_card_type[0]["#markup"] == "Horizontal" %}
-  		<p slot="headline">
+		{% if content.field_card_title|field_value %}
+    	<h2 slot="headline">
 				{% if content.field_card_link.0 %}
-    			<a href="{{ link }}" {{ (content.field_card_link.0['#url'].external == 'true') ? 'target="_blank"' : '' }}>
+        	<a href="{{ link }}" {{ (content.field_card_link.0['#url'].external == 'true') ? 'target="_blank"' : '' }}>
       			{{ content.field_card_title|field_value }}
     			</a>
     		{% else %}
       		{{ content.field_card_title|field_value }}    
-				{% endif %}	    	
-  		</p>
-		{% else %}
-			{% if content.field_card_title|field_value %}
-    		<h2 slot="headline">
-					{% if content.field_card_link.0 %}
-        		<a href="{{ link }}" {{ (content.field_card_link.0['#url'].external == 'true') ? 'target="_blank"' : '' }}>
-      			{{ content.field_card_title|field_value }}
-    				</a>
-    			{% else %}
-      			{{ content.field_card_title|field_value }}    
-					{% endif %}	     				
-    		</h2>
-			{% endif %}		
-		{% endif %}	    	
+				{% endif %}	     				
+    	</h2>
+		{% endif %}		   	
 		
 		{% if content.field_card_text|field_value %}
     	<div slot="text">{{ content.field_card_text|field_value }}</div>
 		{% endif %}
 		
-		{% if content.field_card_type[0]["#markup"] == "Horizontal" %}
-			{% if content.field_card_link.0 %}
-  			<div slot="actions">
-    			<umd-element-call-to-action type="secondary">
-      			<a href="{{ content.field_card_link.0['#url'] }}" {{ (content.field_card_link.0['#url'].external == 'true') ? 'target="_blank"' : '' }}>{{ content.field_card_link.0['#title'] }}</a>
-    			</umd-element-call-to-action>
-  			</div>		
-			{% endif %}					
-		{% endif %}
+		{% if content.field_card_link.0 %}
+  		<div slot="actions">
+    		<umd-element-call-to-action slot="actions" data-display="secondary" data-visual-size="" {% if content.field_card_type[0]["#markup"] == "Overlay" %}data-theme="dark"{% endif %}>
+      		<a href="{{ content.field_card_link.0['#url'] }}" {{ (content.field_card_link.0['#url'].external == 'true') ? 'target="_blank"' : '' }}>{{ content.field_card_link.0['#title'] }}</a>
+    		</umd-element-call-to-action>
+  		</div>		
+		{% endif %}					
     
   </umd-element-card{{ (content.field_card_type[0]["#markup"] == "Overlay") ? '-overlay' : '' }}>	  
 </div>
