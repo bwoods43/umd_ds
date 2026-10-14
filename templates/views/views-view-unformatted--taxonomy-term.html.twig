@@ -36,19 +36,30 @@
 				<div class="block-container" image="">
 					<div class="block-container-wrapper">
 						<div class="image-container">
-							{% set placeholderImagePath = file_url('public://default_images/placeholder_team_shell.jpg'| image_style('16_9_350x200')) %}
       				{% if (row.content['#node'].type.value[0]['target_id'] == 'article') %}
       					{% if row.content['#node'].field_image[0] %}
 									{% set imagePath = file_url(row.content['#node'].field_image[0].entity.uri.value | image_style('16_9_350x200')) %}
 								{% else %}
-									{% set imagePath = placeholderImagePath %}
+									{# Grab the default image settings from the field definition #}
+  								{% set default_image = row.content['#node'].field_image.getFieldDefinition().getSetting('default_image') %} 		
+  								{% if default_image.uuid %}
+    								{% set default_file = drupal_entity('file', default_image.uuid) %}
+    								{% set image_uri = default_file['#file'].uri.value %}
+  								{% endif %}							
+									{% set imagePath = file_url(image_uri | image_style('16_9_350x200'))  %}								
 								{% endif %}	
 							{% else %}
       					{% if row.content['#node'].field_team_image[0] %}				
 									{% set imagePath = file_url(row.content['#node'].field_team_image[0].entity.uri.value | image_style('16_9_350x200')) %}
-								{% else %}
-									{% set imagePath = placeholderImagePath %}
-								{% endif %}									
+								{% else %}								
+									{# Grab the default image settings from the field definition #}
+  								{% set default_image = row.content['#node'].field_team_image.getFieldDefinition().getSetting('default_image') %} 		
+  								{% if default_image.uuid %}
+    								{% set default_file = drupal_entity('file', default_image.uuid) %}
+    								{% set image_uri = default_file['#file'].uri.value %}
+  								{% endif %}							
+									{% set imagePath = file_url(image_uri | image_style('16_9_350x200'))  %}								
+								{% endif %}																
 							{% endif %}	
     					<a href="{{ path('entity.node.canonical', {'node': row.content['#node'].nid[0].value}) }}"><img loading="lazy" src="{{imagePath}}" alt="{{ row.content['#node'].title[0].value }}" {% if link %}onclick="parent.location='{{ path('entity.node.canonical', {'node': row.content['#node'].nid[0].value}) }}'" style="cursor: pointer;"{% endif %} /></a>
       			</div>

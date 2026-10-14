@@ -4,12 +4,21 @@
  * Theme override to display Team node teaser
  */
 #} 
-{% set photo = '/' ~ base_path ~ umd_ds_directory ~ '/images/placeholder_team.jpg' %}
-{% if file_url(content.field_team_image|field_target_entity.uri.value) %}
-  {% set photo = file_url(content.field_team_image|field_target_entity.uri.value | image_style('square')) %}
-{% endif %}
+
+{# use team_image if it exists or default fallback if not #}
+{% if content.field_team_image[0]['#item']._is_default is null %}
+  {% set imagePath = file_url(content.field_team_image|field_target_entity.uri.value | image_style('square')) %}
+{% else %}
+	{% set default_image = node.field_team_image.getFieldDefinition().getSetting('default_image') %} 		
+	{% if default_image.uuid %}
+		{% set default_file = drupal_entity('file', default_image.uuid) %}
+		{% set image_uri = default_file['#file'].uri.value %}
+	{% endif %}							
+	{% set imagePath = file_url(image_uri | image_style('square'))  %}								
+{% endif %}	
+
 <umd-element-person display="block">
-	<img slot="image" src="{{ photo }}" alt="Portrait of {{ node.title.value }}" onclick="window.location.href='{{ url }}';" style="cursor:pointer;">
+	<img slot="image" src="{{ imagePath }}" alt="Portrait of {{ node.title.value }}" onclick="window.location.href='{{ url }}';" style="cursor:pointer;">
 	<a href="{{ url }}" slot="name">{{ node.title.value }}</a>
 	<p slot="job-title">
   	{% if content.field_ed_position|field_value is not empty %}

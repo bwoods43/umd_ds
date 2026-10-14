@@ -54,8 +54,13 @@
 		{% if row.content['#row']._entity.field_image[0] %}
 			{% set imagePath = file_url(row.content['#row']._entity.field_image[0].entity.uri.value | image_style('16_9_350x200')) %}
 		{% else %}
-			{# placeholder image if one is not available on the node #}							
-			{% set imagePath = file_url('public://default_images/placeholder_team_shell.jpg'| image_style('16_9_350x200'))  %}
+			{# Grab the default image settings from the field definition #}
+  		{% set default_image = row.content['#row']._entity.field_image.getFieldDefinition().getSetting('default_image') %}
+  		{% if default_image.uuid %}
+    		{% set default_file = drupal_entity('file', default_image.uuid) %}
+    		{% set image_uri = default_file['#file'].uri.value %}
+  		{% endif %}							
+			{% set imagePath = file_url(image_uri | image_style('16_9_350x200'))  %}
 		{% endif %}		
 
 		<umd-element-article>	

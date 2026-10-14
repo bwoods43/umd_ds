@@ -1,7 +1,7 @@
 {#
 /**
 * @file
-* Theme override to display a UMD Terp Person node.
+* Theme override to display a team member node.
 */
 #}
 {%
@@ -9,16 +9,22 @@ set classes = [
 	'add-horizontal-padding-mobile'
  ]
 %}
-
-{% set photo = '/' ~ base_path ~ umd_ds_directory ~ '/images/placeholder_team.jpg' %}
+{# use team_image if it exists or default fallback if not #}
 {% if content.field_team_image[0]['#item']._is_default is null %}
-  {% set photo = file_url(content.field_team_image|field_target_entity.uri.value | image_style('square')) %}
-{% endif %}
+  {% set imagePath = file_url(content.field_team_image|field_target_entity.uri.value | image_style('square')) %}
+{% else %}
+	{% set default_image = node.field_team_image.getFieldDefinition().getSetting('default_image') %} 		
+	{% if default_image.uuid %}
+		{% set default_file = drupal_entity('file', default_image.uuid) %}
+		{% set image_uri = default_file['#file'].uri.value %}
+	{% endif %}							
+	{% set imagePath = file_url(image_uri | image_style('square'))  %}								
+{% endif %}							
 
 <div {{ attributes.addClass(classes) }}>	
 	<div class="person-bio-container">
 		<div class="person-bio-text">
-			<img slot="image" src="{{ photo }}" alt="Portrait of {{ node.title.value }}">
+			<img slot="image" src="{{ imagePath }}" alt="Portrait of {{ node.title.value }}">
 			<div class="person-text" has-contact="">
 				<div class="person-text-main-wrapper">
 					<p class="person-name">{{ node.title.value }}</p>
