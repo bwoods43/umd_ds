@@ -1097,7 +1097,7 @@ footer .region-footer .block-block-content  {
 
 /* hide lefthand subnav on mobile */
 @media (max-width: 1019px) {
-	#block-umd-ds-sub-main-navigation {
+	#block-umd-ds-sub-main-navigation, #block-umd-ds-sub-main-menu {
 		display: none;
 	}
 }
