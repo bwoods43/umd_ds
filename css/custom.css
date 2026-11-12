@@ -83,6 +83,7 @@ ul.pager__items {
 }
 
 /* youtube embed edits */
+/*
 .embed-container {
 	position: relative ;
 	padding-bottom: 56.25%;
@@ -94,6 +95,14 @@ ul.pager__items {
 	left: 0; 
 	width: 100%; 
 	height: 100%; 
+}
+*/
+iframe[src*="youtube.com"] {
+	width: 100%;
+	aspect-ratio: 16 / 9 !important;
+	border: 0;
+	height: auto;
+	width: auto;
 }
 
 /* social icon edits */
