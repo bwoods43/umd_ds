@@ -58,7 +58,7 @@
 		{% if content.field_quote_link.0 %}
   		<div slot="actions">
     		<umd-element-call-to-action slot="actions" data-display="secondary" data-visual-size="" data-theme="{{ data_theme }}">
-      		<a href="{{ content.field_quote_link.0['#url'] }}" target="_blank">{{ content.field_quote_link.0['#title'] }}</a>
+      		<a href="{{ content.field_quote_link.0['#url'] }}" {{ (content.field_quote_link.0['#url'].external == 'true') ? 'target="_blank"' : '' }}>{{ content.field_quote_link.0['#title'] }}</a>
     		</umd-element-call-to-action>
 			</div>
   	{% endif %}					
