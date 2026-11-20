@@ -39,7 +39,16 @@ Your browser does not support HTML5 Audio
 						</p>
 					{% endif %}
 				
-					{{ content.field_ed_position }}
+  				{% if content.field_ed_position|field_value is not empty %}
+      			{% set positions = content.field_ed_position|field_value %}
+    			{% else %} 
+      			{% set positions = content.field_team_position|field_value %}
+					{% endif %}
+					{% if positions is not empty %}
+    				{% for item in positions %}
+      				{{ item }}<br />
+    				{% endfor %}
+					{% endif %}
 
 					{% if content.field_team_additional_titles|field_value %}
 						<p class="person-job"><em>
